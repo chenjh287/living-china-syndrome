@@ -1,0 +1,15 @@
+form,outcome,coef,se,n
+log_change,lnchg_trans_totindiv_pc,1.0131,0.3322,1444
+log_change,lnchg_trans_taaimp_pc,14.4063,7.7113,1436
+log_change,lnchg_trans_unemp_pc,3.4599,1.8989,1444
+log_change,lnchg_trans_ssaret_pc,0.7172,0.3893,1444
+log_change,lnchg_trans_ssadis_pc,1.9597,0.701,1444
+log_change,lnchg_trans_totmed_pc,0.5425,0.4967,1444
+log_change,lnchg_trans_fedinc_pc,3.0391,0.9724,1444
+dollar_level,d_trans_totindiv_pc,57.7297,18.7051,1444
+dollar_level,d_trans_taaimp_pc,0.234,0.1772,1444
+dollar_level,d_trans_unemp_pc,3.4215,2.2983,1444
+dollar_level,d_trans_ssaret_pc,9.9977,5.5345,1444
+dollar_level,d_trans_ssadis_pc,8.3952,2.2411,1444
+dollar_level,d_trans_totmed_pc,18.2705,12.0307,1444
+dollar_level,d_trans_fedinc_pc,7.2024,2.3897,1444

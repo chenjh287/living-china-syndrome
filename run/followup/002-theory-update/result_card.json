@@ -1,0 +1,45 @@
+{
+  "schema": "sai.followup.result_card/v1",
+  "headline": "Updating ADH to 2026 needs one new parameter: a recovery rate rho = -0.17 (approx 0) turns the reversible flow shock into a hysteresis model where the manufacturing hit is permanent (net level elasticity -0.43) and the 2019-24 import reversal produced no rebound (+0.06pp vs the +0.35pp the original model predicts).",
+  "status": "completed",
+  "metrics": [
+    {"label": "Recovery rate rho (fraction of the mfg hit that reverses)", "value": "-0.17 (approx 0)", "baseline": "1.00", "baseline_label": "ADH reversible flow model (Eqs. 2-3)", "note": "reversibility rejected; hit is permanent [CALIBRATED]"},
+    {"label": "Impact elasticity b+ (mfg pp per +$1k/wkr, rising imports)", "value": "-0.279 (0.071)", "baseline": "-0.596 (0.100)", "baseline_label": "ADH Table 3 col6 (replication table3.csv)", "note": "impact leg survives on 2026 data [ESTIMATED]"},
+    {"label": "Net / permanent level elasticity through 2023", "value": "-0.432 (0.118)", "baseline": "0 (transitory)", "baseline_label": "ADH flow model (recovery once flow stops)", "note": "per $1k accumulated 2000-12 exposure [ESTIMATED]"},
+    {"label": "2019-24 reversal: mean mfg-share change per decade", "value": "+0.064 actual", "baseline": "+0.350 predicted", "baseline_label": "ADH symmetric model (calibrated pre-2019)", "note": "no rebound; hysteresis predicts -0.04 [ESTIMATED]"}
+  ],
+  "tables": [
+    {"title": "Level test: is the China-shock hit permanent? (2SLS, 722 CZs, per $1k accumulated 2000-12 exposure)",
+     "columns": ["Horizon", "Coef on accumulated exposure", "ADH reversible prediction", "Reading"],
+     "rows": [
+       ["impact  y2012-y2000", "-0.370 (0.081)", "-0.37", "the ADH hit"],
+       ["recovery y2023-y2012", "-0.062 (0.062)", "+0.37 (full rebound)", "approx 0: no rebound"],
+       ["net  y2023-y2000", "-0.432 (0.118)", "0 (transitory)", "fully permanent"]
+     ],
+     "highlight_row": 1},
+    {"title": "Calibration: paper-era vs 2026",
+     "columns": ["Parameter", "Paper-era (ADH)", "2026 (updated)", "Type"],
+     "rows": [
+       ["impact elasticity b+", "-0.596", "-0.279", "[ESTIMATED]"],
+       ["recovery elasticity b-", "-0.596 (=b+)", "approx 0", "[CALIBRATED]"],
+       ["recovery rate rho", "1.00", "-0.17", "[CALIBRATED]"],
+       ["single-slope a, reversal era", "-0.596", "+0.048", "[ESTIMATED]"]
+     ],
+     "highlight_row": 2}
+  ],
+  "figures": [
+    {"file": "results/fig1_theory_update.png",
+     "caption": "From a static reversible flow shock to a dynamic incidence with hysteresis. A: one constant ADH elasticity can't fit all eras (it fades from -0.28 to +0.05). B: high-exposure CZs downshifted and stayed scarred. C: the level hit is permanent (recovery approx 0; net = full impact; star = ADH's reversible prediction). D: held-out 2019-24 reversal - ADH symmetric predicts a +0.35 rebound, actual is +0.06, hysteresis predicts approx 0.",
+     "alt": "Four-panel figure: era-drift of the flow elasticity, permanent level scar by exposure group, level-test coefficients with the reversible prediction marked, and the held-out reversal test."},
+    {"file": "results/fig2_scar_permanence.png",
+     "caption": "Manufacturing-employment scarring is permanent: high-exposure commuting zones fell far more during the China shock and never recovered after imports receded (recovery rate rho approx 0).",
+     "alt": "Line chart of manufacturing employment-share change vs 2000 for high- and low-exposure CZs, 2000-2023, with the shock period shaded."}
+  ],
+  "notes": [
+    "Updated model = directional-hysteresis (ratchet) incidence, the smallest amendment to ADH: flow shock (import growth, now ~0/negative) drives current losses only while positive; stock legacy (accumulated exposure) sets the permanent level. Alternatives rejected: time-varying elasticity (no cross-era discipline, no OOS prediction) and pure-stock model (understates the active-shock impact).",
+    "The recovery rate is CALIBRATED from the well-instrumented level test (dose F approx 30); the direct flow-split 2SLS recovery leg is weakly identified (partial F=2.2) because the 8-country instrument does not track the US-specific post-2018 reversal. All approaches agree rho<1 and the level effect is permanent.",
+    "Outcome is 001's CBP-jobs manufacturing-share proxy (validated at W2), not ADH's Census/ACS measure (IPUMS unavailable). No data re-fetched; all inputs reused from followup/001.",
+    "Labels: [ESTIMATED] from data, [CALIBRATED] parameter matched to a moment, [PROPOSED] theoretical suggestion not itself tested."
+  ],
+  "report_file": "report.md"
+}

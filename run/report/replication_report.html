@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Replication Report</title>
+<style>
+  :root {
+    --match: #1a7f37; --partial: #9a6700; --nomatch: #cf222e;
+    --na: #57606a; --bg: #f6f8fa; --card: #ffffff; --ink: #1f2328;
+    --muted: #57606a; --line: #d0d7de; --accent: #0969da;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--ink); background: var(--bg); margin: 0; line-height: 1.55;
+    font-size: 15px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 28px 22px 60px; }
+  h1 { font-size: 22px; margin: 0 0 2px; }
+  h2 { font-size: 17px; margin: 28px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  h3 { font-size: 14px; margin: 16px 0 4px; color: var(--ink); }
+  p { margin: 6px 0; }
+  .sub { color: var(--muted); font-size: 13px; }
+  a { color: var(--accent); text-decoration: none; }
+  code { background: var(--bg); border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; font-size: 12.5px; }
+
+  /* Verdict card */
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; margin-top: 14px; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+  .hero { display: flex; gap: 22px; align-items: center; }
+  .gauge { flex: 0 0 auto; }
+  .hero-body { flex: 1 1 auto; }
+  .badge { display: inline-block; font-weight: 600; font-size: 12px; letter-spacing: .02em; padding: 3px 10px; border-radius: 999px; color: #fff; }
+  .bottomline { font-size: 16px; font-weight: 500; margin: 8px 0 10px; }
+  .stats { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: 13px; }
+  .stats b { color: var(--ink); }
+
+  /* Tier bar */
+  .bar { display: flex; height: 12px; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); margin: 4px 0 2px; }
+  .bar > span { display: block; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+
+  /* Claim chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 6px; }
+  .chip { font-size: 12px; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); color: #fff; font-weight: 500; }
+
+  /* Tables */
+  table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 8px 0; }
+  th, td { text-align: left; padding: 7px 9px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; }
+  .st { font-weight: 600; }
+
+  details { margin: 8px 0; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+  details > summary { cursor: pointer; padding: 9px 12px; font-weight: 600; font-size: 13.5px; }
+  details[open] > summary { border-bottom: 1px solid var(--line); }
+  details .inner { padding: 4px 14px 12px; }
+  .refs { font-size: 12.5px; color: var(--muted); }
+  .refs code { font-size: 12px; }
+  footer { margin-top: 34px; color: var(--muted); font-size: 12px; text-align: center; }
+  @media print { body { background: #fff; } .card { box-shadow: none; } details { border: none; } details > summary { display: none; } details .inner { padding: 0; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Replication Report</h1>
+  <div class="sub">Mode: full · Generated 2026-08-23 22:33</div>
+
+  <!-- VERDICT CARD -->
+  <div class="card">
+    <div class="hero">
+      <div class="gauge">
+        <svg width="104" height="104" viewBox="0 0 104 104" role="img" aria-label="Replication score 80%">
+          <circle cx="52" cy="52" r="46" fill="none" stroke="#eaeef2" stroke-width="10"/>
+          
+          <circle cx="52" cy="52" r="46" fill="none" stroke="#9a6700" stroke-width="10"
+                  stroke-linecap="round" stroke-dasharray="231.2 289.0"
+                  transform="rotate(-90 52 52)"/>
+          <text x="52" y="50" text-anchor="middle" font-size="22" font-weight="700" fill="#1f2328">80%</text>
+          <text x="52" y="68" text-anchor="middle" font-size="10" fill="#57606a">score</text>
+          
+        </svg>
+      </div>
+      <div class="hero-body">
+        <span class="badge" style="background: #9a6700">Partially reproduced</span>
+        
+        <div class="stats">
+          <span><b>19/25</b> claims reproduced</span>
+          <span><b>2</b> partial</span>
+          
+          
+          <span><b>1</b> fix applied</span>
+          
+        </div>
+      </div>
+    </div>
+
+    
+    <h3 style="margin-top:16px">Claims at a glance</h3>
+    <div class="bar" aria-hidden="true">
+      <span style="width: 67.86%; background: var(--match)"></span>
+      <span style="width: 7.14%; background: var(--partial)"></span>
+      
+      <span style="width: 14.29%; background: var(--na)"></span>
+    </div>
+    <div class="legend">
+      <span><i style="background: var(--match)"></i>match 19</span>
+      <span><i style="background: var(--partial)"></i>partial 2</span>
+      <span><i style="background: var(--nomatch)"></i>no match 0</span>
+      <span><i style="background: var(--na)"></i>other 4</span>
+    </div>
+    
+    <div class="chips">
+      <span class="chip" style="background: #1a7f37" title="scalar · match">C1</span><span class="chip" style="background: #1a7f37" title="table · match">C2</span><span class="chip" style="background: #1a7f37" title="scalar · match">C3</span><span class="chip" style="background: #1a7f37" title="scalar · match">C4</span><span class="chip" style="background: #57606a" title="scalar · not_attempted">C5</span><span class="chip" style="background: #57606a" title="scalar · not_attempted">C6</span><span class="chip" style="background: #1a7f37" title="scalar · match">C7</span><span class="chip" style="background: #9a6700" title="scalar · partial">C8</span><span class="chip" style="background: #1a7f37" title="scalar · match">C9</span><span class="chip" style="background: #8250df" title="scalar · out_of_scope">C10</span><span class="chip" style="background: #1a7f37" title="table · match">C11</span><span class="chip" style="background: #1a7f37" title="table · match">C12</span><span class="chip" style="background: #1a7f37" title="table · match">C13</span><span class="chip" style="background: #1a7f37" title="scalar · match">C14</span><span class="chip" style="background: #1a7f37" title="table · match">C15</span><span class="chip" style="background: #1a7f37" title="table · match">C16</span><span class="chip" style="background: #1a7f37" title="table · match">C17</span><span class="chip" style="background: #1a7f37" title="table · match">C18</span><span class="chip" style="background: #9a6700" title="table · partial">C19</span><span class="chip" style="background: #57606a" title="scalar_range · not_attempted">C20</span><span class="chip" style="background: #57606a" title="scalar_range · not_attempted">C21</span><span class="chip" style="background: #1a7f37" title="table · match">C22</span><span class="chip" style="background: #1a7f37" title="scalar · match">C23</span><span class="chip" style="background: #1a7f37" title="scalar · match">C24</span><span class="chip" style="background: #8250df" title="scalar · out_of_scope">C25</span><span class="chip" style="background: #1a7f37" title="figure · match">C26</span><span class="chip" style="background: #1a7f37" title="scalar · match">C27</span><span class="chip" style="background: #8250df" title="scalar · out_of_scope">C28</span>
+    </div>
+    
+    
+  </div>
+
+  
+  <div class="card" style="border-color: #d4a72c; background: #fff8c5">
+    <b>Flags</b>
+    <ul style="margin:6px 0 0"><li>3 claim(s) marked out_of_scope (planner did not target them) — excluded from the score, not counted as failures. Score is over the 25 attempted/blocked claim(s).</li></ul>
+  </div>
+  
+
+  <!-- NARRATIVE (summary-first) -->
+  
+
+  <!-- LIMITATIONS -->
+  
+  <h2>Limitations &amp; code quality</h2>
+  
+  
+  <p class="sub">1 fix were needed to run the provided code (1 minor, 0 major, 0 critical). These describe the code, not the replication.</p>
+  <table>
+    <thead><tr><th>#</th><th>Fix</th><th>Severity</th></tr></thead>
+    <tbody><tr><td>1</td><td>Installed matplotlib, which was missing from the initial dependency set, to render the added-variable plots.</td><td class="st" style="color: #1a7f37">minor</td></tr></tbody>
+  </table>
+  
+  
+
+  <!-- CITATION CHECK (advisory; a plain section so it also lands in the PDF) -->
+  
+
+  <!-- DETAILS (collapsible) -->
+  <h2>Details</h2>
+
+  <details>
+    <summary>Per-claim verdicts (28)</summary>
+    <div class="inner">
+      <table>
+        <thead><tr><th>ID</th><th>Tier</th><th>Type</th><th>Status</th><th>How graded</th><th>Why</th></tr></thead>
+        <tbody>
+        
+          <tr>
+            <td><code>C1</code></td><td>headline</td><td>scalar</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The produced table log/tab_ipw_manuf_2.scsv (Table 3, fully-controlled specification) shows in column (6) the coefficient on the import exposure regressor d_t~eusch_pw = -0.596 with standard error (0.099). This is an exact match to the p...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C2</code></td><td>supporting</td><td>table</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>All cells of Table 3 (2SLS estimates) match the paper values to the reported precision. The main d_tradeusch_pw coefficients in log/tab_ipw_manuf_2.scsv (line 5) are -0.746, -0.610, -0.538, -0.508, -0.562, -0.596 and standard errors (lin...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C3</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The evidence file log/tab_ipw_mfg_byperiod.scsv (Table 2) reports the d_tradeusc~w (Chinese import exposure) 2SLS coefficients in columns 1-3 as -0.888, -0.718, and -0.746, with standard errors (0.181), (0.064), and (0.068) respectively ...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C4</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>log/tab_ipw_mfg_byperiod.scsv (Table 2) reports the coefficients on future-period import exposure (d_tradeusc~e) in columns 4-6: 0.431 (SE 0.149) for 1970-1980, -0.130 (SE 0.126) for 1980-1990, and 0.148 (SE 0.095) for the stacked specif...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C5</code></td><td>headline</td><td>scalar</td>
+            <td class="st" style="color: #57606a">not attempted</td>
+            <td>deterministic</td>
+            <td>No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Headline aggregate counterfactual (% of national mfg-employment decline explained). No shipped do-file computes this decomposition; it is ...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C6</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #57606a">not attempted</td>
+            <td>deterministic</td>
+            <td>No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Supply-driven (48%) counterfactual worker-count decomposition (548k/982k). No shipped script computes it; derived in text from the estimat...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C7</code></td><td>headline</td><td>scalar</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>This headline economic-magnitude summary follows directly from the reproduced fully-controlled 2SLS coefficients scaled by the 2000-2007 interquartile exposure differential. The differential is 1.060 = (p75 3.1138 - p25 1.5994 = 1.5145) ...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C8</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #9a6700">partial</td>
+            <td>agent</td>
+            <td>The preferred-specification baseline OLS is reproduced essentially exactly: outputs/apptab4_ols.csv reports coef_d_tradeusch_pw = -0.1711 (se 0.0278, n=1444) for d_sh_empl_mfg, and the step-7 log notes an EXACT match to the original tab_...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C9</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The run reproduced Figure 2&#39;s first-stage and reduced-form regressions (N=722) and the added-variable-plot .gph files exist (gph/mfg_imppw_9007long_2sls1_av.gph, gph/mfg_imppw_9007long_olsred_av.gph). The produced output outputs/figure2_...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C10</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #8250df">out of scope</td>
+            <td>deterministic</td>
+            <td>No plan step targeted this claim; treated as out_of_scope (excluded from the score, not a failure): Appendix robustness dropping specific industries (steel/glass/cement, computers, apparel). Requires rebuilding the CZ import-exposure var...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C11</code></td><td>supporting</td><td>table</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>log/tab_ipw_pop.scsv reproduces Table 4 with 18 columns: cols 1-6 = Panel A (no controls), 7-12 = Panel B (regional controls), 13-18 = Panel C (full controls), across All/College/Noncollege/Age16-34/Age35-49/Age50-64. The d_t~eusch_pw (i...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C12</code></td><td>supporting</td><td>table</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The produced Table 5 (log/tab_ipw_empl.scsv) matches the paper exactly. In the treatment row `d_t~eusch_pw` (the $1,000 import exposure per worker coefficient), Panel A log-count columns 1-5 (lnchg_n~_mfg, lnchg_n~nmfg, lnchg_no_u~l, lnc...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C13</code></td><td>headline</td><td>table</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The evidence file log/tab_ipw_empl.scsv contains Table 5 panel B. In the d_t~eusch_pw ($1,000 import shock) row, the five share columns match the paper exactly: d_sh_em~_mfg = -0.596, d_sh_em~nmfg = -0.178, d_sh_unempl = 0.221, d_sh_nilf...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C14</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>log/tab_ipw_empl.scsv (Table 5 panel B) reports d_t~eusch_pw coefficients per education group. The noncollege nonmanufacturing employment-share coefficient (col 16, d_sh_empl_.. noncollege) is -0.531 with SE (0.203), matching the claim e...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C15</code></td><td>supporting</td><td>table</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The evidence file log/tab_ipw_wage.scsv reproduces Table 6 exactly. The d_t~eusch_pw (import exposure per worker) coefficient row reads -0.759/-0.892/-0.614 for all/male/female (columns 1-3, Panel A all education) with standard errors (0...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C16</code></td><td>supporting</td><td>table</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The produced output file log/tab_ipw_mfgnmfg.scsv contains Table 7 with the change-in-average-log-wage coefficients on d_t~eusch_pw (Chinese import exposure per worker). Column (7) d_avg_l~_mfg is the manufacturing &#39;all workers&#39; log-wage...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C17</code></td><td>headline</td><td>table</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The replicated Table 8 output at log/tab_ipw_trans.scsv reports coefficients on d_t~eusch_pw (the $1,000 Chinese import exposure regressor) that match the paper&#39;s reported values exactly. The 18 output columns pair as 9 log-change (lnchg...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C18</code></td><td>supporting</td><td>table</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The evidence file log/tab_ipw_hhinc_pw.scsv (Table 9) reports coefficients on the import-exposure regressor (row &#39;d_t~eusch_pw&#39;). Columns 1-6 are the percent-change specifications (Panel A) and columns 7-12 the dollar-change specificatio...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C19</code></td><td>supporting</td><td>table</td>
+            <td class="st" style="color: #9a6700">partial</td>
+            <td>agent</td>
+            <td>All five Table 10 output files were produced and their panel assignments confirmed from the do-file (do/czone_analysis_ipw_final.do, lines 284-290 d_tradex_usch_pw -&gt; tab_expoff_iv = Panel B; 297+ d_tradeusch_netinput_pw -&gt; tab_intermedi...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C20</code></td><td>supporting</td><td>scalar_range</td>
+            <td class="st" style="color: #57606a">not attempted</td>
+            <td>deterministic</td>
+            <td>No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Deadweight-loss-of-transfers welfare calculation ($13/$21; $22-44 range) applying a 40% marginal excess burden. No shipped code computes t...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C21</code></td><td>supporting</td><td>scalar_range</td>
+            <td class="st" style="color: #57606a">not attempted</td>
+            <td>deterministic</td>
+            <td>No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Deadweight-loss-of-nonparticipation welfare calculation ($43/$69; $87-137 range). No shipped code path; text-level welfare arithmetic on t...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C22</code></td><td>supporting</td><td>table</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The run produced log/import_stats_final.log (via do/import_stats_final.do), which summarizes trade levels in BN 2007 US$. US imports from China (l_totimp_usch): 1991=26.27168, 2000=121.5563, 2007=330.0224 -&gt; matches paper 26.3/121.6/330....</td>
+          </tr>
+        
+          <tr>
+            <td><code>C23</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The reproduced Figure 1 series in outputs/figure1_series.csv (produced by repro/table1_fig1.py from dta/figure1_data.dta) yields all four values. Import penetration (import_penetration_impr) is 0.005997813 in 1991 (=0.60%) and 0.04682026...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C24</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The reproduced Appendix Table 1 percentiles (outputs/apptab1_importgrowth.csv) give weighted percentiles of ten-year-equivalent d_tradeusch_pw (in kUSD/worker): for 1990 (1990-2000) p25=0.6231, p50=0.8887, p75=1.3155; for 2000 (2000-2007...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C25</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #8250df">out of scope</td>
+            <td>deterministic</td>
+            <td>No plan step targeted this claim; treated as out_of_scope (excluded from the score, not a failure): External cited statistics (China&#39;s ~3/4 share of LMIC manufacturing-VA growth; 8.0% vs 3.9% TFP growth) drawn from Brandt et al. and BLS,...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C26</code></td><td>supporting</td><td>figure</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>Both the expected .gph file (gph/mfg_imppw_9007long_olsred_av.gph, reduced form) and its first-stage counterpart (gph/mfg_imppw_9007long_2sls1_av.gph) were produced, along with rendered PNG exports outputs/fig2_reducedform_av.png and out...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C27</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The claim is a magnitude interpretation of Table 3 column 2: the column-2 (manufacturing-share-controlled) coefficient on import exposure times the 2000-2007 interquartile exposure difference (~1.06 kUSD) should yield a -0.65 pp differen...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C28</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #8250df">out of scope</td>
+            <td>deterministic</td>
+            <td>No plan step targeted this claim; treated as out_of_scope (excluded from the score, not a failure): The distinctive number ($113.18, SE 41.53) is a re-estimate normalizing transfers by total workers rather than residents; no shipped do-f...</td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  
+  <details>
+    <summary>Replication run (10/10 steps, 0s)</summary>
+    <div class="inner">
+      <p class="sub">Python 3.12.8 · GPU NVIDIA RTX A6000 (x4, 49140 MiB each) · pandas 3.0.5, numpy 2.5.2, scipy 1.18.1, linearmodels 7.0, statsmodels 0.14.6</p>
+      <table>
+        <thead><tr><th>Step</th><th>What it did</th><th>Result</th><th>Time</th></tr></thead>
+        <tbody><tr><td>1</td><td>Set up environment, validate inputs, build reusable weighted-2SLS helper with state-clustered SEs.</td><td class="st" style="color: #1a7f37">ok</td><td>0s</td></tr><tr><td>2</td><td>Table 3: six cumulative-control 2SLS specs of d_sh_empl_mfg on instrumented d_tradeusch_pw.</td><td class="st" style="color: #1a7f37">ok</td><td>0s</td></tr><tr><td>3</td><td>Table 4 (population) and Table 5 (employment/unemployment/non-employment), fully controlled.</td><td class="st" style="color: #1a7f37">ok</td><td>0s</td></tr><tr><td>4</td><td>Table 6 (wage changes) and Table 7 (mfg vs non-mfg), fully controlled.</td><td class="st" style="color: #1a7f37">ok</td><td>0s</td></tr><tr><td>5</td><td>Table 8 (per-capita transfer receipts) and Table 9 (household income per capita), fully controlled.</td><td class="st" style="color: #1a7f37">ok</td><td>0s</td></tr><tr><td>6</td><td>Table 10: alternative trade-exposure measures for the mfg employment share.</td><td class="st" style="color: #1a7f37">ok</td><td>0s</td></tr><tr><td>7</td><td>Appendix Table 1 weighted import-growth percentiles + Appendix Table 4 preferred-spec OLS.</td><td class="st" style="color: #1a7f37">ok</td><td>0s</td></tr><tr><td>8</td><td>Table 2 (2SLS by period) + falsification test on future exposure (preperiod file).</td><td class="st" style="color: #1a7f37">ok</td><td>0s</td></tr><tr><td>9</td><td>Figure 2 first-stage and reduced-form regressions (+ added-variable plots).</td><td class="st" style="color: #1a7f37">ok</td><td>0s</td></tr><tr><td>10</td><td>Table 1 trade statistics + Figure 1 time series.</td><td class="st" style="color: #1a7f37">ok</td><td>0s</td></tr></tbody>
+      </table>
+    </div>
+  </details>
+  
+
+  
+
+  <details>
+    <summary>Where to look (artifacts)</summary>
+    <div class="inner refs">
+      <p>The full machine-readable record is on disk next to this report:</p>
+      <ul>
+        <li><code>verify/verdicts.json</code> — every claim verdict, with the grader's cited rationale.</li>
+        <li><code>verify/replication_score.json</code> — the score and tier breakdown.</li>
+        <li><code>replication/replication_log.json</code> — step-by-step execution, with the fixes applied.</li>
+        <li><code>replication/codebase.diff</code> — every change made to the provided code.</li>
+        
+        
+        <li><code>replication/codebase/</code> — the patched code that was actually run.</li>
+      </ul>
+    </div>
+  </details>
+
+  <footer>Generated by Veritas</footer>
+</div>
+</body>
+</html>

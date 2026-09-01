@@ -1,0 +1,36 @@
+{
+  "claim_id": "C12",
+  "status": "match",
+  "structured": {
+    "replicated_table": {
+      "Panel A: 100 x log change in population counts (coef) | Mfg emp": -4.231,
+      "Panel A: 100 x log change in population counts (coef) | Non-mfg emp": -0.274,
+      "Panel A: 100 x log change in population counts (coef) | Unemp": 4.921,
+      "Panel A: 100 x log change in population counts (coef) | NILF": 2.058,
+      "Panel A: 100 x log change in population counts (coef) | SSDI receipt": 1.466,
+      "standard error | Mfg emp": 1.047,
+      "standard error | Non-mfg emp": 0.651,
+      "standard error | Unemp": 1.128,
+      "standard error | NILF": 1.08,
+      "standard error | SSDI receipt": 0.557
+    },
+    "paper_table": {
+      "Panel A: 100 x log change in population counts (coef) | Mfg emp": -4.231,
+      "Panel A: 100 x log change in population counts (coef) | Non-mfg emp": -0.274,
+      "Panel A: 100 x log change in population counts (coef) | Unemp": 4.921,
+      "Panel A: 100 x log change in population counts (coef) | NILF": 2.058,
+      "Panel A: 100 x log change in population counts (coef) | SSDI receipt": 1.466,
+      "standard error | Mfg emp": 1.047,
+      "standard error | Non-mfg emp": 0.651,
+      "standard error | Unemp": 1.128,
+      "standard error | NILF": 1.08,
+      "standard error | SSDI receipt": 0.557
+    },
+    "value_found": true
+  },
+  "rationale": "The produced Table 5 (log/tab_ipw_empl.scsv) matches the paper exactly. In the treatment row `d_t~eusch_pw` (the $1,000 import exposure per worker coefficient), Panel A log-count columns 1-5 (lnchg_n~_mfg, lnchg_n~nmfg, lnchg_no_u~l, lnchg_no_n~f, lnchg_~swkrs) read -4.231, -0.274, 4.921, 2.058, 1.466 with standard errors (1.047), (0.651), (1.128), (1.080), (0.557). These are byte-for-byte identical to the paper's reported values (-4.231, -0.274, 4.921, 2.058, 1.466 with SEs 1.047, 0.651, 1.128, 1.08, 0.557), so every cell is within 5% relative error (0% error). N=1444 for all columns.",
+  "evidence_refs": [
+    "/workspace/output/replication/codebase/log/tab_ipw_empl.scsv"
+  ],
+  "graded_by": "agent"
+}

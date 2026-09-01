@@ -1,0 +1,23 @@
+{
+  "claim_id": "C8",
+  "status": "partial",
+  "structured": {
+    "replicated_value": {
+      "ols_baseline": -0.1711,
+      "ols_lagged_weights": null
+    },
+    "paper_value": {
+      "ols_baseline": -0.171,
+      "ols_lagged_weights": -0.273
+    },
+    "uncertainty": null,
+    "value_found": true
+  },
+  "rationale": "The preferred-specification baseline OLS is reproduced essentially exactly: outputs/apptab4_ols.csv reports coef_d_tradeusch_pw = -0.1711 (se 0.0278, n=1444) for d_sh_empl_mfg, and the step-7 log notes an EXACT match to the original tab_ipw_manuf_exporters.scsv; this is -0.171 in the paper (well within 5%), and attenuated relative to the 2SLS -0.596 as the claim describes. However, the second component \u2014 the lagged-employment-weight OLS of -0.273 \u2014 was not produced: the replication_plan step-7 description and log both state 'the lagged-employment-weight variant of C8 is not shipped' because it requires rebuilding the CZ import-exposure variable with lagged weights, and only the pre-built workfile (not the exposure-construction code) is shipped. With one of two components matching exactly and the other having no produced evidence, the claim is partially supported.",
+  "evidence_refs": [
+    "output/replication/codebase/outputs/apptab4_ols.csv",
+    "output/replication/replication_log.json",
+    "output/analyze/replication_plan.json"
+  ],
+  "graded_by": "agent"
+}

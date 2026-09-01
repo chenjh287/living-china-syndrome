@@ -1,0 +1,7 @@
+form,outcome,coef,se,n
+rel_change,relchg_avg_hhincsum_pc_pw,-1.4762,0.3702,1444
+rel_change,relchg_avg_hhincwage_pc_pw,-2.1416,0.5946,1444
+rel_change,relchg_avg_hhinctrans_pc_pw,2.1187,0.5886,1444
+dollar_level,d_avg_hhincsum_pc_pw,-492.6359,162.9651,1444
+dollar_level,d_avg_hhincwage_pc_pw,-549.3318,172.1405,1444
+dollar_level,d_avg_hhinctrans_pc_pw,17.3171,4.4043,1444

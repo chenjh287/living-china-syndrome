@@ -1,0 +1,3 @@
+spec,coef_on_instrument,robust_se,t_stat,n
+first_stage,0.8151,0.0918,8.882,722
+reduced_form,-0.3398,0.0712,-4.774,722

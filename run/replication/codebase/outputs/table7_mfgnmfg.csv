@@ -1,0 +1,13 @@
+outcome,coef,se,n
+lnchg_no_empl_mfg,-4.2305,1.0641,1444
+lnchg_no_empl_mfg_edu_c,-3.9924,1.2006,1444
+lnchg_no_empl_mfg_edu_nc,-4.4932,1.2629,1444
+lnchg_no_empl_nmfg,-0.2741,0.6615,1444
+lnchg_no_empl_nmfg_edu_c,0.2915,0.6,1444
+lnchg_no_empl_nmfg_edu_nc,-1.0366,0.7761,1444
+d_avg_lnwkwage_mfg,0.1507,0.4901,1444
+d_avg_lnwkwage_mfg_c,0.4585,0.3457,1444
+d_avg_lnwkwage_mfg_nc,-0.1012,0.3752,1444
+d_avg_lnwkwage_nmfg,-0.7612,0.2648,1444
+d_avg_lnwkwage_nmfg_c,-0.7433,0.3023,1444
+d_avg_lnwkwage_nmfg_nc,-0.8221,0.2501,1444

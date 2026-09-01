@@ -1,0 +1,9 @@
+{
+  "claim_id": "C20",
+  "status": "not_attempted",
+  "structured": {},
+  "rationale": "No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Deadweight-loss-of-transfers welfare calculation ($13/$21; $22-44 range) applying a 40% marginal excess burden. No shipped code computes this; it is a text-level calculation on top of the Table 8 transfer estimates.",
+  "evidence_refs": [],
+  "not_attempted_reason": "authors_missing",
+  "graded_by": "deterministic"
+}

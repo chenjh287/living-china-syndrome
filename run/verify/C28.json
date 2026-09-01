@@ -1,0 +1,8 @@
+{
+  "claim_id": "C28",
+  "status": "out_of_scope",
+  "structured": {},
+  "rationale": "No plan step targeted this claim; treated as out_of_scope (excluded from the score, not a failure): The distinctive number ($113.18, SE 41.53) is a re-estimate normalizing transfers by total workers rather than residents; no shipped do-file runs this re-normalization. The $58 residents-normalized point estimate it references is already produced in step 5 (Table 8).",
+  "evidence_refs": [],
+  "graded_by": "deterministic"
+}

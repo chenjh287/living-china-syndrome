@@ -1,0 +1,7 @@
+measure,coef_on_exposure,se,n
+gross_baseline,-0.5964,0.1004,1444
+dom_intl,-0.4151,0.0543,1444
+net_intermediates,-0.491,0.1249,1444
+net_imports,-0.4531,0.1057,1444
+gravity_residual,-0.2893,0.043,1444
+factor_content,-0.5713,0.1001,1444

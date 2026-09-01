@@ -1,0 +1,45 @@
+{
+  "instruction_summary": "Produce a calibrated, updated theory for ADH (2013) that reconciles the original strong contemporaneous China-shock effect with 001's finding that the effect fades when the import flow stops yet high-exposure places stay scarred; recalibrate the model's central parameter, make the smallest amendment, and validate it.",
+  "completed": true,
+  "steps": [
+    {"description": "Read replication + 001 artifacts (paper theory Eqs.2-3, iv.py, table3.csv, 001 exposure/levels/estimates CSVs)", "command": "pdftotext paper.pdf; head 001 results CSVs", "exit_code": 0, "outputs": ["workspace/paper.txt"]},
+    {"description": "Rebuilt venv from replication package list", "command": "uv venv /workspace/.venv && uv pip install pandas numpy scipy linearmodels statsmodels matplotlib openpyxl xlrd pyarrow", "exit_code": 0, "outputs": []},
+    {"description": "Recalibrated single ADH incidence elasticity by era; estimated the updated directional-hysteresis (ratchet) model; ran the level/permanent-downshift test; ran the held-out 2019-24 out-of-sample validation; built calibration table and trajectories", "command": "python src/theory_update.py", "exit_code": 0, "outputs": ["results/calibration_table.csv", "results/theory_metrics.json", "results/level_trajectory_by_exposure.csv"]},
+    {"description": "Built the 4-panel model-comparison figure (original vs updated) plus a compact card figure", "command": "python src/figure.py", "exit_code": 0, "outputs": ["results/fig1_theory_update.png", "results/fig1_theory_update.pdf", "results/fig2_scar_permanence.png"]},
+    {"description": "Wrote the theory section, report, and cards", "command": "(authoring)", "exit_code": 0, "outputs": ["results/theory_update.md", "report.md", "followup_summary.json", "result_card.json"]}
+  ],
+  "key_results": {
+    "updated_model": "dynamic incidence with directional hysteresis (ratchet): d_mfgshare = -b+ * max(dIPW,0) - b- * min(dIPW,0); ADH = the reversible b+=b- special case; one added parameter = recovery rate rho",
+    "impact_elasticity_bplus_paper_era": "-0.596 (se 0.100) [table3.csv col6]",
+    "impact_elasticity_bplus_2026_active": "-0.279 (se 0.071), first-stage F=66.9",
+    "recovery_rate_rho": "-0.17 (95% CI excludes 1.0; pre-2019 rho=-0.34); ADH assumes 1.00 -> reversibility rejected",
+    "level_test_impact_bI": "-0.370 (se 0.081) mfg pp per $1k accumulated 2000-12 exposure",
+    "level_test_recovery_bR": "-0.062 (se 0.062) ~ 0, vs +0.37 a reversible model requires",
+    "level_test_net_bN": "-0.432 (se 0.118): manufacturing-share hit fully permanent through 2023",
+    "oos_reversal_W5_symmetric_pred": "+0.350 pp/decade rebound predicted (RMSE 1.42)",
+    "oos_reversal_W5_hysteresis_pred": "-0.035 pp/decade (RMSE 1.26)",
+    "oos_reversal_W5_actual": "+0.064 pp/decade (essentially no rebound)",
+    "level_trajectory_high_exposure": "mfg share 11.59(2000)->6.96(2012)->7.48(2023): fell 4.63pp, recovered 0.52pp (~11%)"
+  },
+  "comparison_to_original": [
+    {"quantity": "Impact incidence elasticity b+ (mfg pp per +$1k/wkr, rising imports)", "original": "-0.596 (se 0.100)", "followup": "-0.279 (se 0.071) active-era, 2026 vintage", "source_file": "/workspace/eval/replication/codebase/outputs/table3.csv (col6)", "note": "Same sign and order of magnitude; the impact leg of the model survives recalibration."},
+    {"quantity": "Recovery rate rho = b-/b+ (fraction of the level hit that reverses)", "original": "1.00 (implied by ADH's reversible static flow model, Eqs. 2-3)", "followup": "-0.17 (approx 0)", "source_file": "paper.pdf Section I / Theory Appendix (theory); this study theory_metrics.json (estimate)", "note": "New structural parameter. Reversibility is rejected: high-exposure CZs did not recover when imports receded."},
+    {"quantity": "Single-slope ADH elasticity in the 2019-24 reversal era", "original": "-0.596 (assumed constant across time)", "followup": "+0.048 (se 0.025)", "source_file": "/workspace/eval/followup/001-living-update/results/living_update/summary_frozenfull_proxy.csv (C1,W5)", "note": "A constant alpha is misspecified; it drifts to ~0 then wrong sign as the flow reverses -> motivates the ratchet."},
+    {"quantity": "Net / permanent level effect of accumulated exposure", "original": "0 (transitory: flow model predicts full recovery once the flow stops)", "followup": "-0.432 (se 0.118) mfg pp per $1k accumulated 2000-12", "source_file": "this study, results/theory_metrics.json (level_test.net)", "note": "The China-shock employment hit is permanent through 2023, not transitory."}
+  ],
+  "artifacts": [
+    "/workspace/eval/followup/002-theory-update/results/theory_update.md",
+    "/workspace/eval/followup/002-theory-update/results/calibration_table.csv",
+    "/workspace/eval/followup/002-theory-update/results/fig1_theory_update.png",
+    "/workspace/eval/followup/002-theory-update/results/fig1_theory_update.pdf",
+    "/workspace/eval/followup/002-theory-update/results/fig2_scar_permanence.png",
+    "/workspace/eval/followup/002-theory-update/results/theory_metrics.json",
+    "/workspace/eval/followup/002-theory-update/results/level_trajectory_by_exposure.csv"
+  ],
+  "deviations": [
+    "The recovery leg of the directional FLOW ratchet is weakly instrumented (pooled 2SLS partial first-stage F=2.2) because China's exports to the 8 instrument countries did not fall with the US-specific post-2018 reversal; the recovery rate rho is therefore CALIBRATED from the well-identified LEVEL test (dose instrument F approx 30), and OLS on the flow split (rho approx 0.47, attenuated) is reported for context. All approaches agree rho<1 and that the level effect is permanent.",
+    "Manufacturing-share outcome is 001's CBP-jobs-per-working-age-resident proxy, not ADH's Census/ACS person-level measure (IPUMS unavailable); 001 validated the proxy (W2 proxy approx ADH original). Levels differ; cross-window/cross-CZ comparisons are the consistent objects.",
+    "The updated model is CALIBRATED to moments 001 already produced, not fully structurally estimated (a clean instrument for the reversal is unavailable in-session), as the instruction permits; forward-looking implications are labeled [PROPOSED].",
+    "No data re-fetched or re-built: all inputs reused from followup/001-living-update; the ADH canonical coefficient read from replication/outputs/table3.csv."
+  ]
+}

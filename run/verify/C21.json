@@ -1,0 +1,9 @@
+{
+  "claim_id": "C21",
+  "status": "not_attempted",
+  "structured": {},
+  "rationale": "No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Deadweight-loss-of-nonparticipation welfare calculation ($43/$69; $87-137 range). No shipped code path; text-level welfare arithmetic on the Table 5 nonparticipation estimates.",
+  "evidence_refs": [],
+  "not_attempted_reason": "authors_missing",
+  "graded_by": "deterministic"
+}

@@ -1,0 +1,9 @@
+{
+  "claim_id": "C6",
+  "status": "not_attempted",
+  "structured": {},
+  "rationale": "No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Supply-driven (48%) counterfactual worker-count decomposition (548k/982k). No shipped script computes it; derived in text from the estimates and aggregate employment, not produced by the do-files.",
+  "evidence_refs": [],
+  "not_attempted_reason": "authors_missing",
+  "graded_by": "deterministic"
+}

@@ -1,0 +1,37 @@
+{
+  "claim_id": "C7",
+  "status": "match",
+  "structured": {
+    "replicated_value": {
+      "emp_pop_pp": -0.82,
+      "mean_weekly_earnings_pct": -0.8,
+      "mfg_employees_pct": -4.48,
+      "transfer_increase_pct_range": [
+        2.08,
+        3.67
+      ]
+    },
+    "paper_value": {
+      "emp_pop_pp": -0.8,
+      "mean_weekly_earnings_pct": -0.8,
+      "mfg_employees_pct": -4.5,
+      "transfer_increase_pct_range": [
+        2,
+        3.5
+      ]
+    },
+    "uncertainty": null,
+    "value_found": true
+  },
+  "rationale": "This headline economic-magnitude summary follows directly from the reproduced fully-controlled 2SLS coefficients scaled by the 2000-2007 interquartile exposure differential. The differential is 1.060 = (p75 3.1138 - p25 1.5994 = 1.5145) x 0.7, from outputs/apptab1_importgrowth.csv (year 2000), matching the ~$1,060/worker specified. Applying it: (1) manufacturing employees, outputs/table5_emp.csv lnchg_no_empl_mfg coef=-4.2305 x 1.06 = -4.48% vs paper -4.5%; (2) employment-to-population rate, outputs/table5_emp.csv net_empl_rate d_sh_empl coef=-0.7742 x 1.06 = -0.82 pp vs paper -0.8 pp; (3) mean log weekly earnings, outputs/table6_wage.csv d_avg_lnwkwage coef=-0.7592 x 1.06 = -0.80% vs paper -0.8%; (4) per-capita transfers, outputs/table8_trans.csv log_change coefs for disability (lnchg_trans_ssadis_pc=1.9597 -> 2.08%), income assistance (lnchg_trans_fedinc_pc=3.0391 -> 3.22%), and unemployment (lnchg_trans_unemp_pc=3.4599 -> 3.67%), spanning ~2.1 to 3.7% vs the paper's 2 to 3.5%. All four magnitudes reproduce within well under 5% of the paper values, and the transfer range brackets the reported 2-3.5%. fix_severity.json reports only one minor matplotlib-install fix with no impact on the statistical results, so the reproduced coefficients faithfully reflect the paper's method.",
+  "evidence_refs": [
+    "output/replication/codebase/outputs/table5_emp.csv",
+    "output/replication/codebase/outputs/table6_wage.csv",
+    "output/replication/codebase/outputs/table8_trans.csv",
+    "output/replication/codebase/outputs/apptab1_importgrowth.csv",
+    "output/replication/codebase/outputs/table3.csv",
+    "output/assess/fix_severity.json",
+    "output/analyze/replication_plan.json"
+  ],
+  "graded_by": "agent"
+}

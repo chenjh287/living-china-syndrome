@@ -1,0 +1,10 @@
+outcome,coef,se,n
+d_avg_lnwkwage,-0.7592,0.2567,1444
+d_avg_lnwkwage_m,-0.8921,0.2985,1444
+d_avg_lnwkwage_f,-0.614,0.2413,1444
+d_avg_lnwkwage_c,-0.7568,0.3134,1444
+d_avg_lnwkwage_c_m,-0.9905,0.3802,1444
+d_avg_lnwkwage_c_f,-0.5255,0.2831,1444
+d_avg_lnwkwage_nc,-0.8144,0.2395,1444
+d_avg_lnwkwage_nc_m,-0.7031,0.2537,1444
+d_avg_lnwkwage_nc_f,-1.1164,0.2826,1444

@@ -1,0 +1,24 @@
+{
+  "claim_id": "C4",
+  "status": "match",
+  "structured": {
+    "replicated_value": {
+      "1970-1980": 0.431,
+      "1970-1990_stacked": 0.148,
+      "1980-1990": -0.13
+    },
+    "paper_value": {
+      "1970-1980": 0.43,
+      "1970-1990_stacked": 0.15,
+      "1980-1990": -0.13
+    },
+    "uncertainty": null,
+    "value_found": true
+  },
+  "rationale": "log/tab_ipw_mfg_byperiod.scsv (Table 2) reports the coefficients on future-period import exposure (d_tradeusc~e) in columns 4-6: 0.431 (SE 0.149) for 1970-1980, -0.130 (SE 0.126) for 1980-1990, and 0.148 (SE 0.095) for the stacked specification. These reproduce the paper's reported falsification-test values of 0.43, -0.13, and 0.15 essentially exactly (well within 5% relative error; the near-zero 1980-1990 value sits within a small absolute band of -0.13). The positive/insignificant future-exposure coefficients match the paper's conclusion of no reverse-causality pre-trend. The only fix in fix_severity.json was a trivial matplotlib install affecting plotting only, not this numerical result.",
+  "evidence_refs": [
+    "/workspace/output/replication/codebase/log/tab_ipw_mfg_byperiod.scsv",
+    "/workspace/output/assess/fix_severity.json"
+  ],
+  "graded_by": "agent"
+}

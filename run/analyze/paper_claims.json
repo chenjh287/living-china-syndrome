@@ -1,0 +1,910 @@
+{
+  "paper": {
+    "title": "The China Syndrome: Local Labor Market Effects of Import Competition in the United States",
+    "arxiv_id": null,
+    "year": 2013,
+    "authors": [
+      "Autor",
+      "Dorn",
+      "Hanson"
+    ]
+  },
+  "claims": [
+    {
+      "id": "C1",
+      "description": "In the fully-controlled specification, a $1,000 per worker rise in a CZ's decadal Chinese import exposure reduces its manufacturing employment share of the working-age population by 0.596 percentage points (SE 0.099).",
+      "type": "scalar",
+      "tier": "headline",
+      "verification": "Read the coefficient on the import exposure regressor (d_t~eusch_pw) in column (6) of the produced table log/tab_ipw_manuf_2.scsv, which corresponds to Table 3 column 6. Confirm the point estimate is about -0.596 with a standard error near 0.099. This is the paper's preferred 2SLS estimate with full demographic/labor-force controls and Census division dummies.",
+      "paper_value": -0.596,
+      "units": "percentage points per $1,000 import exposure per worker (10x annual change)",
+      "expected_output_file": "log/tab_ipw_manuf_2.scsv",
+      "provenance": {
+        "section": "III.A / III.B",
+        "page": 2137,
+        "quote": "The fully augmented model in column 6 indicates a sizable, robust negative impact of increasing import exposure on manufacturing employment."
+      },
+      "notes": "Table 3 column 6. First-stage coefficient on the non-US instrument is 0.631 (SE 0.087), R^2 = 0.58."
+    },
+    {
+      "id": "C2",
+      "description": "Table 3 2SLS estimates of the effect of Chinese import exposure per worker on the manufacturing employment share, across six specifications, are -0.746, -0.610, -0.538, -0.508, -0.562, -0.596.",
+      "type": "table",
+      "tier": "supporting",
+      "verification": "Read log/tab_ipw_manuf_2.scsv (Table 3). Compare the six d_t~eusch_pw coefficients and their standard errors across columns 1-6, and the first-stage panel-II coefficients, against the paper values. N = 1,444 in all columns.",
+      "paper_value": {
+        "columns": [
+          "(1)",
+          "(2)",
+          "(3)",
+          "(4)",
+          "(5)",
+          "(6)"
+        ],
+        "rows": [
+          {
+            "label": "d imports from China to US / worker (coef)",
+            "values": [
+              -0.746,
+              -0.61,
+              -0.538,
+              -0.508,
+              -0.562,
+              -0.596
+            ]
+          },
+          {
+            "label": "standard error",
+            "values": [
+              0.068,
+              0.094,
+              0.091,
+              0.081,
+              0.096,
+              0.099
+            ]
+          },
+          {
+            "label": "first-stage coef (imports to OTH / worker)",
+            "values": [
+              0.792,
+              0.664,
+              0.652,
+              0.635,
+              0.638,
+              0.631
+            ]
+          }
+        ]
+      },
+      "units": "percentage points per $1,000 import exposure per worker",
+      "expected_output_file": "log/tab_ipw_manuf_2.scsv",
+      "provenance": {
+        "section": "III.A",
+        "page": 2137,
+        "quote": "TABLE 3\u2014IMPORTS FROM CHINA AND CHANGE OF MANUFACTURING EMPLOYMENT IN CZS, 1990\u20132007: 2SLS ESTIMATES"
+      },
+      "notes": "Column 1 has no controls; controls accumulate through column 6."
+    },
+    {
+      "id": "C3",
+      "description": "2SLS estimates of the effect of Chinese import exposure on the change in manufacturing employment share (Table 2): -0.89, -0.72, -0.75 for 1990-2000, 2000-2007, and stacked 1990-2007.",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Read log/tab_ipw_mfg_byperiod.scsv (Table 2). The d_tradeusc~w coefficients in columns 1-3 should be about -0.888, -0.718, -0.746 (SEs 0.181, 0.064, 0.068). These are the bivariate 2SLS estimates without demographic controls.",
+      "paper_value": {
+        "1990-2000": -0.89,
+        "2000-2007": -0.72,
+        "stacked_1990-2007": -0.75
+      },
+      "units": "percentage points per $1,000 import exposure per worker",
+      "expected_output_file": "log/tab_ipw_mfg_byperiod.scsv",
+      "provenance": {
+        "section": "III.A",
+        "page": 2135,
+        "quote": "The coefficient of \u22120.75 in column 3 indicates that a $1,000 exogenous decadal rise in a CZ's import exposure per worker is predicted to reduce its manufacturing employment per working-age population by three-quarters of a percentage point."
+      },
+      "notes": "Table 2 columns 1-3."
+    },
+    {
+      "id": "C4",
+      "description": "Falsification test: regressing pre-period (1970s/1980s) manufacturing employment change on future import exposure yields 0.43 (1970-1980), -0.13 (1980-1990), 0.15 (stacked), showing no evidence of reverse causality.",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Read log/tab_ipw_mfg_byperiod.scsv (Table 2, columns 4-6): coefficients on future-period imports (d_tradeusc~e) should be about 0.431 (SE 0.149), -0.130 (SE 0.126), 0.148 (SE 0.095). Positive/insignificant coefficients indicate no pre-trend running the 'wrong' way.",
+      "paper_value": {
+        "1970-1980": 0.43,
+        "1980-1990": -0.13,
+        "1970-1990_stacked": 0.15
+      },
+      "units": "percentage points per $1,000 future import exposure per worker",
+      "expected_output_file": "log/tab_ipw_mfg_byperiod.scsv",
+      "provenance": {
+        "section": "III.A",
+        "page": 2135,
+        "quote": "These correlations provide little evidence suggesting reverse causality."
+      },
+      "notes": "Table 2 columns 4-6, pre-exposure period."
+    },
+    {
+      "id": "C5",
+      "description": "Rising Chinese import exposure explains 33% of the US manufacturing employment decline in 1990-2000, 55% in 2000-2007, and 44% over the full 1990-2007 period.",
+      "type": "scalar",
+      "tier": "headline",
+      "verification": "This is a derived benchmark combining the Table 3 col-6 coefficient (-0.596) with observed exposure growth ($1,140/worker in 1990-2000 and $1,839/worker in 2000-2007) and the observed mfg emp/pop decline (2.07 pp and 2.00 pp). Verify the predicted reductions of 0.68 pp (1990-2000) and 1.10 pp (2000-2007) and their ratios to observed declines reproduce 33%, 55%, 44%. Check the analysis log (log/czone_analysis_ipw_final.log) and Appendix Table 2 means for the exposure-growth and decline inputs.",
+      "paper_value": {
+        "1990-2000": 33,
+        "2000-2007": 55,
+        "full_1990-2007": 44
+      },
+      "units": "percent of observed manufacturing employment/population decline",
+      "provenance": {
+        "section": "III.B",
+        "page": 2139,
+        "quote": "we estimate that rising exposure to Chinese import competition explains 33 percent of the US manufacturing employment decline between 1990 and 2000, 55 percent of the decline between 2000 and 2007, and 44 percent of the decline for the full 1990 through 2007 period."
+      },
+      "notes": "Uses total (not just supply-driven) import change. See C6 for the supply-driven-only version."
+    },
+    {
+      "id": "C6",
+      "description": "Attributing only the supply-driven component (48% of import variation), Chinese import competition explains 16% of the manufacturing employment decline in 1990-2000, 26% in 2000-2007, and 21% over the full period, implying reductions of 548,000 and 982,000 workers.",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Derived quantity: scale the C5 benchmark by the 48% supply-driven share from the OLS/2SLS variance decomposition. Confirm the analysis log reproduces the 16/26/21 percent shares and worker counts (548,000 and 982,000; ~1.53 million total). Inputs: US mainland working-age population 157.6M, 178.7M, 194.3M in 1990/2000/2007.",
+      "paper_value": {
+        "share_1990-2000_pct": 16,
+        "share_2000-2007_pct": 26,
+        "share_full_pct": 21,
+        "workers_1990-2000": 548000,
+        "workers_2000-2007": 982000
+      },
+      "units": "percent of decline; number of workers",
+      "provenance": {
+        "section": "III.B",
+        "page": 2140,
+        "quote": "we more conservatively estimate that Chinese import competition explains 16 percent of the US manufacturing employment decline between 1990 and 2000, 26 percent of the decline between 2000 and 2007, and 21 percent of the decline over the full period ... a supply-shock driven net reduction in US manufacturing employment of 548,000 workers between 1990 and 2000 and a further reduction of 982,000 workers between 2000 and 2007."
+      },
+      "notes": "The 48% supply share comes from the Theory Appendix decomposition of OLS vs 2SLS estimates."
+    },
+    {
+      "id": "C7",
+      "description": "Comparing two CZs at the 25th vs 75th percentile of Chinese import exposure over 2000-2007, the more-exposed CZ experiences a differential 4.5% fall in manufacturing employees, a 0.8 pp larger reduction in the employment-to-population rate, a 0.8% larger decline in mean weekly earnings, and larger per-capita transfer increases of 2 to 3.5%.",
+      "type": "scalar",
+      "tier": "headline",
+      "verification": "This is the paper's headline economic-magnitude summary. Verify it is consistent with the reproduced regression coefficients (Tables 5, 6, 8) multiplied by the interquartile exposure difference for 2000-2007 (~$1,060/worker; Appendix Table 1 75th-25th percentile of 3.11-1.60, rescaled by 0.7). The four magnitudes should follow from the mfg-employment, emp/pop, wage, and transfer coefficients respectively.",
+      "paper_value": {
+        "mfg_employees_pct": -4.5,
+        "emp_pop_pp": -0.8,
+        "mean_weekly_earnings_pct": -0.8,
+        "transfer_increase_pct_range": [
+          2,
+          3.5
+        ]
+      },
+      "units": "percent / percentage points differential (75th vs 25th percentile)",
+      "provenance": {
+        "section": "Introduction",
+        "page": 2125,
+        "quote": "the more exposed CZ would be expected to experience a differential 4.5 percent fall in the number of manufacturing employees, a 0.8 percentage point larger reduction in the employment to population rate, a 0.8 percent larger decline in mean log weekly earnings, and larger increases in per capita unemployment, disability, and income assistance transfer benefits on the order of 2 to 3.5 percent."
+      },
+      "notes": "Marquee quantitative statement from the introduction; a qualitative-plus-magnitude synthesis of the main tables."
+    },
+    {
+      "id": "C8",
+      "description": "OLS estimate of the effect of import exposure on the manufacturing employment share (preferred specification) is -0.171, rising to -0.273 when exposure uses lagged (rather than start-of-period) employment weights.",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Check the OLS estimate for the column-6 specification in the produced output (Appendix Table 4 / analysis log). Confirm baseline OLS ~-0.171 and the lagged-weight OLS ~-0.273, both attenuated relative to the 2SLS -0.596.",
+      "paper_value": {
+        "ols_baseline": -0.171,
+        "ols_lagged_weights": -0.273
+      },
+      "units": "percentage points per $1,000 import exposure per worker",
+      "provenance": {
+        "section": "III.A",
+        "page": 2138,
+        "quote": "The OLS estimate for this specification, as seen in column 1 of panel A in Appendix Table 4, is \u22120.171 ... the OLS coefficient estimate increases in magnitude from \u22120.171 to \u22120.273."
+      },
+      "notes": "Illustrates attenuation from measurement error and endogeneity."
+    },
+    {
+      "id": "C9",
+      "description": "First-stage predictive power: a $1,000 predicted increase in import exposure per CZ worker corresponds to about a $815 increase in measured exposure per worker (first-stage coefficient 0.82, robust SE 0.09, t = 8.88); the OLS reduced-form coefficient is -0.34 (SE 0.07, t = -4.77).",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Inspect the reproduced Figure 2 added-variable plots (gph/mfg_imppw_9007long_2sls1_av.gph for Panel A first stage; gph/mfg_imppw_9007long_olsred_av.gph for Panel B reduced form). Confirm Panel A slope ~0.82 (t~8.88) and Panel B slope ~-0.34 (t~-4.77). N = 722.",
+      "paper_value": {
+        "first_stage_coef": 0.82,
+        "first_stage_se": 0.09,
+        "first_stage_t": 8.88,
+        "reduced_form_coef": -0.34,
+        "reduced_form_se": 0.07,
+        "reduced_form_t": -4.77
+      },
+      "units": "dimensionless (first stage); percentage points per $1,000 (reduced form)",
+      "expected_output_file": "gph/mfg_imppw_9007long_2sls1_av.gph",
+      "provenance": {
+        "section": "III",
+        "page": 2133,
+        "quote": "A $1,000 predicted increase in import exposure per CZ worker corresponds to a $815 increase in measured exposure per CZ worker."
+      },
+      "notes": "Figure 2 Panels A and B."
+    },
+    {
+      "id": "C10",
+      "description": "Robustness of the manufacturing coefficient to dropping industries: dropping steel/flat-glass/cement changes -0.60 to -0.57; dropping computers raises it to -0.68; dropping apparel/footwear/textiles reduces it to -0.51.",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Check the robustness/untabulated results in the analysis log (log/czone_analysis_ipw_final.log). Confirm the three re-estimated column-6 coefficients: ~-0.57, ~-0.68, ~-0.51 for the respective industry-drop exercises. All remain highly significant.",
+      "paper_value": {
+        "drop_construction_inputs": -0.57,
+        "drop_computers": -0.68,
+        "drop_apparel_footwear_textiles": -0.51
+      },
+      "units": "percentage points per $1,000 import exposure per worker",
+      "provenance": {
+        "section": "III.A",
+        "page": 2138,
+        "quote": "has minimal effect on the coefficient estimate for import exposure, reducing it from \u22120.60 to \u22120.57 ... Dropping computers raises the coefficient estimate on import exposure to \u22120.68 ... reduces the import exposure coefficient modestly to \u22120.51."
+      },
+      "notes": "Untabulated in the paper; may appear in the analysis log."
+    },
+    {
+      "id": "C11",
+      "description": "Import exposure has no robust effect on total CZ working-age population; the fully-controlled 2SLS estimate is -0.050 (SE 0.746) log points per $1,000, statistically insignificant across education and age groups.",
+      "type": "table",
+      "tier": "supporting",
+      "verification": "Read log/tab_ipw_pop.scsv (Table 4). Compare Panel A (no controls) and Panel C (full controls) coefficients on import exposure across the six columns. In Panel C all estimates should be small and statistically insignificant, supporting the 'no population mobility response' finding.",
+      "paper_value": {
+        "columns": [
+          "All",
+          "College",
+          "Noncollege",
+          "Age 16-34",
+          "Age 35-49",
+          "Age 50-64"
+        ],
+        "rows": [
+          {
+            "label": "Panel A (no controls) coef",
+            "values": [
+              -1.031,
+              -0.36,
+              -1.097,
+              -1.299,
+              -0.615,
+              -1.127
+            ]
+          },
+          {
+            "label": "Panel C (full controls) coef",
+            "values": [
+              -0.05,
+              -0.026,
+              -0.047,
+              -0.138,
+              0.367,
+              -0.138
+            ]
+          }
+        ]
+      },
+      "units": "log points per $1,000 import exposure per worker",
+      "expected_output_file": "log/tab_ipw_pop.scsv",
+      "provenance": {
+        "section": "IV.A",
+        "page": 2142,
+        "quote": "in specifications that further include the full set of controls from Table 3, we find no significant effect of import shocks on local population size."
+      },
+      "notes": "Table 4. Null result on migration/population is important for the local-labor-market interpretation."
+    },
+    {
+      "id": "C12",
+      "description": "A $1,000 import shock reduces manufacturing employment counts by ~4.2 log points and raises unemployment and non-participation counts by 4.9 and 2.1 percent, with SSDI recipients rising 1.47 log points (Table 5 panel A).",
+      "type": "table",
+      "tier": "supporting",
+      "verification": "Read log/tab_ipw_empl.scsv (Table 5). In panel A (log-count columns 1-5: lnchg_n~_mfg, lnchg_n~nmfg, lnchg_no_u~l, lnchg_no_n~f, lnchg_~swkrs) confirm coefficients ~-4.231, -0.274, 4.921, 2.058, 1.466 with the stated SEs.",
+      "paper_value": {
+        "columns": [
+          "Mfg emp",
+          "Non-mfg emp",
+          "Unemp",
+          "NILF",
+          "SSDI receipt"
+        ],
+        "rows": [
+          {
+            "label": "Panel A: 100 x log change in population counts (coef)",
+            "values": [
+              -4.231,
+              -0.274,
+              4.921,
+              2.058,
+              1.466
+            ]
+          },
+          {
+            "label": "standard error",
+            "values": [
+              1.047,
+              0.651,
+              1.128,
+              1.08,
+              0.557
+            ]
+          }
+        ]
+      },
+      "units": "log points (x100) per $1,000 import exposure per worker",
+      "expected_output_file": "log/tab_ipw_empl.scsv",
+      "provenance": {
+        "section": "IV.A",
+        "page": 2143,
+        "quote": "TABLE 5\u2014IMPORTS FROM CHINA AND EMPLOYMENT STATUS OF WORKING-AGE POPULATION WITHIN CZS"
+      },
+      "notes": "Table 5 panel A."
+    },
+    {
+      "id": "C13",
+      "description": "In population-share terms (Table 5 panel B), a $1,000 import shock lowers the manufacturing employment share by 0.596 pp and non-mfg by 0.178 pp, raises unemployment share by 0.221 pp and labor-force nonparticipation by 0.553 pp, and raises SSDI receipt by 0.076 pp.",
+      "type": "table",
+      "tier": "headline",
+      "verification": "Read log/tab_ipw_empl.scsv (Table 5 panel B), share columns (d_sh_em~_mfg, d_sh_em~nmfg, d_sh_unempl, d_sh_nilf, d_sh_ssadi~s). Confirm coefficients ~-0.596, -0.178, 0.221, 0.553, 0.076. The sum of the first two (~-0.77) is the emp/pop reduction; ~1/4 accrues to unemployment (0.22) and ~3/4 to nonparticipation (0.55).",
+      "paper_value": {
+        "columns": [
+          "Mfg emp",
+          "Non-mfg emp",
+          "Unemp",
+          "NILF",
+          "SSDI receipt"
+        ],
+        "rows": [
+          {
+            "label": "Panel B all education (coef)",
+            "values": [
+              -0.596,
+              -0.178,
+              0.221,
+              0.553,
+              0.076
+            ]
+          },
+          {
+            "label": "standard error",
+            "values": [
+              0.099,
+              0.137,
+              0.058,
+              0.15,
+              0.028
+            ]
+          }
+        ]
+      },
+      "units": "percentage points per $1,000 import exposure per worker",
+      "expected_output_file": "log/tab_ipw_empl.scsv",
+      "provenance": {
+        "section": "IV.A",
+        "page": 2144,
+        "quote": "a $1,000 per worker import shock increases the number of unemployed and nonparticipating individuals by 4.9 and 2.1 percent, respectively ... reduces its employment to population rate by 0.77 percentage points."
+      },
+      "notes": "Table 5 panel B. 9.9% of employment losers (0.076/0.77) take up SSDI."
+    },
+    {
+      "id": "C14",
+      "description": "Effects are much larger for noncollege adults: a $1,000 import shock reduces the noncollege net employment-to-population rate by ~1.11 pp versus ~0.42 pp for college adults, and reduces noncollege nonmanufacturing employment share by a significant 0.531 pp.",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Read log/tab_ipw_empl.scsv (Table 5 panel B, college vs noncollege rows). Noncollege nonmanufacturing share coefficient (d_sh_empl_.. noncollege) should be ~-0.531 (SE 0.203). Confirm the derived net emp/pop reductions of ~-0.42 (college) and ~-1.11 (noncollege) from summing mfg + nonmfg share coefficients within each education group.",
+      "paper_value": {
+        "college_emp_pop_pp": -0.42,
+        "noncollege_emp_pop_pp": -1.11,
+        "noncollege_nonmfg_share_pp": -0.531
+      },
+      "units": "percentage points per $1,000 import exposure per worker",
+      "expected_output_file": "log/tab_ipw_empl.scsv",
+      "provenance": {
+        "section": "IV.A",
+        "page": 2145,
+        "quote": "a $1,000 import exposure shock reduces the employment to population rate of college adults by 0.42 percentage points and of noncollege adults by 1.11 percentage points\u2014which is nearly three times as large."
+      },
+      "notes": "Table 5 panel B education splits."
+    },
+    {
+      "id": "C15",
+      "description": "A $1,000 per worker increase in Chinese import exposure reduces average log weekly earnings in a CZ by 0.759 log points (all workers), with -0.892 for males and -0.614 for females.",
+      "type": "table",
+      "tier": "supporting",
+      "verification": "Read log/tab_ipw_wage.scsv (Table 6). Confirm the d_t~eusch_pw coefficients: all/male/female ~-0.759/-0.892/-0.614 (panel A), college ~-0.757/-0.991/-0.525 (panel B), noncollege ~-0.814/-0.703/-1.116 (panel C).",
+      "paper_value": {
+        "columns": [
+          "All workers",
+          "Males",
+          "Females"
+        ],
+        "rows": [
+          {
+            "label": "Panel A all education (coef)",
+            "values": [
+              -0.759,
+              -0.892,
+              -0.614
+            ]
+          },
+          {
+            "label": "standard error",
+            "values": [
+              0.253,
+              0.294,
+              0.237
+            ]
+          },
+          {
+            "label": "Panel B college (coef)",
+            "values": [
+              -0.757,
+              -0.991,
+              -0.525
+            ]
+          },
+          {
+            "label": "Panel C noncollege (coef)",
+            "values": [
+              -0.814,
+              -0.703,
+              -1.116
+            ]
+          }
+        ]
+      },
+      "units": "log points per $1,000 import exposure per worker",
+      "expected_output_file": "log/tab_ipw_wage.scsv",
+      "provenance": {
+        "section": "IV.B",
+        "page": 2146,
+        "quote": "A $1,000 per worker increase in a CZ's exposure to Chinese imports during a decade is estimated to reduce mean weekly earnings by \u22120.76 log points."
+      },
+      "notes": "Table 6."
+    },
+    {
+      "id": "C16",
+      "description": "Wage declines are concentrated outside manufacturing: import exposure has no significant effect on manufacturing wages (coef 0.150, insignificant) but reduces nonmanufacturing wages by 0.761 log points per $1,000.",
+      "type": "table",
+      "tier": "supporting",
+      "verification": "Read log/tab_ipw_mfgnmfg.scsv (Table 7). In panel B (change in average log wage), the manufacturing 'all workers' coefficient should be ~0.150 (insignificant) and the nonmanufacturing 'all workers' coefficient ~-0.761 (SE 0.260, significant). Panel A gives the corresponding employment-count effects (~-4.231 mfg, ~-0.274 nonmfg).",
+      "paper_value": {
+        "columns": [
+          "Mfg wage (all)",
+          "Nonmfg wage (all)"
+        ],
+        "rows": [
+          {
+            "label": "Panel B change in avg log wage (coef)",
+            "values": [
+              0.15,
+              -0.761
+            ]
+          },
+          {
+            "label": "standard error",
+            "values": [
+              0.482,
+              0.26
+            ]
+          }
+        ]
+      },
+      "units": "log points per $1,000 import exposure per worker",
+      "expected_output_file": "log/tab_ipw_mfgnmfg.scsv",
+      "provenance": {
+        "section": "IV.B",
+        "page": 2147,
+        "quote": "Nonmanufacturing wages fall by 0.76 log points for a $1,000 increase in Chinese import exposure per worker, an effect that is comparable for college and noncollege workers."
+      },
+      "notes": "Table 7."
+    },
+    {
+      "id": "C17",
+      "description": "A $1,000 increase in Chinese import exposure raises total individual transfer receipts per capita by 1.01 log points ($57.73 per capita), with the largest proportionate increase for Trade Adjustment Assistance (14.41 log points) and large significant increases for SSA disability (1.96 log / $8.40) and medical benefits ($18.27).",
+      "type": "table",
+      "tier": "headline",
+      "verification": "Read log/tab_ipw_trans.scsv (Table 8). Panel A log-change columns: total ~1.01, TAA ~14.41, unemployment ~3.46, SSA retirement ~0.72, SSA disability ~1.96, medical ~0.54, fed income assist ~3.04, educ/training ~2.78. Panel B dollar-change: total ~57.73, SSA disability ~8.40, medical ~18.27. Note TAA dollar increase is a negligible $0.23.",
+      "paper_value": {
+        "columns": [
+          "Total transfers",
+          "TAA",
+          "Unemployment",
+          "SSA retirement",
+          "SSA disability",
+          "Medical",
+          "Fed income assist",
+          "Educ/training"
+        ],
+        "rows": [
+          {
+            "label": "Panel A log change per capita (coef)",
+            "values": [
+              1.013,
+              14.406,
+              3.46,
+              0.717,
+              1.96,
+              0.542,
+              3.039,
+              2.779
+            ]
+          },
+          {
+            "label": "Panel B dollar change per capita (coef)",
+            "values": [
+              57.73,
+              0.234,
+              3.421,
+              9.998,
+              8.395,
+              18.27,
+              7.202,
+              3.709
+            ]
+          }
+        ]
+      },
+      "units": "log points and 2007 US$ per capita, per $1,000 import exposure per worker",
+      "expected_output_file": "log/tab_ipw_trans.scsv",
+      "provenance": {
+        "section": "V",
+        "page": 2149,
+        "quote": "We estimate that a $1,000 increase in Chinese import exposure leads to a rise in transfer payments of $58 per capita (1.01 log points in the logarithmic specification). Logically, the largest proportionate increase is found for Trade Adjustment Assistance (TAA)."
+      },
+      "notes": "Table 8. SSDI dollar increase is >30x the TAA dollar increase."
+    },
+    {
+      "id": "C18",
+      "description": "A $1,000 increase in import exposure lowers CZ average household wage/salary income per working-age adult by 2.14% ($549) and total per-capita household income by 1.48% ($492.6), while social-security+AFDC income rises 2.12% ($17.3).",
+      "type": "table",
+      "tier": "supporting",
+      "verification": "Read log/tab_ipw_hhinc_pw.scsv (Table 9). Panel A percent-change coefficients: total ~-1.48, wage-salary ~-2.14, business/investment ~-0.51 (ns), SocSec+AFDC ~+2.12, median total ~-1.73, median wage-salary ~-2.32. Panel B dollar-change: total ~-492.6, wage-salary ~-549.3, SocSec+AFDC ~+17.3.",
+      "paper_value": {
+        "columns": [
+          "Total",
+          "Wage-salary",
+          "Business invest",
+          "SocSec + AFDC",
+          "Median HH total",
+          "Median HH wage-salary"
+        ],
+        "rows": [
+          {
+            "label": "Panel A percent change (coef)",
+            "values": [
+              -1.48,
+              -2.14,
+              -0.51,
+              2.12,
+              -1.73,
+              -2.32
+            ]
+          },
+          {
+            "label": "Panel B dollar change (coef)",
+            "values": [
+              -492.6,
+              -549.3,
+              40.1,
+              17.3,
+              -439.9,
+              -476.5
+            ]
+          }
+        ]
+      },
+      "units": "percent and 2007 US$ per working-age adult, per $1,000 import exposure per worker",
+      "expected_output_file": "log/tab_ipw_hhinc_pw.scsv",
+      "provenance": {
+        "section": "V",
+        "page": 2150,
+        "quote": "a $1,000 increase in a CZ's import exposure leads to a fall in CZ average household wage and salary income per working-age adult of 2.14 percent (column 2 of panel A) or about $549 per working-age adult and year (panel B)."
+      },
+      "notes": "Table 9."
+    },
+    {
+      "id": "C19",
+      "description": "Alternative trade-exposure measures (Table 10) yield manufacturing emp/pop coefficients of -0.60 (gross baseline), -0.51 (domestic+international exposure), -0.49 (net of intermediate inputs), -0.45 (net imports), -0.29 (gravity residual), and -0.57 (factor content).",
+      "type": "table",
+      "tier": "supporting",
+      "verification": "Read the produced Table 10 outputs (log/tab_expoff_iv.scsv, tab_intermediates.scsv, tab_nipw_iv.scsv, tab_nipw_grav.scsv, tab_ifactor_net_io.scsv). Confirm the manufacturing emp/pop coefficients in column 1 across panels A-F (~-0.60, -0.51, -0.49, -0.45, -0.29, -0.57) and the sign/significance pattern for nonmfg wages, transfers, and household wage income.",
+      "paper_value": {
+        "columns": [
+          "Mfg emp/pop",
+          "Nonmfg emp/pop",
+          "Mfg log wage",
+          "Nonmfg log wage",
+          "log transfers",
+          "Avg log HH wage inc"
+        ],
+        "rows": [
+          {
+            "label": "A baseline gross imports",
+            "values": [
+              -0.6,
+              -0.18,
+              0.15,
+              -0.76,
+              1.01,
+              -2.14
+            ]
+          },
+          {
+            "label": "B domestic+intl exposure",
+            "values": [
+              -0.51,
+              -0.12,
+              0.16,
+              -0.6,
+              0.87,
+              -1.77
+            ]
+          },
+          {
+            "label": "C net of intermediate inputs",
+            "values": [
+              -0.49,
+              -0.01,
+              0.71,
+              -0.41,
+              0.84,
+              -1.23
+            ]
+          },
+          {
+            "label": "D net imports",
+            "values": [
+              -0.45,
+              -0.09,
+              0.46,
+              -0.47,
+              0.73,
+              -1.39
+            ]
+          },
+          {
+            "label": "E gravity residual (OLS)",
+            "values": [
+              -0.29,
+              -0.03,
+              0.04,
+              -0.26,
+              0.53,
+              -0.78
+            ]
+          },
+          {
+            "label": "F factor content of net imports",
+            "values": [
+              -0.57,
+              -0.12,
+              0.59,
+              -0.66,
+              0.81,
+              -1.7
+            ]
+          }
+        ]
+      },
+      "units": "percentage points / log points per unit exposure, per $1,000 import exposure per worker",
+      "provenance": {
+        "section": "VI",
+        "page": 2152,
+        "quote": "TABLE 10\u2014ADDING EXPOSURE TO INDIRECT IMPORT COMPETITION OR EXPOSURE TO NET IMPORTS, 1990\u20132007: 2SLS AND OLS ESTIMATES"
+      },
+      "notes": "Table 10 panels A-F. Panel A repeats the baseline results from earlier tables."
+    },
+    {
+      "id": "C20",
+      "description": "Deadweight loss from trade-induced take-up of government transfers is estimated at $13 and $21 per capita in the two periods (range $22-$44 per capita over the full sample), applying a 40-cent-on-the-dollar marginal excess burden.",
+      "type": "scalar_range",
+      "tier": "supporting",
+      "verification": "Derived quantity. Verify from the analysis log that supply-attributable transfer increases of $32 and $51 per capita (per the two periods) times the 0.40 marginal excess burden yield ~$13 and ~$21 DWL, with a one-SE band giving $22-$44 for the full period.",
+      "paper_value": {
+        "dwl_1990-2000": 13,
+        "dwl_2000-2007": 21,
+        "full_period_range": [
+          22,
+          44
+        ]
+      },
+      "units": "2007 US$ per capita",
+      "provenance": {
+        "section": "VII",
+        "page": 2156,
+        "quote": "the increase in transfers resulting from import exposure implies an increase in annual deadweight loss of $13 and $21 per capita in these two periods, or $33 in total ... we estimate the range of deadweight losses during our sample period at $22 to $44 per capita."
+      },
+      "notes": "Section VII."
+    },
+    {
+      "id": "C21",
+      "description": "Deadweight loss from trade-induced involuntary labor-force nonparticipation is estimated at $43 and $69 per capita in the two periods, with a full-period range of $87 to $137 per capita.",
+      "type": "scalar_range",
+      "tier": "supporting",
+      "verification": "Derived from equation (8) using the wage-effect coefficient (-0.76), the employment-rate coefficient (-0.77), Chetty (2012) elasticities (eta_e=0.25, eta_h=0.50), a 48% supply share, and midpoint income of $32,033. Verify the analysis log/calculation reproduces the per-period DWL of $43 and $69 and the full-period band $87-$137.",
+      "paper_value": {
+        "dwl_1990-2000": 43,
+        "dwl_2000-2007": 69,
+        "full_period_range": [
+          87,
+          137
+        ]
+      },
+      "units": "2007 US$ per capita",
+      "provenance": {
+        "section": "VII",
+        "page": 2158,
+        "quote": "we estimate deadweight losses from involuntary unemployment of $43 and $69 per capita in the first and second periods ... we obtain a deadweight loss due to involuntary unemployment of $87 to $137 per capita for the full 1990 through 2007 interval."
+      },
+      "notes": "Section VII, equation (8). Involuntary share of employment reduction is ~three-quarters (0.32 and 0.52 pp)."
+    },
+    {
+      "id": "C22",
+      "description": "US goods imports from China rose 1,156% from 1991 to 2007 (from $26.3B to $330.0B in 2007 US$), while US exports to China grew 456% (from $10.3B to $57.4B); China's share of US manufacturing imports from low-income countries rose from 77.4% to 89.8%.",
+      "type": "table",
+      "tier": "supporting",
+      "verification": "Read log/import_stats_final.log and the Table 1 output (tab-fig/ADH-ChinaSyndrome-AER-2011-1050-Tables.xls). Confirm US imports from China 26.3/121.6/330.0 ($B) with 1156% growth, exports 10.3/23.0/57.4 with 456% growth, and China's share of US low-income manufacturing imports rising 77.4%->89.8% (and 75.4%->89.5% for other high-income countries).",
+      "paper_value": {
+        "columns": [
+          "1991/1992",
+          "2000",
+          "2007",
+          "Growth 1991-2007 (%)"
+        ],
+        "rows": [
+          {
+            "label": "US imports from China ($B)",
+            "values": [
+              26.3,
+              121.6,
+              330.0,
+              1156
+            ]
+          },
+          {
+            "label": "US exports to China ($B)",
+            "values": [
+              10.3,
+              23.0,
+              57.4,
+              456
+            ]
+          },
+          {
+            "label": "China share of US low-income mfg imports (%)",
+            "values": [
+              77.4,
+              null,
+              89.8,
+              null
+            ]
+          }
+        ]
+      },
+      "units": "billions of 2007 US$; percent",
+      "expected_output_file": "log/import_stats_final.log",
+      "provenance": {
+        "section": "II / VIII",
+        "page": 2131,
+        "quote": "TABLE 1\u2014VALUE OF TRADE WITH CHINA FOR THE US AND OTHER SELECTED HIGH-INCOME COUNTRIES ... 1,156% ... 456%"
+      },
+      "notes": "Table 1 and surrounding text (pages 2130-2131)."
+    },
+    {
+      "id": "C23",
+      "description": "US spending on Chinese goods rose from 0.6% of total US goods spending in 1991 to 4.6% in 2007, and the share of the US working-age population employed in manufacturing fell by a third, from 12.6% to 8.4%.",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Inspect the reproduced Figure 1 (gph/figure1.gph, data in dta/figure1_data.dta). Confirm the China import-penetration series rises from ~0.6% (1991) to ~4.6% (2007) with an inflection near 2001 (WTO accession), and the manufacturing employment/population series declines from ~12.6% to ~8.4%.",
+      "paper_value": {
+        "china_import_penetration_1991_pct": 0.6,
+        "china_import_penetration_2007_pct": 4.6,
+        "mfg_emp_share_1991_pct": 12.6,
+        "mfg_emp_share_2007_pct": 8.4
+      },
+      "units": "percent",
+      "expected_output_file": "gph/figure1.gph",
+      "provenance": {
+        "section": "Introduction",
+        "page": 2122,
+        "quote": "total US spending on Chinese goods rose from 0.6 percent in 1991 to 4.6 percent in 2007 (Figure 1) ... the fraction of US working-age population employed in manufacturing fell by a third, from 12.6 percent to 8.4 percent (Figure 1)."
+      },
+      "notes": "Figure 1. Import penetration = US imports from China / (US gross output + imports - exports)."
+    },
+    {
+      "id": "C24",
+      "description": "In the median commuting zone, the ten-year-equivalent growth of Chinese imports per worker was about $890 during 1990-2000 and $2,110 during 2000-2007; at the 75th vs 25th percentile the increase was roughly twice as large in both periods.",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Check the reproduced Appendix Table 1 (descriptive statistics of import exposure growth per worker across CZs). Confirm median (50th percentile) ten-year-equivalent exposure growth ~0.89 (kUSD) for 1990-2000 and ~2.11 for 2000-2007, and 75th/25th percentiles of ~1.32/0.62 and ~3.11/1.60 respectively.",
+      "paper_value": {
+        "median_1990-2000": 890,
+        "median_2000-2007": 2110,
+        "p75_1990-2000": 1320,
+        "p25_1990-2000": 620,
+        "p75_2000-2007": 3110,
+        "p25_2000-2007": 1600
+      },
+      "units": "2007 US$ per worker (ten-year equivalent)",
+      "provenance": {
+        "section": "II",
+        "page": 2132,
+        "quote": "the ten-year equivalent growth of Chinese imports amounted to $890 per worker during 1990 through 2000, and to $2,110 per worker during 2000 through 2007"
+      },
+      "notes": "Appendix Table 1 panel A."
+    },
+    {
+      "id": "C25",
+      "description": "China accounted for about three-quarters of the worldwide growth in low- and middle-income-country manufacturing value added between 1992 and 2007, and had average annual manufacturing TFP growth of 8.0% over 1998-2007 versus 3.9% for the US.",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "These are cited comparison statistics (Brandt, Van Biesebroeck, and Zhang 2012; BLS) motivating the supply-shock interpretation. Not directly reproduced by the pipeline; verify only that any reproduced descriptive text/appendix matches 8.0% vs 3.9%. Low priority for numerical replication.",
+      "paper_value": {
+        "china_tfp_growth_pct": 8.0,
+        "us_tfp_growth_pct": 3.9,
+        "china_share_low_mid_income_va_growth": "three-quarters"
+      },
+      "units": "percent (annual TFP growth)",
+      "provenance": {
+        "section": "II",
+        "page": 2130,
+        "quote": "China had average annual TFP growth in manufacturing of 8.0 percent, compared to the Bureau of Labor Statistics' estimate ... of 3.9 percent for the United States."
+      },
+      "notes": "Background magnitude; largely from external sources, included as a supporting descriptive claim."
+    },
+    {
+      "id": "C26",
+      "description": "Figure 2 reduced-form and first-stage added-variable plots show a substantial reduction in manufacturing employment in CZs facing large increases in Chinese import exposure (downward-sloping reduced form) with a strong positive first stage.",
+      "type": "figure",
+      "tier": "supporting",
+      "verification": "Inspect the reproduced Figure 2 graphs (gph/mfg_imppw_9007long_2sls1_av.gph for Panel A first stage, gph/mfg_imppw_9007long_olsred_av.gph for Panel B reduced form). Panel A should be an upward-sloping scatter/fit (predicted vs measured exposure, slope ~0.82); Panel B a downward-sloping scatter of % change in manufacturing emp vs predicted exposure (slope ~-0.34). N = 722, controlling for start-of-period manufacturing share.",
+      "expected_output_file": "gph/mfg_imppw_9007long_olsred_av.gph",
+      "provenance": {
+        "section": "III",
+        "page": 2134,
+        "quote": "FIGURE 2. CHANGE IN IMPORT EXPOSURE PER WORKER AND DECLINE OF MANUFACTURING EMPLOYMENT: ADDED VARIABLE PLOTS OF FIRST STAGE AND REDUCED FORM ESTIMATES"
+      },
+      "notes": "Figure 2. Qualitative structure plus slope check overlaps with C9."
+    },
+    {
+      "id": "C27",
+      "description": "Column-2 (manufacturing-share-controlled) estimate implies that a CZ at the 75th percentile of import exposure saw its manufacturing employment share decline 0.65 percentage points more than a CZ at the 25th percentile between 2000 and 2007.",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Derived from Table 3 column 2 coefficient (-0.610) times the 2000-2007 interquartile exposure difference of ~1.06 (kUSD): 1.06 x -0.610 = -0.65. Confirm the column-2 coefficient in log/tab_ipw_manuf_2.scsv reproduces ~-0.610 and that the interquartile difference (Appendix Table 1: (3.11-1.60) x 0.7 = 1.06) gives -0.65.",
+      "paper_value": -0.65,
+      "units": "percentage points (75th vs 25th percentile differential, 2000-2007)",
+      "expected_output_file": "log/tab_ipw_manuf_2.scsv",
+      "provenance": {
+        "section": "III.A",
+        "page": 2136,
+        "quote": "the column 2 point estimate implies that the share of manufacturing employees in the working-age population of a CZ at the 75th percentile of import exposure declined by \u22120.65 percentage points more than in a CZ at the 25th percentile of import exposure between 2000 and 2007."
+      },
+      "notes": "Table 3 column 2 magnitude interpretation."
+    },
+    {
+      "id": "C28",
+      "description": "The point estimate on total per-capita transfers per $1,000 of import exposure per worker is $58; a re-estimate normalizing by total workers rather than total residents gives a coefficient of $113.18 (SE 41.53).",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Read log/tab_ipw_trans.scsv (Table 8 panel B, total transfers dollar change column): coefficient ~57.73 (SE 18.41). Confirm the alternate per-worker normalization coefficient of ~113.18 (SE ~41.53) appears in the analysis log.",
+      "paper_value": {
+        "per_resident": 57.73,
+        "per_worker": 113.18
+      },
+      "units": "2007 US$ per capita/worker, per $1,000 import exposure per worker",
+      "expected_output_file": "log/tab_ipw_trans.scsv",
+      "provenance": {
+        "section": "V",
+        "page": 2148,
+        "quote": "If we instead perform a 2SLS estimate of the effect of imports per worker on total transfer payments per capita divided by total workers, we obtain a coefficient of 113.18 (standard error 41.53)."
+      },
+      "notes": "The per-worker coefficient is roughly double the per-resident one because US employment/total population is ~50%."
+    }
+  ]
+}

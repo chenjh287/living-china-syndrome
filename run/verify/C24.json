@@ -1,0 +1,31 @@
+{
+  "claim_id": "C24",
+  "status": "match",
+  "structured": {
+    "replicated_value": {
+      "median_1990-2000": 889,
+      "median_2000-2007": 2113,
+      "p25_1990-2000": 623,
+      "p25_2000-2007": 1599,
+      "p75_1990-2000": 1316,
+      "p75_2000-2007": 3114
+    },
+    "paper_value": {
+      "median_1990-2000": 890,
+      "median_2000-2007": 2110,
+      "p25_1990-2000": 620,
+      "p25_2000-2007": 1600,
+      "p75_1990-2000": 1320,
+      "p75_2000-2007": 3110
+    },
+    "uncertainty": null,
+    "value_found": true
+  },
+  "rationale": "The reproduced Appendix Table 1 percentiles (outputs/apptab1_importgrowth.csv) give weighted percentiles of ten-year-equivalent d_tradeusch_pw (in kUSD/worker): for 1990 (1990-2000) p25=0.6231, p50=0.8887, p75=1.3155; for 2000 (2000-2007) p25=1.5994, p50=2.1129, p75=3.1138. Converting to 2007 US$ per worker: median $889/$2113, p25 $623/$1599, p75 $1316/$3114. Each is within ~1% of the paper values ($890/$2110 median, $620/$1600 p25, $1320/$3110 p75), well inside the 5% match band. The 75-vs-25 spread is roughly twice the median in both periods (1.32/0.62 vs 0.89; 3.11/1.60 vs 2.11), consistent with the claim. Step 7 (replication_log.json) notes an EXACT match to the authors' shipped Stata 'summ [aw], detail' in czone_analysis_ipw_final.log; no fixes were applied (code_modified=false), and fix_severity shows no critical fix in this path.",
+  "evidence_refs": [
+    "output/replication/codebase/outputs/apptab1_importgrowth.csv",
+    "output/replication/replication_log.json",
+    "output/analyze/replication_plan.json"
+  ],
+  "graded_by": "agent"
+}

@@ -1,0 +1,179 @@
+{
+  "claim_id": "C19",
+  "status": "partial",
+  "structured": {
+    "replicated_table": {
+      "columns": [
+        "Mfg emp/pop",
+        "Nonmfg emp/pop",
+        "Mfg log wage",
+        "Nonmfg log wage",
+        "log transfers",
+        "Avg log HH wage inc"
+      ],
+      "rows": [
+        {
+          "label": "A baseline gross imports",
+          "values": [
+            -0.596,
+            -0.178,
+            0.151,
+            -0.761,
+            1.013,
+            -2.142
+          ]
+        },
+        {
+          "label": "B domestic+intl exposure",
+          "values": [
+            -0.415,
+            -0.063,
+            0.199,
+            -0.429,
+            0.732,
+            -1.375
+          ]
+        },
+        {
+          "label": "C net of intermediate inputs",
+          "values": [
+            -0.491,
+            -0.01,
+            0.707,
+            -0.414,
+            0.842,
+            -1.229
+          ]
+        },
+        {
+          "label": "D net imports",
+          "values": [
+            -0.453,
+            -0.093,
+            0.455,
+            -0.473,
+            0.729,
+            -1.388
+          ]
+        },
+        {
+          "label": "E gravity residual (OLS)",
+          "values": [
+            -0.289,
+            -0.034,
+            0.036,
+            -0.261,
+            0.526,
+            -0.777
+          ]
+        },
+        {
+          "label": "F factor content of net imports",
+          "values": [
+            -0.571,
+            -0.119,
+            0.592,
+            -0.657,
+            0.806,
+            -1.698
+          ]
+        }
+      ]
+    },
+    "paper_table": {
+      "columns": [
+        "Mfg emp/pop",
+        "Nonmfg emp/pop",
+        "Mfg log wage",
+        "Nonmfg log wage",
+        "log transfers",
+        "Avg log HH wage inc"
+      ],
+      "rows": [
+        {
+          "label": "A baseline gross imports",
+          "values": [
+            -0.6,
+            -0.18,
+            0.15,
+            -0.76,
+            1.01,
+            -2.14
+          ]
+        },
+        {
+          "label": "B domestic+intl exposure",
+          "values": [
+            -0.51,
+            -0.12,
+            0.16,
+            -0.6,
+            0.87,
+            -1.77
+          ]
+        },
+        {
+          "label": "C net of intermediate inputs",
+          "values": [
+            -0.49,
+            -0.01,
+            0.71,
+            -0.41,
+            0.84,
+            -1.23
+          ]
+        },
+        {
+          "label": "D net imports",
+          "values": [
+            -0.45,
+            -0.09,
+            0.46,
+            -0.47,
+            0.73,
+            -1.39
+          ]
+        },
+        {
+          "label": "E gravity residual (OLS)",
+          "values": [
+            -0.29,
+            -0.03,
+            0.04,
+            -0.26,
+            0.53,
+            -0.78
+          ]
+        },
+        {
+          "label": "F factor content of net imports",
+          "values": [
+            -0.57,
+            -0.12,
+            0.59,
+            -0.66,
+            0.81,
+            -1.7
+          ]
+        }
+      ]
+    },
+    "value_found": true
+  },
+  "rationale": "All five Table 10 output files were produced and their panel assignments confirmed from the do-file (do/czone_analysis_ipw_final.do, lines 284-290 d_tradex_usch_pw -> tab_expoff_iv = Panel B; 297+ d_tradeusch_netinput_pw -> tab_intermediates = Panel C; tab_nipw_iv = Panel D; tab_nipw_grav = Panel E gravity OLS; tab_ifactor_net_io = Panel F). Panel A (baseline) is the full-spec d_tradeusch_pw row assembled from tab_ipw_manuf_2.scsv/tab_ipw_empl.scsv (Mfg emp/pop -0.596, Nonmfg -0.178), tab_ipw_mfgnmfg.scsv (Mfg log wage 0.151, Nonmfg log wage -0.761), tab_ipw_trans.scsv (log transfers 1.013), tab_ipw_hhinc_pw.scsv (Avg log HH wage inc -2.142) -- every cell within <1% of the paper. Panels C (-0.491/-0.010/0.707/-0.414/0.842/-1.229), D (-0.453/-0.093/0.455/-0.473/0.729/-1.388), E (-0.289/-0.034/0.036/-0.261/0.526/-0.777) and F (-0.571/-0.119/0.592/-0.657/0.806/-1.698) each reproduce their paper rows within a few percent, and the sign/significance pattern (nonmfg wages negative, transfers positive, HH wage income negative) holds throughout. The lone exception is Panel B (tab_expoff_iv, domestic+intl exposure): its Mfg emp/pop coefficient is -0.415 vs the paper's -0.51 (18.6% relative error), and its entire row deviates by ~16-47% (Nonmfg emp/pop -0.063 vs -0.12; Mfg log wage 0.199 vs 0.16; Nonmfg log wage -0.429 vs -0.6; transfers 0.732 vs 0.87; HH wage inc -1.375 vs -1.77). Since only a trivial matplotlib install was applied (assess/fix_severity.json: no analysis-code changes), these are the authors' code as-shipped. With 30 of 36 cells matching within ~5% but all 6 Panel B cells landing in the 15-30%+ band, this is a partial match, not a full one.",
+  "evidence_refs": [
+    "replication/codebase/log/tab_expoff_iv.scsv",
+    "replication/codebase/log/tab_intermediates.scsv",
+    "replication/codebase/log/tab_nipw_iv.scsv",
+    "replication/codebase/log/tab_nipw_grav.scsv",
+    "replication/codebase/log/tab_ifactor_net_io.scsv",
+    "replication/codebase/log/tab_ipw_manuf_2.scsv",
+    "replication/codebase/log/tab_ipw_empl.scsv",
+    "replication/codebase/log/tab_ipw_mfgnmfg.scsv",
+    "replication/codebase/log/tab_ipw_trans.scsv",
+    "replication/codebase/log/tab_ipw_hhinc_pw.scsv",
+    "replication/codebase/do/czone_analysis_ipw_final.do",
+    "assess/fix_severity.json"
+  ],
+  "graded_by": "agent"
+}

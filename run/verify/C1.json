@@ -1,0 +1,15 @@
+{
+  "claim_id": "C1",
+  "status": "match",
+  "structured": {
+    "replicated_value": -0.596,
+    "paper_value": -0.596,
+    "uncertainty": 0.099,
+    "value_found": true
+  },
+  "rationale": "The produced table log/tab_ipw_manuf_2.scsv (Table 3, fully-controlled specification) shows in column (6) the coefficient on the import exposure regressor d_t~eusch_pw = -0.596 with standard error (0.099). This is an exact match to the paper value of -0.596 (SE 0.099), well within the \u00b11\u03c3 match band. The specification also matches the claim's fingerprint (N=1444, column 6 the most fully augmented model with demographic/labor-force controls including l_sh_poped~c, l_sh_popfb~n, l_sh_empl_f, l_sh_rout~33, l_task_out~e).",
+  "evidence_refs": [
+    "/workspace/output/replication/codebase/log/tab_ipw_manuf_2.scsv"
+  ],
+  "graded_by": "agent"
+}

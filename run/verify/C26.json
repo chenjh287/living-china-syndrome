@@ -1,0 +1,34 @@
+{
+  "claim_id": "C26",
+  "status": "match",
+  "structured": {
+    "file_exists": true,
+    "evidence_found": true,
+    "file_path_checked": [
+      "gph/mfg_imppw_9007long_olsred_av.gph",
+      "gph/mfg_imppw_9007long_2sls1_av.gph",
+      "outputs/fig2_reducedform_av.png",
+      "outputs/fig2_firststage_av.png"
+    ],
+    "structural_features_present": [
+      "Panel A first stage: upward-sloping added-variable scatter of change in import exposure vs predicted exposure, fitted slope=0.815 (~0.82 as claimed)",
+      "Panel B reduced form: downward-sloping added-variable scatter of % change in manufacturing employment vs predicted import exposure per worker, fitted slope=-0.340 (~-0.34 as claimed)",
+      "Scatter points with red fitted regression line and slope annotation in each panel",
+      "N=722 commuting zones, 1990-2007, controlling for start-of-period manufacturing share (l_shind_manuf_cbp)"
+    ],
+    "structural_features_missing": [
+      "Combined two-panel Figure 2 not assembled into a single file (emitted as two separate panel PNGs plus two .gph files)"
+    ],
+    "structural_match": true
+  },
+  "rationale": "Both the expected .gph file (gph/mfg_imppw_9007long_olsred_av.gph, reduced form) and its first-stage counterpart (gph/mfg_imppw_9007long_2sls1_av.gph) were produced, along with rendered PNG exports outputs/fig2_reducedform_av.png and outputs/fig2_firststage_av.png that I inspected directly. Panel A (first stage) is an upward-sloping added-variable scatter with fitted slope=0.815, matching the claimed ~0.82; Panel B (reduced form) is a downward-sloping scatter of the change in manufacturing employment against predicted import exposure with fitted slope=-0.340, matching the claimed ~-0.34. The replication_log (line 101) confirms these are exact matches to the authors' czone_plot_import_long_final.log (first stage 0.8151/se 0.0918/t 8.88; reduced form -0.3398/se 0.0712/t -4.77), with N=722 CZs (line 14) and controls including start-of-period manufacturing share (l_shind_manuf_cbp). The qualitative structure (strong positive first stage, substantial decline in manufacturing employment with rising exposure) and quantitative slopes both match. The only minor deviation is that the two panels were emitted separately rather than assembled into a single combined Figure 2 file, which does not affect the substantive match.",
+  "evidence_refs": [
+    "output/replication/codebase/gph/mfg_imppw_9007long_olsred_av.gph",
+    "output/replication/codebase/gph/mfg_imppw_9007long_2sls1_av.gph",
+    "output/replication/codebase/outputs/fig2_reducedform_av.png",
+    "output/replication/codebase/outputs/fig2_firststage_av.png",
+    "output/replication/codebase/repro/figure2.py",
+    "output/replication/replication_log.json"
+  ],
+  "graded_by": "agent"
+}

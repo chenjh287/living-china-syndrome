@@ -1,0 +1,8 @@
+{
+  "claim_id": "C25",
+  "status": "out_of_scope",
+  "structured": {},
+  "rationale": "No plan step targeted this claim; treated as out_of_scope (excluded from the score, not a failure): External cited statistics (China's ~3/4 share of LMIC manufacturing-VA growth; 8.0% vs 3.9% TFP growth) drawn from Brandt et al. and BLS, not from this replication package's data or code.",
+  "evidence_refs": [],
+  "graded_by": "deterministic"
+}

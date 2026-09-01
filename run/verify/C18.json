@@ -1,0 +1,41 @@
+{
+  "claim_id": "C18",
+  "status": "match",
+  "structured": {
+    "replicated_table": {
+      "Panel A percent change (coef) | Total": -1.476,
+      "Panel A percent change (coef) | Wage-salary": -2.142,
+      "Panel A percent change (coef) | Business invest": -0.51,
+      "Panel A percent change (coef) | SocSec + AFDC": 2.119,
+      "Panel A percent change (coef) | Median HH total": -1.732,
+      "Panel A percent change (coef) | Median HH wage-salary": -2.32,
+      "Panel B dollar change (coef) | Total": -492.636,
+      "Panel B dollar change (coef) | Wage-salary": -549.332,
+      "Panel B dollar change (coef) | Business invest": 40.137,
+      "Panel B dollar change (coef) | SocSec + AFDC": 17.317,
+      "Panel B dollar change (coef) | Median HH total": -439.868,
+      "Panel B dollar change (coef) | Median HH wage-salary": -476.486
+    },
+    "paper_table": {
+      "Panel A percent change (coef) | Total": -1.48,
+      "Panel A percent change (coef) | Wage-salary": -2.14,
+      "Panel A percent change (coef) | Business invest": -0.51,
+      "Panel A percent change (coef) | SocSec + AFDC": 2.12,
+      "Panel A percent change (coef) | Median HH total": -1.73,
+      "Panel A percent change (coef) | Median HH wage-salary": -2.32,
+      "Panel B dollar change (coef) | Total": -492.6,
+      "Panel B dollar change (coef) | Wage-salary": -549.3,
+      "Panel B dollar change (coef) | Business invest": 40.1,
+      "Panel B dollar change (coef) | SocSec + AFDC": 17.3,
+      "Panel B dollar change (coef) | Median HH total": -439.9,
+      "Panel B dollar change (coef) | Median HH wage-salary": -476.5
+    },
+    "value_found": true
+  },
+  "rationale": "The evidence file log/tab_ipw_hhinc_pw.scsv (Table 9) reports coefficients on the import-exposure regressor (row 'd_t~eusch_pw'). Columns 1-6 are the percent-change specifications (Panel A) and columns 7-12 the dollar-change specifications (Panel B). Every cell matches the paper to essentially full precision: Panel A total -1.476 (paper -1.48), wage-salary -2.142 (-2.14), business/invest -0.510 (-0.51), SocSec+AFDC +2.119 (+2.12), median total -1.732 (-1.73), median wage-salary -2.320 (-2.32); Panel B total -492.636 (-492.6), wage-salary -549.332 (-549.3), business/invest +40.137 (+40.1), SocSec+AFDC +17.317 (+17.3), median total -439.868 (-439.9), median wage-salary -476.486 (-476.5). All 12 cells are well within 5% relative error (most exact to the reported rounding). fix_severity.json shows only a trivial matplotlib install with no impact on the statistical results. This is a clean match.",
+  "evidence_refs": [
+    "replication/codebase/log/tab_ipw_hhinc_pw.scsv",
+    "assess/fix_severity.json"
+  ],
+  "graded_by": "agent"
+}

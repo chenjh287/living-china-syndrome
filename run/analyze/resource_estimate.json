@@ -1,0 +1,21 @@
+{
+  "compute_class": "light",
+  "breakdown_notes": "The paper is Autor, Dorn & Hanson (2013), 'The China Syndrome: Local Labor Market Effects of Import Competition in the United States' (AER). It is a cross-sectional econometrics paper analyzing US commuting zones; the unit of analysis is 722 commuting zones x 2 time periods (N=1,444, stated explicitly in the paper: 'N = 1,444 (722 CZs x 2 time periods)'). The paper reports NO computational hardware, wall-clock time, GPU/CPU details, API usage, or runtime figures anywhere in the text, experiments, or appendix -- consistent with a 2013 applied-economics paper whose original analysis is Stata .do files reading .dta files. The replication plan reimplements the shipped Stata regressions in Python (pandas + linearmodels weighted 2SLS with state-clustered SEs). All inputs are pre-built .dta files totaling ~2.1MB on disk (largest is workfile_china.dta at 1.3MB). Every step is a small weighted 2SLS or OLS regression / summary statistic over at most ~1,444 rows -- these execute in milliseconds to a few seconds each. The plan states explicitly: 'No GPU is needed -- this is small-N commuting-zone econometrics (722 CZs x 2 periods); the RTX A6000s are irrelevant.' There are no training or ML-inference steps, no repeated runs over seeds/configs, and no external LLM API calls. Total end-to-end runtime is dominated by the one-time pip install of dependencies (pandas, numpy, scipy, linearmodels, statsmodels, openpyxl); the actual regression compute is well under 5 minutes on a single CPU core. No cost lookup is warranted (no GPU, no paid API).",
+  "needs_gpu": false,
+  "paper_reported_compute": null,
+  "paper_reported_cost_usd": null,
+  "estimated_cost_usd": 0.0,
+  "estimated_cost_source": null,
+  "dataset_size": "~2.1 MB total of pre-built Stata .dta files (workfile_china.dta 1.3MB, sic87dd_trade_data.dta 1.4MB, others smaller); analysis sample N=1,444 (722 commuting zones x 2 periods)",
+  "total_steps": 10,
+  "steps_involving_training_or_inference": 0,
+  "estimated_experiment_runs": 0,
+  "estimated_llm_calls": 0,
+  "estimated_llm_api_cost_usd": 0.0,
+  "parallelizable": false,
+  "estimated_wall_clock": "Under 5 minutes on a single CPU core (regressions run in seconds; runtime is dominated by one-time dependency install). No GPU, no network/API calls.",
+  "resource_type": "CPU-only econometrics (small-N weighted 2SLS with cluster-robust SEs)",
+  "external_llm": null,
+  "requires_data_download": false,
+  "key_dependencies": []
+}

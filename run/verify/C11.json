@@ -1,0 +1,43 @@
+{
+  "claim_id": "C11",
+  "status": "match",
+  "structured": {
+    "replicated_table": {
+      "Panel A (no controls) coef|All": -1.031,
+      "Panel A (no controls) coef|College": -0.36,
+      "Panel A (no controls) coef|Noncollege": -1.097,
+      "Panel A (no controls) coef|Age 16-34": -1.299,
+      "Panel A (no controls) coef|Age 35-49": -0.615,
+      "Panel A (no controls) coef|Age 50-64": -1.127,
+      "Panel C (full controls) coef|All": -0.05,
+      "Panel C (full controls) coef|College": -0.026,
+      "Panel C (full controls) coef|Noncollege": -0.047,
+      "Panel C (full controls) coef|Age 16-34": -0.138,
+      "Panel C (full controls) coef|Age 35-49": 0.367,
+      "Panel C (full controls) coef|Age 50-64": -0.138
+    },
+    "paper_table": {
+      "Panel A (no controls) coef|All": -1.031,
+      "Panel A (no controls) coef|College": -0.36,
+      "Panel A (no controls) coef|Noncollege": -1.097,
+      "Panel A (no controls) coef|Age 16-34": -1.299,
+      "Panel A (no controls) coef|Age 35-49": -0.615,
+      "Panel A (no controls) coef|Age 50-64": -1.127,
+      "Panel C (full controls) coef|All": -0.05,
+      "Panel C (full controls) coef|College": -0.026,
+      "Panel C (full controls) coef|Noncollege": -0.047,
+      "Panel C (full controls) coef|Age 16-34": -0.138,
+      "Panel C (full controls) coef|Age 35-49": 0.367,
+      "Panel C (full controls) coef|Age 50-64": -0.138
+    },
+    "full_controls_all_coef": -0.05,
+    "full_controls_all_se": 0.746,
+    "value_found": true
+  },
+  "rationale": "log/tab_ipw_pop.scsv reproduces Table 4 with 18 columns: cols 1-6 = Panel A (no controls), 7-12 = Panel B (regional controls), 13-18 = Panel C (full controls), across All/College/Noncollege/Age16-34/Age35-49/Age50-64. The d_t~eusch_pw (import exposure) row gives Panel A = [-1.031, -0.360, -1.097, -1.299, -0.615, -1.127] and Panel C = [-0.050, -0.026, -0.047, -0.138, 0.367, -0.138], which are identical to the paper's reported values for both panels (0% relative error on every cell). The fully-controlled 'All' estimate is -0.050 with SE (0.746) in parentheses directly beneath it, matching the claim exactly. All Panel C SEs (0.746, 0.685, 0.823, 1.190, 0.560, 0.651) exceed their point estimates in magnitude, confirming statistical insignificance across all education and age groups and supporting the 'no population mobility response' finding. fix_severity.json reports only one minor, non-numerical fix (installing matplotlib for plotting), which does not affect these estimates.",
+  "evidence_refs": [
+    "/workspace/output/replication/codebase/log/tab_ipw_pop.scsv",
+    "/workspace/output/assess/fix_severity.json"
+  ],
+  "graded_by": "agent"
+}

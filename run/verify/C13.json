@@ -1,0 +1,36 @@
+{
+  "claim_id": "C13",
+  "status": "match",
+  "structured": {
+    "replicated_table": {
+      "Panel B all education (coef) | Mfg emp": -0.596,
+      "Panel B all education (coef) | Non-mfg emp": -0.178,
+      "Panel B all education (coef) | Unemp": 0.221,
+      "Panel B all education (coef) | NILF": 0.553,
+      "Panel B all education (coef) | SSDI receipt": 0.076,
+      "standard error | Mfg emp": 0.099,
+      "standard error | Non-mfg emp": 0.137,
+      "standard error | Unemp": 0.058,
+      "standard error | NILF": 0.15,
+      "standard error | SSDI receipt": 0.028
+    },
+    "paper_table": {
+      "Panel B all education (coef) | Mfg emp": -0.596,
+      "Panel B all education (coef) | Non-mfg emp": -0.178,
+      "Panel B all education (coef) | Unemp": 0.221,
+      "Panel B all education (coef) | NILF": 0.553,
+      "Panel B all education (coef) | SSDI receipt": 0.076,
+      "standard error | Mfg emp": 0.099,
+      "standard error | Non-mfg emp": 0.137,
+      "standard error | Unemp": 0.058,
+      "standard error | NILF": 0.15,
+      "standard error | SSDI receipt": 0.028
+    },
+    "value_found": true
+  },
+  "rationale": "The evidence file log/tab_ipw_empl.scsv contains Table 5 panel B. In the d_t~eusch_pw ($1,000 import shock) row, the five share columns match the paper exactly: d_sh_em~_mfg = -0.596, d_sh_em~nmfg = -0.178, d_sh_unempl = 0.221, d_sh_nilf = 0.553, d_sh_ssadi~s = 0.076 (columns 6-10). The standard errors in parentheses also match exactly: (0.099), (0.137), (0.058), (0.150), (0.028). All ten cells are within 0% relative error of the paper values. Internal consistency also holds: the mfg + non-mfg sum (-0.596 + -0.178 = -0.774) equals the ~-0.77 pp emp/pop reduction, with ~1/4 (0.221) accruing to unemployment and ~3/4 (0.553) to nonparticipation, as described in the claim.",
+  "evidence_refs": [
+    "replication/codebase/log/tab_ipw_empl.scsv"
+  ],
+  "graded_by": "agent"
+}

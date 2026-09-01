@@ -1,0 +1,49 @@
+{
+  "claim_id": "C17",
+  "status": "match",
+  "structured": {
+    "replicated_table": {
+      "Panel A log change per capita (coef) | Total transfers": 1.013,
+      "Panel A log change per capita (coef) | TAA": 14.406,
+      "Panel A log change per capita (coef) | Unemployment": 3.46,
+      "Panel A log change per capita (coef) | SSA retirement": 0.717,
+      "Panel A log change per capita (coef) | SSA disability": 1.96,
+      "Panel A log change per capita (coef) | Medical": 0.542,
+      "Panel A log change per capita (coef) | Fed income assist": 3.039,
+      "Panel A log change per capita (coef) | Educ/training": 2.779,
+      "Panel B dollar change per capita (coef) | Total transfers": 57.73,
+      "Panel B dollar change per capita (coef) | TAA": 0.234,
+      "Panel B dollar change per capita (coef) | Unemployment": 3.421,
+      "Panel B dollar change per capita (coef) | SSA retirement": 9.998,
+      "Panel B dollar change per capita (coef) | SSA disability": 8.395,
+      "Panel B dollar change per capita (coef) | Medical": 18.27,
+      "Panel B dollar change per capita (coef) | Fed income assist": 7.202,
+      "Panel B dollar change per capita (coef) | Educ/training": 3.709
+    },
+    "paper_table": {
+      "Panel A log change per capita (coef) | Total transfers": 1.013,
+      "Panel A log change per capita (coef) | TAA": 14.406,
+      "Panel A log change per capita (coef) | Unemployment": 3.46,
+      "Panel A log change per capita (coef) | SSA retirement": 0.717,
+      "Panel A log change per capita (coef) | SSA disability": 1.96,
+      "Panel A log change per capita (coef) | Medical": 0.542,
+      "Panel A log change per capita (coef) | Fed income assist": 3.039,
+      "Panel A log change per capita (coef) | Educ/training": 2.779,
+      "Panel B dollar change per capita (coef) | Total transfers": 57.73,
+      "Panel B dollar change per capita (coef) | TAA": 0.234,
+      "Panel B dollar change per capita (coef) | Unemployment": 3.421,
+      "Panel B dollar change per capita (coef) | SSA retirement": 9.998,
+      "Panel B dollar change per capita (coef) | SSA disability": 8.395,
+      "Panel B dollar change per capita (coef) | Medical": 18.27,
+      "Panel B dollar change per capita (coef) | Fed income assist": 7.202,
+      "Panel B dollar change per capita (coef) | Educ/training": 3.709
+    },
+    "value_found": true
+  },
+  "rationale": "The replicated Table 8 output at log/tab_ipw_trans.scsv reports coefficients on d_t~eusch_pw (the $1,000 Chinese import exposure regressor) that match the paper's reported values exactly. The 18 output columns pair as 9 log-change (lnchg_*) columns and 9 dollar-change (d_trans_*) columns; mapping the 8 claim-named categories yields, Panel A: total transfers 1.013, TAA 14.406, unemployment 3.460, SSA retirement 0.717, SSA disability 1.960, medical 0.542, fed income assist 3.039, educ/training 2.779; Panel B: total 57.730, TAA 0.234, unemployment 3.421, SSA retirement 9.998, SSA disability 8.395, medical 18.270, fed income assist 7.202, educ/training 3.709. Every one of the 16 cells is within 0.01% of its paper value \u2014 a perfect reproduction, including the headline total ($57.73 / 1.013 log points), the largest proportionate TAA effect (14.41 log), and the negligible TAA dollar increase ($0.234) versus the far larger SSA disability ($8.40) and medical ($18.27) dollar effects. fix_severity.json records only a trivial matplotlib install with no impact on numerical results.",
+  "evidence_refs": [
+    "replication/codebase/log/tab_ipw_trans.scsv",
+    "assess/fix_severity.json"
+  ],
+  "graded_by": "agent"
+}

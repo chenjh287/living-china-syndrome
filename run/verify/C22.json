@@ -1,0 +1,38 @@
+{
+  "claim_id": "C22",
+  "status": "match",
+  "structured": {
+    "replicated_table": {
+      "US imports from China ($B) | 1991/1992": 26.3,
+      "US imports from China ($B) | 2000": 121.6,
+      "US imports from China ($B) | 2007": 330.0,
+      "US imports from China ($B) | Growth 1991-2007 (%)": 1156,
+      "US exports to China ($B) | 1991/1992": 10.3,
+      "US exports to China ($B) | 2000": 23.0,
+      "US exports to China ($B) | 2007": 57.4,
+      "US exports to China ($B) | Growth 1991-2007 (%)": 456,
+      "China share of US low-income mfg imports (%) | 1991/1992": 77.4,
+      "China share of US low-income mfg imports (%) | 2007": 87.9
+    },
+    "paper_table": {
+      "US imports from China ($B) | 1991/1992": 26.3,
+      "US imports from China ($B) | 2000": 121.6,
+      "US imports from China ($B) | 2007": 330.0,
+      "US imports from China ($B) | Growth 1991-2007 (%)": 1156,
+      "US exports to China ($B) | 1991/1992": 10.3,
+      "US exports to China ($B) | 2000": 23.0,
+      "US exports to China ($B) | 2007": 57.4,
+      "US exports to China ($B) | Growth 1991-2007 (%)": 456,
+      "China share of US low-income mfg imports (%) | 1991/1992": 77.4,
+      "China share of US low-income mfg imports (%) | 2007": 89.8
+    },
+    "value_found": true
+  },
+  "rationale": "The run produced log/import_stats_final.log (via do/import_stats_final.do), which summarizes trade levels in BN 2007 US$. US imports from China (l_totimp_usch): 1991=26.27168, 2000=121.5563, 2007=330.0224 -> matches paper 26.3/121.6/330.0 exactly; derived growth (330.0224/26.27168-1)*100 = 1156.2% matches the paper's 1156%. US exports to China (l_totexp_usch): 1992=10.32224, 2000=23.00427, 2007=57.41103 -> matches paper 10.3/23.0/57.4; derived growth = 456.2% matches 456%. China's share of US low-income imports (China / (China + other low-income col.3, l_totimp_uslw), which the xls notes confirm excludes China): 1991 = 26.27168/(26.27168+7.686292) = 77.37% (matches paper 77.4% exactly), 2007 = 330.0224/(330.0224+45.43324) = 87.90% vs paper 89.8% \u2014 a 2.1% relative error, within the 5% cell tolerance. The parallel 'other high-income' cross-check (otch/(otch+otlw)) gives 75.3% -> 89.4% vs the paper's stated 75.4% -> 89.5%, confirming the share construction. All cells fall within 5% relative error, so the table matches.",
+  "evidence_refs": [
+    "/workspace/output/replication/codebase/log/import_stats_final.log",
+    "/workspace/output/replication/codebase/do/import_stats_final.do",
+    "/workspace/output/replication/codebase/tab-fig/ADH-ChinaSyndrome-AER-2011-1050-Tables.xls"
+  ],
+  "graded_by": "agent"
+}

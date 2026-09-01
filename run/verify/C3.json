@@ -1,0 +1,23 @@
+{
+  "claim_id": "C3",
+  "status": "match",
+  "structured": {
+    "replicated_value": {
+      "1990-2000": -0.888,
+      "2000-2007": -0.718,
+      "stacked_1990-2007": -0.746
+    },
+    "paper_value": {
+      "1990-2000": -0.89,
+      "2000-2007": -0.72,
+      "stacked_1990-2007": -0.75
+    },
+    "uncertainty": null,
+    "value_found": true
+  },
+  "rationale": "The evidence file log/tab_ipw_mfg_byperiod.scsv (Table 2) reports the d_tradeusc~w (Chinese import exposure) 2SLS coefficients in columns 1-3 as -0.888, -0.718, and -0.746, with standard errors (0.181), (0.064), and (0.068) respectively (rows 5-6). These correspond to the paper values of -0.89 (1990-2000), -0.72 (2000-2007), and -0.75 (stacked 1990-2007). Each replicated value rounds exactly to the paper value and is well within 5% relative error (differences of 0.002, 0.002, 0.004). The N values (722, 722, 1444) and column structure also match the expected bivariate 2SLS specification without demographic controls.",
+  "evidence_refs": [
+    "/workspace/output/replication/codebase/log/tab_ipw_mfg_byperiod.scsv"
+  ],
+  "graded_by": "agent"
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "sai.followup.result_card/v1",
+  "headline": "Re-estimated on fresh data, ADH's China-shock effect on local manufacturing employment holds through 2012 (−0.42) but fades to zero by 2012–2019 (−0.03) and reverses by 2019–2024 (+0.05) as the shock plateaus and recedes.",
+  "status": "completed",
+  "metrics": [
+    {"label": "C1 mfg-emp-share β, 2007–2012 (W3)", "value": "−0.417 (SE 0.094)", "baseline": "−0.596 (SE 0.099)", "baseline_label": "ADH 2013 stacked (replication table3.csv)", "note": "Effect statistically unchanged from the ADH era while the shock was still active; first-stage F=20.8."},
+    {"label": "C1 mfg-emp-share β, 2012–2019 (W4)", "value": "−0.025 (SE 0.035)", "baseline": "−0.596 (SE 0.099)", "baseline_label": "ADH 2013 stacked", "note": "Indistinguishable from zero; weakly identified (first-stage F=6.9)."},
+    {"label": "C1 mfg-emp-share β, 2019–2024 (W5)", "value": "+0.048 (SE 0.025)", "baseline": "−0.596 (SE 0.099)", "baseline_label": "ADH 2013 stacked", "note": "Small sign flip as import growth turns negative in the most-exposed CZs; F=25.4."},
+    {"label": "Coefficient drift (pooled interaction, W4 vs W2 base)", "value": "+0.635 (SE 0.105)", "baseline": "0 (no drift)", "baseline_label": "null hypothesis", "note": "Exposure–mfg-employment slope is significantly less negative after 2012."},
+    {"label": "Mean China-shock exposure ΔIPW/worker (10-yr)", "value": "+0.95 (W3) → +0.12 (W4) → −1.10 (W5)", "baseline": "+2.64 (2000–07)", "baseline_label": "constructed W2 (peak)", "note": "China's share of US goods imports: 16% (2007) → 21% (2017) → 13% (2024)."}
+  ],
+  "tables": [
+    {"title": "China-shock 2SLS β by window (frozen-full spec, proxy outcome, per +$1k/worker)",
+     "columns": ["Claim (outcome)", "ADH'13", "W3 2007–12", "W4 2012–19", "W5 2019–24"],
+     "rows": [
+       ["C1 mfg emp share (pp)", "−0.596", "−0.417", "−0.025", "+0.048"],
+       ["C2 unemp/pop (pp)", "+0.221", "+0.005", "+0.001", "−0.002"],
+       ["C2 NILF/pop (pp)", "+0.553", "−0.012", "+0.026", "−0.085"],
+       ["C3 log wkly wage (log pts)", "−0.759", "−0.414", "−0.002", "−0.072"],
+       ["C4 log transfers pc (log pts)", "+1.013", "+0.511", "+0.020", "+0.206"]
+     ],
+     "highlight_row": 0}
+  ],
+  "figures": [
+    {"file": "results/fig1_living_update.png",
+     "caption": "Living update: national-context strip (China import share + US mfg emp/pop) over 4 panels showing each ADH claim's 2SLS coefficient vs time with 95% CI. Shaded = 1990–2007 original sample; dashed = ADH 2013 headline; solid squares = ADH original outcomes; open circles = this study's proxy outcomes; F flagged where first-stage F<10.",
+     "alt": "Four coefficient-vs-time panels plus a top strip; all four China-shock effects are large in 1990–2012 and collapse to zero after 2012 as the import share plateaus and falls."},
+    {"file": "results/fig2_c1_drift.png",
+     "caption": "Left: mean constructed China-shock exposure per window, peaking in 2000–07 and turning negative by 2019–24. Right: the manufacturing-employment coefficient drifts from −0.42 (2007–12) to +0.05 (2019–24), crossing the ADH −0.60 reference.",
+     "alt": "Two panels: exposure intensity rising then falling; and the mfg-employment 2SLS coefficient rising from negative toward zero and slightly positive over successive windows."}
+  ],
+  "notes": [
+    "Outcomes are jobs/BEA-based proxies (CBP mfg jobs per working-age resident; LAUS unemployment/labor force; QCEW mean weekly wage; BEA CAINC35 transfers), not ADH's Census/ACS person-level measures (IPUMS unavailable); levels differ but window-to-window changes are consistent, and the 2000–07 proxy reproduces ADH's original outcomes (e.g. NILF proxy +0.498 vs ADH +0.553).",
+    "W4 (2012–2019) is weakly identified (first-stage F=6.9<10); its near-zero estimate is corroborated by the reduced form and the pooled interaction model.",
+    "W5 employment weights frozen at 2011; C4 W5 window is 2019–2022 (BEA vintage ends 2022). Exposure built from CEPII BACI (Switzerland corrected to code 757), validated r=0.95 vs the original ADH workfile and r=0.855 vs ADH's Persistence-archive exposure.",
+    "722 mainland commuting zones; 2SLS weighted by start-period population, state-clustered SEs; full detail in report.md and results/living_update/estimates_by_window.csv."
+  ],
+  "report_file": "report.md"
+}

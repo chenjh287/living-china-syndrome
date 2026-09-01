@@ -1,0 +1,24 @@
+{
+  "claim_id": "C16",
+  "status": "match",
+  "structured": {
+    "replicated_table": {
+      "Panel B change in avg log wage (coef) | Mfg wage (all)": 0.151,
+      "Panel B change in avg log wage (coef) | Nonmfg wage (all)": -0.761,
+      "standard error | Mfg wage (all)": 0.482,
+      "standard error | Nonmfg wage (all)": 0.261
+    },
+    "paper_table": {
+      "Panel B change in avg log wage (coef) | Mfg wage (all)": 0.15,
+      "Panel B change in avg log wage (coef) | Nonmfg wage (all)": -0.761,
+      "standard error | Mfg wage (all)": 0.482,
+      "standard error | Nonmfg wage (all)": 0.26
+    },
+    "value_found": true
+  },
+  "rationale": "The produced output file log/tab_ipw_mfgnmfg.scsv contains Table 7 with the change-in-average-log-wage coefficients on d_t~eusch_pw (Chinese import exposure per worker). Column (7) d_avg_l~_mfg is the manufacturing 'all workers' log-wage effect: coefficient 0.151 (SE 0.482), which is insignificant (t\u22480.31) and matches the paper's 0.150 (SE 0.482). Column (10) d_avg_l~nmfg is the nonmanufacturing 'all workers' log-wage effect: coefficient -0.761 (SE 0.261), significant, matching the paper's -0.761 (SE 0.260). The corresponding Panel A employment-count effects also line up: column (1) lnchg_no_emp_mfg = -4.231 and column (4) lnchg_no_emp_nmfg = -0.274. All four target cells are within 5% relative error (mfg coef 0.151 vs 0.15, mfg SE 0.482 exact, nonmfg coef -0.761 exact, nonmfg SE 0.261 vs 0.260), so the claim that wage declines are concentrated outside manufacturing is fully supported.",
+  "evidence_refs": [
+    "/workspace/output/replication/codebase/log/tab_ipw_mfgnmfg.scsv"
+  ],
+  "graded_by": "agent"
+}

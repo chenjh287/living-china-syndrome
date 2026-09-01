@@ -1,0 +1,23 @@
+{
+  "claim_id": "C14",
+  "status": "match",
+  "structured": {
+    "replicated_value": {
+      "college_emp_pop_pp": -0.424,
+      "noncollege_emp_pop_pp": -1.112,
+      "noncollege_nonmfg_share_pp": -0.531
+    },
+    "paper_value": {
+      "college_emp_pop_pp": -0.42,
+      "noncollege_emp_pop_pp": -1.11,
+      "noncollege_nonmfg_share_pp": -0.531
+    },
+    "uncertainty": null,
+    "value_found": true
+  },
+  "rationale": "log/tab_ipw_empl.scsv (Table 5 panel B) reports d_t~eusch_pw coefficients per education group. The noncollege nonmanufacturing employment-share coefficient (col 16, d_sh_empl_.. noncollege) is -0.531 with SE (0.203), matching the claim exactly. Summing manufacturing + nonmanufacturing share coefficients within each education group yields the net employment-to-population reductions: college = -0.592 (col 11, d~_mfg_edu_c) + 0.168 (col 12, d~nmfg_edu_c) = -0.424 pp (~-0.42), and noncollege = -0.581 (col 15) + (-0.531) (col 16) = -1.112 pp (~-1.11). All three values fall within ~1% of the paper values, and the noncollege effect is ~2.6x the college effect, consistent with the paper's 'nearly three times as large' description.",
+  "evidence_refs": [
+    "replication/codebase/log/tab_ipw_empl.scsv"
+  ],
+  "graded_by": "agent"
+}

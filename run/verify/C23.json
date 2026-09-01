@@ -1,0 +1,28 @@
+{
+  "claim_id": "C23",
+  "status": "match",
+  "structured": {
+    "replicated_value": {
+      "china_import_penetration_1991_pct": 0.6,
+      "china_import_penetration_2007_pct": 4.68,
+      "mfg_emp_share_1991_pct": 12.61,
+      "mfg_emp_share_2007_pct": 8.37
+    },
+    "paper_value": {
+      "china_import_penetration_1991_pct": 0.6,
+      "china_import_penetration_2007_pct": 4.6,
+      "mfg_emp_share_1991_pct": 12.6,
+      "mfg_emp_share_2007_pct": 8.4
+    },
+    "uncertainty": null,
+    "value_found": true
+  },
+  "rationale": "The reproduced Figure 1 series in outputs/figure1_series.csv (produced by repro/table1_fig1.py from dta/figure1_data.dta) yields all four values. Import penetration (import_penetration_impr) is 0.005997813 in 1991 (=0.60%) and 0.046820268 in 2007 (=4.68%), matching the paper's 0.6% and 4.6% (relative errors ~0.03% and ~1.8%). The manufacturing employment/working-age-population series (mfg_emp_pop_cpsman) is 0.1261 in 1991 (=12.61%) and 0.0837 in 2007 (=8.37%), matching the paper's 12.6% and 8.4% (relative errors ~0.08% and ~0.4%); this is a decline of roughly a third. The penetration series rises monotonically with a clear acceleration after China's 2001 WTO accession (0.0195 in 2000, 0.0215 in 2001, 0.0264 in 2002), consistent with the described inflection. All four values fall well within the 5% match band. No critical fixes affecting this code path appear in fix_severity.json.",
+  "evidence_refs": [
+    "/workspace/output/replication/codebase/outputs/figure1_series.csv",
+    "/workspace/output/analyze/replication_plan.json",
+    "/workspace/output/replication/codebase/dta/figure1_data.dta",
+    "/workspace/output/replication/codebase/gph/figure1.gph"
+  ],
+  "graded_by": "agent"
+}

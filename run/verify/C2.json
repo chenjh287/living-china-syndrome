@@ -1,0 +1,54 @@
+{
+  "claim_id": "C2",
+  "status": "match",
+  "structured": {
+    "replicated_table": {
+      "d imports from China to US / worker (coef) (1)": -0.746,
+      "d imports from China to US / worker (coef) (2)": -0.61,
+      "d imports from China to US / worker (coef) (3)": -0.538,
+      "d imports from China to US / worker (coef) (4)": -0.508,
+      "d imports from China to US / worker (coef) (5)": -0.562,
+      "d imports from China to US / worker (coef) (6)": -0.596,
+      "standard error (1)": 0.068,
+      "standard error (2)": 0.094,
+      "standard error (3)": 0.091,
+      "standard error (4)": 0.081,
+      "standard error (5)": 0.096,
+      "standard error (6)": 0.099,
+      "first-stage coef (imports to OTH / worker) (1)": 0.792,
+      "first-stage coef (imports to OTH / worker) (2)": 0.664,
+      "first-stage coef (imports to OTH / worker) (3)": 0.652,
+      "first-stage coef (imports to OTH / worker) (4)": 0.635,
+      "first-stage coef (imports to OTH / worker) (5)": 0.638,
+      "first-stage coef (imports to OTH / worker) (6)": 0.631
+    },
+    "paper_table": {
+      "d imports from China to US / worker (coef) (1)": -0.746,
+      "d imports from China to US / worker (coef) (2)": -0.61,
+      "d imports from China to US / worker (coef) (3)": -0.538,
+      "d imports from China to US / worker (coef) (4)": -0.508,
+      "d imports from China to US / worker (coef) (5)": -0.562,
+      "d imports from China to US / worker (coef) (6)": -0.596,
+      "standard error (1)": 0.068,
+      "standard error (2)": 0.094,
+      "standard error (3)": 0.091,
+      "standard error (4)": 0.081,
+      "standard error (5)": 0.096,
+      "standard error (6)": 0.099,
+      "first-stage coef (imports to OTH / worker) (1)": 0.792,
+      "first-stage coef (imports to OTH / worker) (2)": 0.664,
+      "first-stage coef (imports to OTH / worker) (3)": 0.652,
+      "first-stage coef (imports to OTH / worker) (4)": 0.635,
+      "first-stage coef (imports to OTH / worker) (5)": 0.638,
+      "first-stage coef (imports to OTH / worker) (6)": 0.631
+    },
+    "value_found": true
+  },
+  "rationale": "All cells of Table 3 (2SLS estimates) match the paper values to the reported precision. The main d_tradeusch_pw coefficients in log/tab_ipw_manuf_2.scsv (line 5) are -0.746, -0.610, -0.538, -0.508, -0.562, -0.596 and standard errors (line 6) are (0.068), (0.094), (0.091), (0.081), (0.096), (0.099) \u2014 identical to the paper across all six specifications. The first-stage panel-II coefficients on d_tradeotch_pw_lag, read from log/czone_analysis_ipw_final.log (lines 998, 1042, 1095, 1161, 1230, 1301), are 0.7916, 0.6637, 0.6518, 0.6346, 0.6380, 0.6310 \u2192 rounding to 0.792, 0.664, 0.652, 0.635, 0.638, 0.631, exactly matching the paper. N = 1444 in every column (tab_ipw_manuf_2.scsv line 29). fix_severity.json records only a trivial matplotlib install with no impact on the statistical analysis. Every cell is well within 5% relative error, so status is match.",
+  "evidence_refs": [
+    "replication/codebase/log/tab_ipw_manuf_2.scsv",
+    "replication/codebase/log/czone_analysis_ipw_final.log",
+    "assess/fix_severity.json"
+  ],
+  "graded_by": "agent"
+}

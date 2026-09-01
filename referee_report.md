@@ -1,0 +1,60 @@
+## Summary
+
+This paper measures how the surge in Chinese import competition between 1990 and 2007 reshaped US local labor markets. Its central move is to shift the unit of analysis from industries or occupations to commuting zones, treating each as a small open economy hit by a differential trade shock that depends on its pre-existing industry mix. Exposure is measured as the change in Chinese imports per worker, apportioned to a zone by its share of national industry employment, and the endogeneity of realized US imports is addressed by instrumenting with contemporaneous Chinese import growth in eight other high-income countries, using lagged employment weights. This design converts a national general-equilibrium question into many cross-sectional comparisons, buying identification and statistical power at the cost of speaking to relative rather than strictly absolute effects.
+
+The findings are that trade-exposed zones lose manufacturing employment, and that the loss is not absorbed by offsetting nonmanufacturing gains: unemployment and, more so, labor-force nonparticipation rise, wages fall outside manufacturing, household income drops, and government transfers (disability, income assistance, unemployment, medical) climb. The absence of an offsetting out-migration response is what makes the local effects detectable, and it also frames the paper's welfare accounting of transfer-related deadweight loss and involuntary nonparticipation. The contribution matters because it documents adjustment margins, nonparticipation and public transfers, that the prior wage-focused literature had largely missed.
+
+The empirical core is unusually robust: an executed replication reproduced essentially all of the reported tables and figures. My concerns are second-order: several headline aggregate numbers and one robustness panel are not reproducible from the shipped code, a few interpretive claims lean on imprecise or statistically weak estimates, and there are isolated arithmetic and notational slips. Follow-up studies re-estimating the model on newer data were also run and are summarized below.
+
+## Strengths
+
+- **Commuting-zone exposure design turns a degrees-of-freedom problem into identified variation.** Mapping industry-level Chinese shocks onto local labor markets via initial industry mix, and isolating within-manufacturing specialization (start-of-period manufacturing share explains under a quarter of exposure variation), gives the paper both power and a credible source of cross-sectional variation.
+- **Other-high-income-country instrument with lagged weights.** Instrumenting US import growth with Chinese penetration in eight comparison countries, using prior-decade employment weights to blunt anticipation effects, is a disciplined identification strategy, and the first stage is strong (a \$815 measured increase per \$1,000 predicted; first-stage t about 8.9).
+- **Falsification and robustness scaffolding.** Regressing pre-period (1970s/1980s) manufacturing changes on future exposure, dropping construction-linked and consumer-goods industries, and reporting six alternative exposure measures (net imports, input-adjusted, gravity residual, factor content) all point the same way; the executed replication confirmed these numbers.
+- **Near-exact computational reproducibility.** Running the released package reproduced Tables 2 through 9, Figures 1 and 2, and Appendix Table 1 to the reported precision, most cells at zero relative error, an unusually clean result for a paper of this scope.
+- **Adjustment margins the wage literature missed.** By following displaced workers into nonparticipation and into specific transfer programs (with SSDI dollar increases more than thirty times TAA), the paper documents a public-finance channel of trade adjustment that industry- and occupation-level studies could not see.
+
+## Weaknesses
+
+- **The local-adjustment interpretation rests on an imprecise migration null.** The claim that population is \"not systematically affected\" and that adjustment happens within rather than across zones is licensed by Table 4 estimates whose fully-controlled coefficient reproduced as -0.050 with a standard error of 0.746, wide enough that the paper concedes it \"do[es] not preclude more substantial responses.\" This same null also certifies the population-share normalization used throughout Tables 5 through 9, so a modest undetected migration response would feed into those coefficients.
+- **Headline healthcare and retirement transfer effects are presented as strong but are weakly identified.** The abstract and conclusion group healthcare and retirement with disability among transfers that \"rise sharply,\" yet the reproduced Table 8 shows the medical dollar effect (\\$18.27, s.e. \\$11.84) is statistically insignificant and the retirement effect (\\$10.00, s.e. \\$5.45) is significant only at the 10 percent level.
+- **The supply-share decomposition does not internally reconcile.** The three coefficients reported for equation (B2) imply a variance weight of about 0.51, not the 0.48 the paper states and then uses to scale the conservative 16/26/21 percent estimates and the 548,000/982,000 worker counts.
+- **A forward claim about reversibility is unsupported.** The statement that trade-induced welfare losses \"will dissipate\" as cohorts retire is a conjecture the 1990-2007 design cannot test, and it is load-bearing for the paper's medium-run welfare framing.
+- **Isolated numeric and notational slips.** The stated import growth \"factor of 11.5\" conflicts with its own endpoints and the 1,156 percent growth rate (both imply about 12.5); the displayed deadweight-loss components (\$13 + \$21) do not match the stated \$33 total; an SSDI sentence refers to \"export exposure\" where import exposure is meant; and the wage-surplus approximation equates a log change with a level ratio.
+
+## Reproducibility & code
+
+The executed replication returned a weighted replication score 0.80 (25 of 28 claims counted), reflecting near-exact reproduction of every core table and figure alongside a small set of building blocks that the shipped code does not cover.
+
+- **Core tables and figures reproduce essentially exactly.** Table 3 (all six columns, coefficients and first-stage estimates), Table 2, the falsification columns, Tables 4 through 9, Figures 1 and 2, and Appendix Table 1 all matched to the reported precision, most at zero relative error. The only execution fix was installing a plotting library, with no effect on the statistical results.
+- **Headline aggregate counterfactuals are not code-traceable.** The 33/55/44 percent shares of the manufacturing decline, the 48 percent supply-share scaling, and the 548,000/982,000 worker counts are hand calculations on top of reproduced coefficients; no shipped script emits them.
+- **The exposure variable cannot be rebuilt from the package.** Only a pre-built commuting-zone workfile is shipped, not the code that constructs import exposure per worker from raw trade and employment data. This blocks the lagged-employment-weight OLS (the -0.273 figure) and the drop-industry robustness checks, even though the baseline OLS of -0.171 reproduces exactly.
+- **One robustness panel did not reproduce.** Table 10 Panel B (domestic-plus-international exposure) returned a manufacturing employment coefficient near -0.42 rather than -0.51, with the whole row off by roughly 16 to 47 percent, while every other Table 10 panel reproduced within a few percent.
+- **A reported trade share did not reproduce.** China's 2007 share of US low-income imports comes out to 87.9 percent from the reproduced Table 1 columns, not the stated 89.8 percent, whereas the 1991 US share and both other-high-income shares reproduce exactly.
+
+## Recommended Changes
+
+**Essential**
+
+- Reconcile the equation (B2) decomposition: recheck the OLS, 2SLS, and residual coefficients against the identity, report the weight they actually imply, and carry it consistently into the conservative supply-driven shares and worker counts (addresses the supply-share decomposition weakness).
+- Qualify the abstract and conclusion so healthcare and retirement transfers are not described as rising \"sharply\" on equal footing with disability, noting the medical estimate's insignificance and the retirement estimate's marginal significance (addresses the weak-transfer-effects weakness).
+- Correct the \"factor of 11.5\" to about 12.5 and reconcile the 89.8 percent 2007 China share with the Table 1 columns (or state the manufacturing-only denominator it uses), since both are checkable against reproduced values.
+- Reframe the claim that welfare losses \"will dissipate\" as an untested conjecture whose validity turns on whether the manufacturing-employment effect is reversible.
+
+**Suggested**
+
+- Release the exposure-construction code (raw trade and County Business Patterns employment to ΔIPW) and a script that prints the aggregate 33/55/44 percent decomposition and the 548k/982k counts, so the headline numbers and the lagged-weight and drop-industry checks become reproducible.
+- Re-run Table 10 Panel B and either correct the row or document the step that yields -0.51.
+- Report the minimum detectable population response (or an implied bias bound on the share coefficients) to strengthen the normalization argument that currently rests on an imprecise null.
+- Fix the smaller items: the \$13 + \$21 vs \$33 rounding presentation, the \"export exposure\" slip in the SSDI sentence, the \"absent\" wording for the significant 1970-1980 falsification coefficient, the Newey-West-versus-clustered standard-error description, and the log-versus-level approximation preceding equation (8).
+
+## Follow-up studies
+
+Two completed follow-up studies re-estimate this framework on newer data. A living-update study finds the China-shock effect on local manufacturing employment holds while the shock was active (a coefficient of -0.42, s.e. 0.094, over 2007-2012, statistically indistinguishable from the paper's -0.596), then fades to zero over 2012-2019 (-0.03) and slightly reverses over 2019-2024 (+0.05) as mean exposure turns negative in the most-exposed zones. A theory-update study fits a recovery-rate parameter of about zero (-0.17), rejecting the paper's implicit reversible-flow structure in favor of hysteresis: the estimated manufacturing hit is permanent (a net level elasticity of about -0.43 through 2023), and the 2019-2024 import reversal produced essentially no rebound (+0.06 percentage points, against the +0.35 the symmetric model predicts). These results speak directly to the paper's conjecture that the losses \"will dissipate\", on newer samples they do not, while confirming that the impact-phase coefficient is stable over the original era.
+
+## Future Directions
+
+- **Test reversibility directly.** The hysteresis finding in the follow-up work suggests estimating separate coefficients for rising versus falling exposure within this same commuting-zone design, which the original data could not do but newer trade series can.
+- **Bring the export and global-value-chain channel inside the estimate.** The paper flags that US upstream positioning and third-country processing complicate exports to China; a value-added trade measure could turn the net-import robustness panels into a primary specification rather than a check.
+- **Trace the transfer margins the paper could only observe in aggregate.** SSDI take-up could not be split by age or education at the local level here; linked administrative data would let a follow-up test the paper's conjecture that disability enrollment is concentrated among older, noncollege displaced workers.
+- **Model cross-zone adjustment explicitly.** Because the local effects hinge on limited migration, integrating the exposure measure with a spatial-equilibrium model of mobility and house prices would sharpen the welfare accounting that currently rests on the imprecise population null.

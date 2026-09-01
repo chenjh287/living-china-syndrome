@@ -1,0 +1,887 @@
+[
+  {
+    "claim_id": "C1",
+    "status": "match",
+    "structured": {
+      "replicated_value": -0.596,
+      "paper_value": -0.596,
+      "uncertainty": 0.099,
+      "value_found": true
+    },
+    "rationale": "The produced table log/tab_ipw_manuf_2.scsv (Table 3, fully-controlled specification) shows in column (6) the coefficient on the import exposure regressor d_t~eusch_pw = -0.596 with standard error (0.099). This is an exact match to the paper value of -0.596 (SE 0.099), well within the \u00b11\u03c3 match band. The specification also matches the claim's fingerprint (N=1444, column 6 the most fully augmented model with demographic/labor-force controls including l_sh_poped~c, l_sh_popfb~n, l_sh_empl_f, l_sh_rout~33, l_task_out~e).",
+    "evidence_refs": [
+      "/workspace/output/replication/codebase/log/tab_ipw_manuf_2.scsv"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C2",
+    "status": "match",
+    "structured": {
+      "replicated_table": {
+        "d imports from China to US / worker (coef) (1)": -0.746,
+        "d imports from China to US / worker (coef) (2)": -0.61,
+        "d imports from China to US / worker (coef) (3)": -0.538,
+        "d imports from China to US / worker (coef) (4)": -0.508,
+        "d imports from China to US / worker (coef) (5)": -0.562,
+        "d imports from China to US / worker (coef) (6)": -0.596,
+        "standard error (1)": 0.068,
+        "standard error (2)": 0.094,
+        "standard error (3)": 0.091,
+        "standard error (4)": 0.081,
+        "standard error (5)": 0.096,
+        "standard error (6)": 0.099,
+        "first-stage coef (imports to OTH / worker) (1)": 0.792,
+        "first-stage coef (imports to OTH / worker) (2)": 0.664,
+        "first-stage coef (imports to OTH / worker) (3)": 0.652,
+        "first-stage coef (imports to OTH / worker) (4)": 0.635,
+        "first-stage coef (imports to OTH / worker) (5)": 0.638,
+        "first-stage coef (imports to OTH / worker) (6)": 0.631
+      },
+      "paper_table": {
+        "d imports from China to US / worker (coef) (1)": -0.746,
+        "d imports from China to US / worker (coef) (2)": -0.61,
+        "d imports from China to US / worker (coef) (3)": -0.538,
+        "d imports from China to US / worker (coef) (4)": -0.508,
+        "d imports from China to US / worker (coef) (5)": -0.562,
+        "d imports from China to US / worker (coef) (6)": -0.596,
+        "standard error (1)": 0.068,
+        "standard error (2)": 0.094,
+        "standard error (3)": 0.091,
+        "standard error (4)": 0.081,
+        "standard error (5)": 0.096,
+        "standard error (6)": 0.099,
+        "first-stage coef (imports to OTH / worker) (1)": 0.792,
+        "first-stage coef (imports to OTH / worker) (2)": 0.664,
+        "first-stage coef (imports to OTH / worker) (3)": 0.652,
+        "first-stage coef (imports to OTH / worker) (4)": 0.635,
+        "first-stage coef (imports to OTH / worker) (5)": 0.638,
+        "first-stage coef (imports to OTH / worker) (6)": 0.631
+      },
+      "value_found": true
+    },
+    "rationale": "All cells of Table 3 (2SLS estimates) match the paper values to the reported precision. The main d_tradeusch_pw coefficients in log/tab_ipw_manuf_2.scsv (line 5) are -0.746, -0.610, -0.538, -0.508, -0.562, -0.596 and standard errors (line 6) are (0.068), (0.094), (0.091), (0.081), (0.096), (0.099) \u2014 identical to the paper across all six specifications. The first-stage panel-II coefficients on d_tradeotch_pw_lag, read from log/czone_analysis_ipw_final.log (lines 998, 1042, 1095, 1161, 1230, 1301), are 0.7916, 0.6637, 0.6518, 0.6346, 0.6380, 0.6310 \u2192 rounding to 0.792, 0.664, 0.652, 0.635, 0.638, 0.631, exactly matching the paper. N = 1444 in every column (tab_ipw_manuf_2.scsv line 29). fix_severity.json records only a trivial matplotlib install with no impact on the statistical analysis. Every cell is well within 5% relative error, so status is match.",
+    "evidence_refs": [
+      "replication/codebase/log/tab_ipw_manuf_2.scsv",
+      "replication/codebase/log/czone_analysis_ipw_final.log",
+      "assess/fix_severity.json"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C3",
+    "status": "match",
+    "structured": {
+      "replicated_value": {
+        "1990-2000": -0.888,
+        "2000-2007": -0.718,
+        "stacked_1990-2007": -0.746
+      },
+      "paper_value": {
+        "1990-2000": -0.89,
+        "2000-2007": -0.72,
+        "stacked_1990-2007": -0.75
+      },
+      "uncertainty": null,
+      "value_found": true
+    },
+    "rationale": "The evidence file log/tab_ipw_mfg_byperiod.scsv (Table 2) reports the d_tradeusc~w (Chinese import exposure) 2SLS coefficients in columns 1-3 as -0.888, -0.718, and -0.746, with standard errors (0.181), (0.064), and (0.068) respectively (rows 5-6). These correspond to the paper values of -0.89 (1990-2000), -0.72 (2000-2007), and -0.75 (stacked 1990-2007). Each replicated value rounds exactly to the paper value and is well within 5% relative error (differences of 0.002, 0.002, 0.004). The N values (722, 722, 1444) and column structure also match the expected bivariate 2SLS specification without demographic controls.",
+    "evidence_refs": [
+      "/workspace/output/replication/codebase/log/tab_ipw_mfg_byperiod.scsv"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C4",
+    "status": "match",
+    "structured": {
+      "replicated_value": {
+        "1970-1980": 0.431,
+        "1970-1990_stacked": 0.148,
+        "1980-1990": -0.13
+      },
+      "paper_value": {
+        "1970-1980": 0.43,
+        "1970-1990_stacked": 0.15,
+        "1980-1990": -0.13
+      },
+      "uncertainty": null,
+      "value_found": true
+    },
+    "rationale": "log/tab_ipw_mfg_byperiod.scsv (Table 2) reports the coefficients on future-period import exposure (d_tradeusc~e) in columns 4-6: 0.431 (SE 0.149) for 1970-1980, -0.130 (SE 0.126) for 1980-1990, and 0.148 (SE 0.095) for the stacked specification. These reproduce the paper's reported falsification-test values of 0.43, -0.13, and 0.15 essentially exactly (well within 5% relative error; the near-zero 1980-1990 value sits within a small absolute band of -0.13). The positive/insignificant future-exposure coefficients match the paper's conclusion of no reverse-causality pre-trend. The only fix in fix_severity.json was a trivial matplotlib install affecting plotting only, not this numerical result.",
+    "evidence_refs": [
+      "/workspace/output/replication/codebase/log/tab_ipw_mfg_byperiod.scsv",
+      "/workspace/output/assess/fix_severity.json"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C5",
+    "status": "not_attempted",
+    "structured": {},
+    "rationale": "No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Headline aggregate counterfactual (% of national mfg-employment decline explained). No shipped do-file computes this decomposition; it is a hand calculation in the paper text/Excel combining Table 2 coefficients with national employment aggregates. Building-block coefficients are produced (step 8) but the % figures are not emitted by any code path.",
+    "evidence_refs": [],
+    "not_attempted_reason": "authors_missing",
+    "graded_by": "deterministic"
+  },
+  {
+    "claim_id": "C6",
+    "status": "not_attempted",
+    "structured": {},
+    "rationale": "No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Supply-driven (48%) counterfactual worker-count decomposition (548k/982k). No shipped script computes it; derived in text from the estimates and aggregate employment, not produced by the do-files.",
+    "evidence_refs": [],
+    "not_attempted_reason": "authors_missing",
+    "graded_by": "deterministic"
+  },
+  {
+    "claim_id": "C7",
+    "status": "match",
+    "structured": {
+      "replicated_value": {
+        "emp_pop_pp": -0.82,
+        "mean_weekly_earnings_pct": -0.8,
+        "mfg_employees_pct": -4.48,
+        "transfer_increase_pct_range": [
+          2.08,
+          3.67
+        ]
+      },
+      "paper_value": {
+        "emp_pop_pp": -0.8,
+        "mean_weekly_earnings_pct": -0.8,
+        "mfg_employees_pct": -4.5,
+        "transfer_increase_pct_range": [
+          2,
+          3.5
+        ]
+      },
+      "uncertainty": null,
+      "value_found": true
+    },
+    "rationale": "This headline economic-magnitude summary follows directly from the reproduced fully-controlled 2SLS coefficients scaled by the 2000-2007 interquartile exposure differential. The differential is 1.060 = (p75 3.1138 - p25 1.5994 = 1.5145) x 0.7, from outputs/apptab1_importgrowth.csv (year 2000), matching the ~$1,060/worker specified. Applying it: (1) manufacturing employees, outputs/table5_emp.csv lnchg_no_empl_mfg coef=-4.2305 x 1.06 = -4.48% vs paper -4.5%; (2) employment-to-population rate, outputs/table5_emp.csv net_empl_rate d_sh_empl coef=-0.7742 x 1.06 = -0.82 pp vs paper -0.8 pp; (3) mean log weekly earnings, outputs/table6_wage.csv d_avg_lnwkwage coef=-0.7592 x 1.06 = -0.80% vs paper -0.8%; (4) per-capita transfers, outputs/table8_trans.csv log_change coefs for disability (lnchg_trans_ssadis_pc=1.9597 -> 2.08%), income assistance (lnchg_trans_fedinc_pc=3.0391 -> 3.22%), and unemployment (lnchg_trans_unemp_pc=3.4599 -> 3.67%), spanning ~2.1 to 3.7% vs the paper's 2 to 3.5%. All four magnitudes reproduce within well under 5% of the paper values, and the transfer range brackets the reported 2-3.5%. fix_severity.json reports only one minor matplotlib-install fix with no impact on the statistical results, so the reproduced coefficients faithfully reflect the paper's method.",
+    "evidence_refs": [
+      "output/replication/codebase/outputs/table5_emp.csv",
+      "output/replication/codebase/outputs/table6_wage.csv",
+      "output/replication/codebase/outputs/table8_trans.csv",
+      "output/replication/codebase/outputs/apptab1_importgrowth.csv",
+      "output/replication/codebase/outputs/table3.csv",
+      "output/assess/fix_severity.json",
+      "output/analyze/replication_plan.json"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C8",
+    "status": "partial",
+    "structured": {
+      "replicated_value": {
+        "ols_baseline": -0.1711,
+        "ols_lagged_weights": null
+      },
+      "paper_value": {
+        "ols_baseline": -0.171,
+        "ols_lagged_weights": -0.273
+      },
+      "uncertainty": null,
+      "value_found": true
+    },
+    "rationale": "The preferred-specification baseline OLS is reproduced essentially exactly: outputs/apptab4_ols.csv reports coef_d_tradeusch_pw = -0.1711 (se 0.0278, n=1444) for d_sh_empl_mfg, and the step-7 log notes an EXACT match to the original tab_ipw_manuf_exporters.scsv; this is -0.171 in the paper (well within 5%), and attenuated relative to the 2SLS -0.596 as the claim describes. However, the second component \u2014 the lagged-employment-weight OLS of -0.273 \u2014 was not produced: the replication_plan step-7 description and log both state 'the lagged-employment-weight variant of C8 is not shipped' because it requires rebuilding the CZ import-exposure variable with lagged weights, and only the pre-built workfile (not the exposure-construction code) is shipped. With one of two components matching exactly and the other having no produced evidence, the claim is partially supported.",
+    "evidence_refs": [
+      "output/replication/codebase/outputs/apptab4_ols.csv",
+      "output/replication/replication_log.json",
+      "output/analyze/replication_plan.json"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C9",
+    "status": "match",
+    "structured": {
+      "replicated_value": {
+        "first_stage_coef": 0.8151,
+        "first_stage_se": 0.0918,
+        "first_stage_t": 8.88,
+        "reduced_form_coef": -0.3398,
+        "reduced_form_se": 0.0712,
+        "reduced_form_t": -4.77
+      },
+      "paper_value": {
+        "first_stage_coef": 0.82,
+        "first_stage_se": 0.09,
+        "first_stage_t": 8.88,
+        "reduced_form_coef": -0.34,
+        "reduced_form_se": 0.07,
+        "reduced_form_t": -4.77
+      },
+      "uncertainty": null,
+      "value_found": true
+    },
+    "rationale": "The run reproduced Figure 2's first-stage and reduced-form regressions (N=722) and the added-variable-plot .gph files exist (gph/mfg_imppw_9007long_2sls1_av.gph, gph/mfg_imppw_9007long_olsred_av.gph). The produced output outputs/figure2_firststage_reducedform.csv reports first_stage coef 0.8151, robust se 0.0918, t 8.882; reduced_form coef -0.3398, se 0.0712, t -4.774 (n=722). These match the authors' shipped Stata log czone_plot_import_long_final.log to high precision: instrument coefficient .8150955/.0917686/8.88 (first stage) and -.3397627/.0711647/-4.77 (reduced form). Every value is within ~2% of the paper's rounded targets (0.82/0.09/8.88 and -0.34/0.07/-4.77), well inside the 5% band, and t-stats and N=722 agree exactly. The only fix applied was installing matplotlib for plotting (severity: minor, no effect on the numerical results). All six components match.",
+    "evidence_refs": [
+      "output/replication/replication_log.json",
+      "output/replication/codebase/gph/mfg_imppw_9007long_2sls1_av.gph",
+      "output/replication/codebase/gph/mfg_imppw_9007long_olsred_av.gph",
+      "output/assess/fix_severity.json"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C10",
+    "status": "out_of_scope",
+    "structured": {},
+    "rationale": "No plan step targeted this claim; treated as out_of_scope (excluded from the score, not a failure): Appendix robustness dropping specific industries (steel/glass/cement, computers, apparel). Requires rebuilding the CZ import-exposure variable from sic87dd_trade_data excluding industries; the exposure-construction code is not shipped (only the pre-built workfile), so this robustness variant cannot be run. Appendix-only, deprioritized.",
+    "evidence_refs": [],
+    "graded_by": "deterministic"
+  },
+  {
+    "claim_id": "C11",
+    "status": "match",
+    "structured": {
+      "replicated_table": {
+        "Panel A (no controls) coef|All": -1.031,
+        "Panel A (no controls) coef|College": -0.36,
+        "Panel A (no controls) coef|Noncollege": -1.097,
+        "Panel A (no controls) coef|Age 16-34": -1.299,
+        "Panel A (no controls) coef|Age 35-49": -0.615,
+        "Panel A (no controls) coef|Age 50-64": -1.127,
+        "Panel C (full controls) coef|All": -0.05,
+        "Panel C (full controls) coef|College": -0.026,
+        "Panel C (full controls) coef|Noncollege": -0.047,
+        "Panel C (full controls) coef|Age 16-34": -0.138,
+        "Panel C (full controls) coef|Age 35-49": 0.367,
+        "Panel C (full controls) coef|Age 50-64": -0.138
+      },
+      "paper_table": {
+        "Panel A (no controls) coef|All": -1.031,
+        "Panel A (no controls) coef|College": -0.36,
+        "Panel A (no controls) coef|Noncollege": -1.097,
+        "Panel A (no controls) coef|Age 16-34": -1.299,
+        "Panel A (no controls) coef|Age 35-49": -0.615,
+        "Panel A (no controls) coef|Age 50-64": -1.127,
+        "Panel C (full controls) coef|All": -0.05,
+        "Panel C (full controls) coef|College": -0.026,
+        "Panel C (full controls) coef|Noncollege": -0.047,
+        "Panel C (full controls) coef|Age 16-34": -0.138,
+        "Panel C (full controls) coef|Age 35-49": 0.367,
+        "Panel C (full controls) coef|Age 50-64": -0.138
+      },
+      "full_controls_all_coef": -0.05,
+      "full_controls_all_se": 0.746,
+      "value_found": true
+    },
+    "rationale": "log/tab_ipw_pop.scsv reproduces Table 4 with 18 columns: cols 1-6 = Panel A (no controls), 7-12 = Panel B (regional controls), 13-18 = Panel C (full controls), across All/College/Noncollege/Age16-34/Age35-49/Age50-64. The d_t~eusch_pw (import exposure) row gives Panel A = [-1.031, -0.360, -1.097, -1.299, -0.615, -1.127] and Panel C = [-0.050, -0.026, -0.047, -0.138, 0.367, -0.138], which are identical to the paper's reported values for both panels (0% relative error on every cell). The fully-controlled 'All' estimate is -0.050 with SE (0.746) in parentheses directly beneath it, matching the claim exactly. All Panel C SEs (0.746, 0.685, 0.823, 1.190, 0.560, 0.651) exceed their point estimates in magnitude, confirming statistical insignificance across all education and age groups and supporting the 'no population mobility response' finding. fix_severity.json reports only one minor, non-numerical fix (installing matplotlib for plotting), which does not affect these estimates.",
+    "evidence_refs": [
+      "/workspace/output/replication/codebase/log/tab_ipw_pop.scsv",
+      "/workspace/output/assess/fix_severity.json"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C12",
+    "status": "match",
+    "structured": {
+      "replicated_table": {
+        "Panel A: 100 x log change in population counts (coef) | Mfg emp": -4.231,
+        "Panel A: 100 x log change in population counts (coef) | Non-mfg emp": -0.274,
+        "Panel A: 100 x log change in population counts (coef) | Unemp": 4.921,
+        "Panel A: 100 x log change in population counts (coef) | NILF": 2.058,
+        "Panel A: 100 x log change in population counts (coef) | SSDI receipt": 1.466,
+        "standard error | Mfg emp": 1.047,
+        "standard error | Non-mfg emp": 0.651,
+        "standard error | Unemp": 1.128,
+        "standard error | NILF": 1.08,
+        "standard error | SSDI receipt": 0.557
+      },
+      "paper_table": {
+        "Panel A: 100 x log change in population counts (coef) | Mfg emp": -4.231,
+        "Panel A: 100 x log change in population counts (coef) | Non-mfg emp": -0.274,
+        "Panel A: 100 x log change in population counts (coef) | Unemp": 4.921,
+        "Panel A: 100 x log change in population counts (coef) | NILF": 2.058,
+        "Panel A: 100 x log change in population counts (coef) | SSDI receipt": 1.466,
+        "standard error | Mfg emp": 1.047,
+        "standard error | Non-mfg emp": 0.651,
+        "standard error | Unemp": 1.128,
+        "standard error | NILF": 1.08,
+        "standard error | SSDI receipt": 0.557
+      },
+      "value_found": true
+    },
+    "rationale": "The produced Table 5 (log/tab_ipw_empl.scsv) matches the paper exactly. In the treatment row `d_t~eusch_pw` (the $1,000 import exposure per worker coefficient), Panel A log-count columns 1-5 (lnchg_n~_mfg, lnchg_n~nmfg, lnchg_no_u~l, lnchg_no_n~f, lnchg_~swkrs) read -4.231, -0.274, 4.921, 2.058, 1.466 with standard errors (1.047), (0.651), (1.128), (1.080), (0.557). These are byte-for-byte identical to the paper's reported values (-4.231, -0.274, 4.921, 2.058, 1.466 with SEs 1.047, 0.651, 1.128, 1.08, 0.557), so every cell is within 5% relative error (0% error). N=1444 for all columns.",
+    "evidence_refs": [
+      "/workspace/output/replication/codebase/log/tab_ipw_empl.scsv"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C13",
+    "status": "match",
+    "structured": {
+      "replicated_table": {
+        "Panel B all education (coef) | Mfg emp": -0.596,
+        "Panel B all education (coef) | Non-mfg emp": -0.178,
+        "Panel B all education (coef) | Unemp": 0.221,
+        "Panel B all education (coef) | NILF": 0.553,
+        "Panel B all education (coef) | SSDI receipt": 0.076,
+        "standard error | Mfg emp": 0.099,
+        "standard error | Non-mfg emp": 0.137,
+        "standard error | Unemp": 0.058,
+        "standard error | NILF": 0.15,
+        "standard error | SSDI receipt": 0.028
+      },
+      "paper_table": {
+        "Panel B all education (coef) | Mfg emp": -0.596,
+        "Panel B all education (coef) | Non-mfg emp": -0.178,
+        "Panel B all education (coef) | Unemp": 0.221,
+        "Panel B all education (coef) | NILF": 0.553,
+        "Panel B all education (coef) | SSDI receipt": 0.076,
+        "standard error | Mfg emp": 0.099,
+        "standard error | Non-mfg emp": 0.137,
+        "standard error | Unemp": 0.058,
+        "standard error | NILF": 0.15,
+        "standard error | SSDI receipt": 0.028
+      },
+      "value_found": true
+    },
+    "rationale": "The evidence file log/tab_ipw_empl.scsv contains Table 5 panel B. In the d_t~eusch_pw ($1,000 import shock) row, the five share columns match the paper exactly: d_sh_em~_mfg = -0.596, d_sh_em~nmfg = -0.178, d_sh_unempl = 0.221, d_sh_nilf = 0.553, d_sh_ssadi~s = 0.076 (columns 6-10). The standard errors in parentheses also match exactly: (0.099), (0.137), (0.058), (0.150), (0.028). All ten cells are within 0% relative error of the paper values. Internal consistency also holds: the mfg + non-mfg sum (-0.596 + -0.178 = -0.774) equals the ~-0.77 pp emp/pop reduction, with ~1/4 (0.221) accruing to unemployment and ~3/4 (0.553) to nonparticipation, as described in the claim.",
+    "evidence_refs": [
+      "replication/codebase/log/tab_ipw_empl.scsv"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C14",
+    "status": "match",
+    "structured": {
+      "replicated_value": {
+        "college_emp_pop_pp": -0.424,
+        "noncollege_emp_pop_pp": -1.112,
+        "noncollege_nonmfg_share_pp": -0.531
+      },
+      "paper_value": {
+        "college_emp_pop_pp": -0.42,
+        "noncollege_emp_pop_pp": -1.11,
+        "noncollege_nonmfg_share_pp": -0.531
+      },
+      "uncertainty": null,
+      "value_found": true
+    },
+    "rationale": "log/tab_ipw_empl.scsv (Table 5 panel B) reports d_t~eusch_pw coefficients per education group. The noncollege nonmanufacturing employment-share coefficient (col 16, d_sh_empl_.. noncollege) is -0.531 with SE (0.203), matching the claim exactly. Summing manufacturing + nonmanufacturing share coefficients within each education group yields the net employment-to-population reductions: college = -0.592 (col 11, d~_mfg_edu_c) + 0.168 (col 12, d~nmfg_edu_c) = -0.424 pp (~-0.42), and noncollege = -0.581 (col 15) + (-0.531) (col 16) = -1.112 pp (~-1.11). All three values fall within ~1% of the paper values, and the noncollege effect is ~2.6x the college effect, consistent with the paper's 'nearly three times as large' description.",
+    "evidence_refs": [
+      "replication/codebase/log/tab_ipw_empl.scsv"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C15",
+    "status": "match",
+    "structured": {
+      "replicated_table": {
+        "Panel A all education (coef) - All workers": -0.759,
+        "Panel A all education (coef) - Males": -0.892,
+        "Panel A all education (coef) - Females": -0.614,
+        "standard error - All workers": 0.253,
+        "standard error - Males": 0.294,
+        "standard error - Females": 0.237,
+        "Panel B college (coef) - All workers": -0.757,
+        "Panel B college (coef) - Males": -0.991,
+        "Panel B college (coef) - Females": -0.525,
+        "Panel C noncollege (coef) - All workers": -0.814,
+        "Panel C noncollege (coef) - Males": -0.703,
+        "Panel C noncollege (coef) - Females": -1.116
+      },
+      "paper_table": {
+        "Panel A all education (coef) - All workers": -0.759,
+        "Panel A all education (coef) - Males": -0.892,
+        "Panel A all education (coef) - Females": -0.614,
+        "standard error - All workers": 0.253,
+        "standard error - Males": 0.294,
+        "standard error - Females": 0.237,
+        "Panel B college (coef) - All workers": -0.757,
+        "Panel B college (coef) - Males": -0.991,
+        "Panel B college (coef) - Females": -0.525,
+        "Panel C noncollege (coef) - All workers": -0.814,
+        "Panel C noncollege (coef) - Males": -0.703,
+        "Panel C noncollege (coef) - Females": -1.116
+      },
+      "value_found": true
+    },
+    "rationale": "The evidence file log/tab_ipw_wage.scsv reproduces Table 6 exactly. The d_t~eusch_pw (import exposure per worker) coefficient row reads -0.759/-0.892/-0.614 for all/male/female (columns 1-3, Panel A all education) with standard errors (0.253)/(0.294)/(0.237); -0.757/-0.991/-0.525 for the college panel (columns 4-6, Panel B); and -0.814/-0.703/-1.116 for the noncollege panel (columns 7-9, Panel C). Every one of these 12 cells matches the paper values to the reported 3 decimal places (0% relative error), well within the 5% tolerance.",
+    "evidence_refs": [
+      "/workspace/output/replication/codebase/log/tab_ipw_wage.scsv"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C16",
+    "status": "match",
+    "structured": {
+      "replicated_table": {
+        "Panel B change in avg log wage (coef) | Mfg wage (all)": 0.151,
+        "Panel B change in avg log wage (coef) | Nonmfg wage (all)": -0.761,
+        "standard error | Mfg wage (all)": 0.482,
+        "standard error | Nonmfg wage (all)": 0.261
+      },
+      "paper_table": {
+        "Panel B change in avg log wage (coef) | Mfg wage (all)": 0.15,
+        "Panel B change in avg log wage (coef) | Nonmfg wage (all)": -0.761,
+        "standard error | Mfg wage (all)": 0.482,
+        "standard error | Nonmfg wage (all)": 0.26
+      },
+      "value_found": true
+    },
+    "rationale": "The produced output file log/tab_ipw_mfgnmfg.scsv contains Table 7 with the change-in-average-log-wage coefficients on d_t~eusch_pw (Chinese import exposure per worker). Column (7) d_avg_l~_mfg is the manufacturing 'all workers' log-wage effect: coefficient 0.151 (SE 0.482), which is insignificant (t\u22480.31) and matches the paper's 0.150 (SE 0.482). Column (10) d_avg_l~nmfg is the nonmanufacturing 'all workers' log-wage effect: coefficient -0.761 (SE 0.261), significant, matching the paper's -0.761 (SE 0.260). The corresponding Panel A employment-count effects also line up: column (1) lnchg_no_emp_mfg = -4.231 and column (4) lnchg_no_emp_nmfg = -0.274. All four target cells are within 5% relative error (mfg coef 0.151 vs 0.15, mfg SE 0.482 exact, nonmfg coef -0.761 exact, nonmfg SE 0.261 vs 0.260), so the claim that wage declines are concentrated outside manufacturing is fully supported.",
+    "evidence_refs": [
+      "/workspace/output/replication/codebase/log/tab_ipw_mfgnmfg.scsv"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C17",
+    "status": "match",
+    "structured": {
+      "replicated_table": {
+        "Panel A log change per capita (coef) | Total transfers": 1.013,
+        "Panel A log change per capita (coef) | TAA": 14.406,
+        "Panel A log change per capita (coef) | Unemployment": 3.46,
+        "Panel A log change per capita (coef) | SSA retirement": 0.717,
+        "Panel A log change per capita (coef) | SSA disability": 1.96,
+        "Panel A log change per capita (coef) | Medical": 0.542,
+        "Panel A log change per capita (coef) | Fed income assist": 3.039,
+        "Panel A log change per capita (coef) | Educ/training": 2.779,
+        "Panel B dollar change per capita (coef) | Total transfers": 57.73,
+        "Panel B dollar change per capita (coef) | TAA": 0.234,
+        "Panel B dollar change per capita (coef) | Unemployment": 3.421,
+        "Panel B dollar change per capita (coef) | SSA retirement": 9.998,
+        "Panel B dollar change per capita (coef) | SSA disability": 8.395,
+        "Panel B dollar change per capita (coef) | Medical": 18.27,
+        "Panel B dollar change per capita (coef) | Fed income assist": 7.202,
+        "Panel B dollar change per capita (coef) | Educ/training": 3.709
+      },
+      "paper_table": {
+        "Panel A log change per capita (coef) | Total transfers": 1.013,
+        "Panel A log change per capita (coef) | TAA": 14.406,
+        "Panel A log change per capita (coef) | Unemployment": 3.46,
+        "Panel A log change per capita (coef) | SSA retirement": 0.717,
+        "Panel A log change per capita (coef) | SSA disability": 1.96,
+        "Panel A log change per capita (coef) | Medical": 0.542,
+        "Panel A log change per capita (coef) | Fed income assist": 3.039,
+        "Panel A log change per capita (coef) | Educ/training": 2.779,
+        "Panel B dollar change per capita (coef) | Total transfers": 57.73,
+        "Panel B dollar change per capita (coef) | TAA": 0.234,
+        "Panel B dollar change per capita (coef) | Unemployment": 3.421,
+        "Panel B dollar change per capita (coef) | SSA retirement": 9.998,
+        "Panel B dollar change per capita (coef) | SSA disability": 8.395,
+        "Panel B dollar change per capita (coef) | Medical": 18.27,
+        "Panel B dollar change per capita (coef) | Fed income assist": 7.202,
+        "Panel B dollar change per capita (coef) | Educ/training": 3.709
+      },
+      "value_found": true
+    },
+    "rationale": "The replicated Table 8 output at log/tab_ipw_trans.scsv reports coefficients on d_t~eusch_pw (the $1,000 Chinese import exposure regressor) that match the paper's reported values exactly. The 18 output columns pair as 9 log-change (lnchg_*) columns and 9 dollar-change (d_trans_*) columns; mapping the 8 claim-named categories yields, Panel A: total transfers 1.013, TAA 14.406, unemployment 3.460, SSA retirement 0.717, SSA disability 1.960, medical 0.542, fed income assist 3.039, educ/training 2.779; Panel B: total 57.730, TAA 0.234, unemployment 3.421, SSA retirement 9.998, SSA disability 8.395, medical 18.270, fed income assist 7.202, educ/training 3.709. Every one of the 16 cells is within 0.01% of its paper value \u2014 a perfect reproduction, including the headline total ($57.73 / 1.013 log points), the largest proportionate TAA effect (14.41 log), and the negligible TAA dollar increase ($0.234) versus the far larger SSA disability ($8.40) and medical ($18.27) dollar effects. fix_severity.json records only a trivial matplotlib install with no impact on numerical results.",
+    "evidence_refs": [
+      "replication/codebase/log/tab_ipw_trans.scsv",
+      "assess/fix_severity.json"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C18",
+    "status": "match",
+    "structured": {
+      "replicated_table": {
+        "Panel A percent change (coef) | Total": -1.476,
+        "Panel A percent change (coef) | Wage-salary": -2.142,
+        "Panel A percent change (coef) | Business invest": -0.51,
+        "Panel A percent change (coef) | SocSec + AFDC": 2.119,
+        "Panel A percent change (coef) | Median HH total": -1.732,
+        "Panel A percent change (coef) | Median HH wage-salary": -2.32,
+        "Panel B dollar change (coef) | Total": -492.636,
+        "Panel B dollar change (coef) | Wage-salary": -549.332,
+        "Panel B dollar change (coef) | Business invest": 40.137,
+        "Panel B dollar change (coef) | SocSec + AFDC": 17.317,
+        "Panel B dollar change (coef) | Median HH total": -439.868,
+        "Panel B dollar change (coef) | Median HH wage-salary": -476.486
+      },
+      "paper_table": {
+        "Panel A percent change (coef) | Total": -1.48,
+        "Panel A percent change (coef) | Wage-salary": -2.14,
+        "Panel A percent change (coef) | Business invest": -0.51,
+        "Panel A percent change (coef) | SocSec + AFDC": 2.12,
+        "Panel A percent change (coef) | Median HH total": -1.73,
+        "Panel A percent change (coef) | Median HH wage-salary": -2.32,
+        "Panel B dollar change (coef) | Total": -492.6,
+        "Panel B dollar change (coef) | Wage-salary": -549.3,
+        "Panel B dollar change (coef) | Business invest": 40.1,
+        "Panel B dollar change (coef) | SocSec + AFDC": 17.3,
+        "Panel B dollar change (coef) | Median HH total": -439.9,
+        "Panel B dollar change (coef) | Median HH wage-salary": -476.5
+      },
+      "value_found": true
+    },
+    "rationale": "The evidence file log/tab_ipw_hhinc_pw.scsv (Table 9) reports coefficients on the import-exposure regressor (row 'd_t~eusch_pw'). Columns 1-6 are the percent-change specifications (Panel A) and columns 7-12 the dollar-change specifications (Panel B). Every cell matches the paper to essentially full precision: Panel A total -1.476 (paper -1.48), wage-salary -2.142 (-2.14), business/invest -0.510 (-0.51), SocSec+AFDC +2.119 (+2.12), median total -1.732 (-1.73), median wage-salary -2.320 (-2.32); Panel B total -492.636 (-492.6), wage-salary -549.332 (-549.3), business/invest +40.137 (+40.1), SocSec+AFDC +17.317 (+17.3), median total -439.868 (-439.9), median wage-salary -476.486 (-476.5). All 12 cells are well within 5% relative error (most exact to the reported rounding). fix_severity.json shows only a trivial matplotlib install with no impact on the statistical results. This is a clean match.",
+    "evidence_refs": [
+      "replication/codebase/log/tab_ipw_hhinc_pw.scsv",
+      "assess/fix_severity.json"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C19",
+    "status": "partial",
+    "structured": {
+      "replicated_table": {
+        "columns": [
+          "Mfg emp/pop",
+          "Nonmfg emp/pop",
+          "Mfg log wage",
+          "Nonmfg log wage",
+          "log transfers",
+          "Avg log HH wage inc"
+        ],
+        "rows": [
+          {
+            "label": "A baseline gross imports",
+            "values": [
+              -0.596,
+              -0.178,
+              0.151,
+              -0.761,
+              1.013,
+              -2.142
+            ]
+          },
+          {
+            "label": "B domestic+intl exposure",
+            "values": [
+              -0.415,
+              -0.063,
+              0.199,
+              -0.429,
+              0.732,
+              -1.375
+            ]
+          },
+          {
+            "label": "C net of intermediate inputs",
+            "values": [
+              -0.491,
+              -0.01,
+              0.707,
+              -0.414,
+              0.842,
+              -1.229
+            ]
+          },
+          {
+            "label": "D net imports",
+            "values": [
+              -0.453,
+              -0.093,
+              0.455,
+              -0.473,
+              0.729,
+              -1.388
+            ]
+          },
+          {
+            "label": "E gravity residual (OLS)",
+            "values": [
+              -0.289,
+              -0.034,
+              0.036,
+              -0.261,
+              0.526,
+              -0.777
+            ]
+          },
+          {
+            "label": "F factor content of net imports",
+            "values": [
+              -0.571,
+              -0.119,
+              0.592,
+              -0.657,
+              0.806,
+              -1.698
+            ]
+          }
+        ]
+      },
+      "paper_table": {
+        "columns": [
+          "Mfg emp/pop",
+          "Nonmfg emp/pop",
+          "Mfg log wage",
+          "Nonmfg log wage",
+          "log transfers",
+          "Avg log HH wage inc"
+        ],
+        "rows": [
+          {
+            "label": "A baseline gross imports",
+            "values": [
+              -0.6,
+              -0.18,
+              0.15,
+              -0.76,
+              1.01,
+              -2.14
+            ]
+          },
+          {
+            "label": "B domestic+intl exposure",
+            "values": [
+              -0.51,
+              -0.12,
+              0.16,
+              -0.6,
+              0.87,
+              -1.77
+            ]
+          },
+          {
+            "label": "C net of intermediate inputs",
+            "values": [
+              -0.49,
+              -0.01,
+              0.71,
+              -0.41,
+              0.84,
+              -1.23
+            ]
+          },
+          {
+            "label": "D net imports",
+            "values": [
+              -0.45,
+              -0.09,
+              0.46,
+              -0.47,
+              0.73,
+              -1.39
+            ]
+          },
+          {
+            "label": "E gravity residual (OLS)",
+            "values": [
+              -0.29,
+              -0.03,
+              0.04,
+              -0.26,
+              0.53,
+              -0.78
+            ]
+          },
+          {
+            "label": "F factor content of net imports",
+            "values": [
+              -0.57,
+              -0.12,
+              0.59,
+              -0.66,
+              0.81,
+              -1.7
+            ]
+          }
+        ]
+      },
+      "value_found": true
+    },
+    "rationale": "All five Table 10 output files were produced and their panel assignments confirmed from the do-file (do/czone_analysis_ipw_final.do, lines 284-290 d_tradex_usch_pw -> tab_expoff_iv = Panel B; 297+ d_tradeusch_netinput_pw -> tab_intermediates = Panel C; tab_nipw_iv = Panel D; tab_nipw_grav = Panel E gravity OLS; tab_ifactor_net_io = Panel F). Panel A (baseline) is the full-spec d_tradeusch_pw row assembled from tab_ipw_manuf_2.scsv/tab_ipw_empl.scsv (Mfg emp/pop -0.596, Nonmfg -0.178), tab_ipw_mfgnmfg.scsv (Mfg log wage 0.151, Nonmfg log wage -0.761), tab_ipw_trans.scsv (log transfers 1.013), tab_ipw_hhinc_pw.scsv (Avg log HH wage inc -2.142) -- every cell within <1% of the paper. Panels C (-0.491/-0.010/0.707/-0.414/0.842/-1.229), D (-0.453/-0.093/0.455/-0.473/0.729/-1.388), E (-0.289/-0.034/0.036/-0.261/0.526/-0.777) and F (-0.571/-0.119/0.592/-0.657/0.806/-1.698) each reproduce their paper rows within a few percent, and the sign/significance pattern (nonmfg wages negative, transfers positive, HH wage income negative) holds throughout. The lone exception is Panel B (tab_expoff_iv, domestic+intl exposure): its Mfg emp/pop coefficient is -0.415 vs the paper's -0.51 (18.6% relative error), and its entire row deviates by ~16-47% (Nonmfg emp/pop -0.063 vs -0.12; Mfg log wage 0.199 vs 0.16; Nonmfg log wage -0.429 vs -0.6; transfers 0.732 vs 0.87; HH wage inc -1.375 vs -1.77). Since only a trivial matplotlib install was applied (assess/fix_severity.json: no analysis-code changes), these are the authors' code as-shipped. With 30 of 36 cells matching within ~5% but all 6 Panel B cells landing in the 15-30%+ band, this is a partial match, not a full one.",
+    "evidence_refs": [
+      "replication/codebase/log/tab_expoff_iv.scsv",
+      "replication/codebase/log/tab_intermediates.scsv",
+      "replication/codebase/log/tab_nipw_iv.scsv",
+      "replication/codebase/log/tab_nipw_grav.scsv",
+      "replication/codebase/log/tab_ifactor_net_io.scsv",
+      "replication/codebase/log/tab_ipw_manuf_2.scsv",
+      "replication/codebase/log/tab_ipw_empl.scsv",
+      "replication/codebase/log/tab_ipw_mfgnmfg.scsv",
+      "replication/codebase/log/tab_ipw_trans.scsv",
+      "replication/codebase/log/tab_ipw_hhinc_pw.scsv",
+      "replication/codebase/do/czone_analysis_ipw_final.do",
+      "assess/fix_severity.json"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C20",
+    "status": "not_attempted",
+    "structured": {},
+    "rationale": "No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Deadweight-loss-of-transfers welfare calculation ($13/$21; $22-44 range) applying a 40% marginal excess burden. No shipped code computes this; it is a text-level calculation on top of the Table 8 transfer estimates.",
+    "evidence_refs": [],
+    "not_attempted_reason": "authors_missing",
+    "graded_by": "deterministic"
+  },
+  {
+    "claim_id": "C21",
+    "status": "not_attempted",
+    "structured": {},
+    "rationale": "No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Deadweight-loss-of-nonparticipation welfare calculation ($43/$69; $87-137 range). No shipped code path; text-level welfare arithmetic on the Table 5 nonparticipation estimates.",
+    "evidence_refs": [],
+    "not_attempted_reason": "authors_missing",
+    "graded_by": "deterministic"
+  },
+  {
+    "claim_id": "C22",
+    "status": "match",
+    "structured": {
+      "replicated_table": {
+        "US imports from China ($B) | 1991/1992": 26.3,
+        "US imports from China ($B) | 2000": 121.6,
+        "US imports from China ($B) | 2007": 330.0,
+        "US imports from China ($B) | Growth 1991-2007 (%)": 1156,
+        "US exports to China ($B) | 1991/1992": 10.3,
+        "US exports to China ($B) | 2000": 23.0,
+        "US exports to China ($B) | 2007": 57.4,
+        "US exports to China ($B) | Growth 1991-2007 (%)": 456,
+        "China share of US low-income mfg imports (%) | 1991/1992": 77.4,
+        "China share of US low-income mfg imports (%) | 2007": 87.9
+      },
+      "paper_table": {
+        "US imports from China ($B) | 1991/1992": 26.3,
+        "US imports from China ($B) | 2000": 121.6,
+        "US imports from China ($B) | 2007": 330.0,
+        "US imports from China ($B) | Growth 1991-2007 (%)": 1156,
+        "US exports to China ($B) | 1991/1992": 10.3,
+        "US exports to China ($B) | 2000": 23.0,
+        "US exports to China ($B) | 2007": 57.4,
+        "US exports to China ($B) | Growth 1991-2007 (%)": 456,
+        "China share of US low-income mfg imports (%) | 1991/1992": 77.4,
+        "China share of US low-income mfg imports (%) | 2007": 89.8
+      },
+      "value_found": true
+    },
+    "rationale": "The run produced log/import_stats_final.log (via do/import_stats_final.do), which summarizes trade levels in BN 2007 US$. US imports from China (l_totimp_usch): 1991=26.27168, 2000=121.5563, 2007=330.0224 -> matches paper 26.3/121.6/330.0 exactly; derived growth (330.0224/26.27168-1)*100 = 1156.2% matches the paper's 1156%. US exports to China (l_totexp_usch): 1992=10.32224, 2000=23.00427, 2007=57.41103 -> matches paper 10.3/23.0/57.4; derived growth = 456.2% matches 456%. China's share of US low-income imports (China / (China + other low-income col.3, l_totimp_uslw), which the xls notes confirm excludes China): 1991 = 26.27168/(26.27168+7.686292) = 77.37% (matches paper 77.4% exactly), 2007 = 330.0224/(330.0224+45.43324) = 87.90% vs paper 89.8% \u2014 a 2.1% relative error, within the 5% cell tolerance. The parallel 'other high-income' cross-check (otch/(otch+otlw)) gives 75.3% -> 89.4% vs the paper's stated 75.4% -> 89.5%, confirming the share construction. All cells fall within 5% relative error, so the table matches.",
+    "evidence_refs": [
+      "/workspace/output/replication/codebase/log/import_stats_final.log",
+      "/workspace/output/replication/codebase/do/import_stats_final.do",
+      "/workspace/output/replication/codebase/tab-fig/ADH-ChinaSyndrome-AER-2011-1050-Tables.xls"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C23",
+    "status": "match",
+    "structured": {
+      "replicated_value": {
+        "china_import_penetration_1991_pct": 0.6,
+        "china_import_penetration_2007_pct": 4.68,
+        "mfg_emp_share_1991_pct": 12.61,
+        "mfg_emp_share_2007_pct": 8.37
+      },
+      "paper_value": {
+        "china_import_penetration_1991_pct": 0.6,
+        "china_import_penetration_2007_pct": 4.6,
+        "mfg_emp_share_1991_pct": 12.6,
+        "mfg_emp_share_2007_pct": 8.4
+      },
+      "uncertainty": null,
+      "value_found": true
+    },
+    "rationale": "The reproduced Figure 1 series in outputs/figure1_series.csv (produced by repro/table1_fig1.py from dta/figure1_data.dta) yields all four values. Import penetration (import_penetration_impr) is 0.005997813 in 1991 (=0.60%) and 0.046820268 in 2007 (=4.68%), matching the paper's 0.6% and 4.6% (relative errors ~0.03% and ~1.8%). The manufacturing employment/working-age-population series (mfg_emp_pop_cpsman) is 0.1261 in 1991 (=12.61%) and 0.0837 in 2007 (=8.37%), matching the paper's 12.6% and 8.4% (relative errors ~0.08% and ~0.4%); this is a decline of roughly a third. The penetration series rises monotonically with a clear acceleration after China's 2001 WTO accession (0.0195 in 2000, 0.0215 in 2001, 0.0264 in 2002), consistent with the described inflection. All four values fall well within the 5% match band. No critical fixes affecting this code path appear in fix_severity.json.",
+    "evidence_refs": [
+      "/workspace/output/replication/codebase/outputs/figure1_series.csv",
+      "/workspace/output/analyze/replication_plan.json",
+      "/workspace/output/replication/codebase/dta/figure1_data.dta",
+      "/workspace/output/replication/codebase/gph/figure1.gph"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C24",
+    "status": "match",
+    "structured": {
+      "replicated_value": {
+        "median_1990-2000": 889,
+        "median_2000-2007": 2113,
+        "p25_1990-2000": 623,
+        "p25_2000-2007": 1599,
+        "p75_1990-2000": 1316,
+        "p75_2000-2007": 3114
+      },
+      "paper_value": {
+        "median_1990-2000": 890,
+        "median_2000-2007": 2110,
+        "p25_1990-2000": 620,
+        "p25_2000-2007": 1600,
+        "p75_1990-2000": 1320,
+        "p75_2000-2007": 3110
+      },
+      "uncertainty": null,
+      "value_found": true
+    },
+    "rationale": "The reproduced Appendix Table 1 percentiles (outputs/apptab1_importgrowth.csv) give weighted percentiles of ten-year-equivalent d_tradeusch_pw (in kUSD/worker): for 1990 (1990-2000) p25=0.6231, p50=0.8887, p75=1.3155; for 2000 (2000-2007) p25=1.5994, p50=2.1129, p75=3.1138. Converting to 2007 US$ per worker: median $889/$2113, p25 $623/$1599, p75 $1316/$3114. Each is within ~1% of the paper values ($890/$2110 median, $620/$1600 p25, $1320/$3110 p75), well inside the 5% match band. The 75-vs-25 spread is roughly twice the median in both periods (1.32/0.62 vs 0.89; 3.11/1.60 vs 2.11), consistent with the claim. Step 7 (replication_log.json) notes an EXACT match to the authors' shipped Stata 'summ [aw], detail' in czone_analysis_ipw_final.log; no fixes were applied (code_modified=false), and fix_severity shows no critical fix in this path.",
+    "evidence_refs": [
+      "output/replication/codebase/outputs/apptab1_importgrowth.csv",
+      "output/replication/replication_log.json",
+      "output/analyze/replication_plan.json"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C25",
+    "status": "out_of_scope",
+    "structured": {},
+    "rationale": "No plan step targeted this claim; treated as out_of_scope (excluded from the score, not a failure): External cited statistics (China's ~3/4 share of LMIC manufacturing-VA growth; 8.0% vs 3.9% TFP growth) drawn from Brandt et al. and BLS, not from this replication package's data or code.",
+    "evidence_refs": [],
+    "graded_by": "deterministic"
+  },
+  {
+    "claim_id": "C26",
+    "status": "match",
+    "structured": {
+      "file_exists": true,
+      "evidence_found": true,
+      "file_path_checked": [
+        "gph/mfg_imppw_9007long_olsred_av.gph",
+        "gph/mfg_imppw_9007long_2sls1_av.gph",
+        "outputs/fig2_reducedform_av.png",
+        "outputs/fig2_firststage_av.png"
+      ],
+      "structural_features_present": [
+        "Panel A first stage: upward-sloping added-variable scatter of change in import exposure vs predicted exposure, fitted slope=0.815 (~0.82 as claimed)",
+        "Panel B reduced form: downward-sloping added-variable scatter of % change in manufacturing employment vs predicted import exposure per worker, fitted slope=-0.340 (~-0.34 as claimed)",
+        "Scatter points with red fitted regression line and slope annotation in each panel",
+        "N=722 commuting zones, 1990-2007, controlling for start-of-period manufacturing share (l_shind_manuf_cbp)"
+      ],
+      "structural_features_missing": [
+        "Combined two-panel Figure 2 not assembled into a single file (emitted as two separate panel PNGs plus two .gph files)"
+      ],
+      "structural_match": true
+    },
+    "rationale": "Both the expected .gph file (gph/mfg_imppw_9007long_olsred_av.gph, reduced form) and its first-stage counterpart (gph/mfg_imppw_9007long_2sls1_av.gph) were produced, along with rendered PNG exports outputs/fig2_reducedform_av.png and outputs/fig2_firststage_av.png that I inspected directly. Panel A (first stage) is an upward-sloping added-variable scatter with fitted slope=0.815, matching the claimed ~0.82; Panel B (reduced form) is a downward-sloping scatter of the change in manufacturing employment against predicted import exposure with fitted slope=-0.340, matching the claimed ~-0.34. The replication_log (line 101) confirms these are exact matches to the authors' czone_plot_import_long_final.log (first stage 0.8151/se 0.0918/t 8.88; reduced form -0.3398/se 0.0712/t -4.77), with N=722 CZs (line 14) and controls including start-of-period manufacturing share (l_shind_manuf_cbp). The qualitative structure (strong positive first stage, substantial decline in manufacturing employment with rising exposure) and quantitative slopes both match. The only minor deviation is that the two panels were emitted separately rather than assembled into a single combined Figure 2 file, which does not affect the substantive match.",
+    "evidence_refs": [
+      "output/replication/codebase/gph/mfg_imppw_9007long_olsred_av.gph",
+      "output/replication/codebase/gph/mfg_imppw_9007long_2sls1_av.gph",
+      "output/replication/codebase/outputs/fig2_reducedform_av.png",
+      "output/replication/codebase/outputs/fig2_firststage_av.png",
+      "output/replication/codebase/repro/figure2.py",
+      "output/replication/replication_log.json"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C27",
+    "status": "match",
+    "structured": {
+      "replicated_value": -0.65,
+      "paper_value": -0.65,
+      "uncertainty": null,
+      "value_found": true
+    },
+    "rationale": "The claim is a magnitude interpretation of Table 3 column 2: the column-2 (manufacturing-share-controlled) coefficient on import exposure times the 2000-2007 interquartile exposure difference (~1.06 kUSD) should yield a -0.65 pp differential decline. The evidence file log/tab_ipw_manuf_2.scsv reproduces the column (2) coefficient on d_t~eusch_pw as exactly -0.610 (SE 0.094), matching the paper's -0.610. Multiplying by the interquartile exposure difference of 1.06 kUSD (Appendix Table 1: (3.11-1.60)x0.7 = 1.06) gives -0.610 x 1.06 = -0.6466 pp, which rounds to -0.65 (relative error ~0.5% vs the paper value -0.65). Both the coefficient and the derived differential reproduce, so this is a match.",
+    "evidence_refs": [
+      "output/replication/codebase/log/tab_ipw_manuf_2.scsv"
+    ],
+    "graded_by": "agent"
+  },
+  {
+    "claim_id": "C28",
+    "status": "out_of_scope",
+    "structured": {},
+    "rationale": "No plan step targeted this claim; treated as out_of_scope (excluded from the score, not a failure): The distinctive number ($113.18, SE 41.53) is a re-estimate normalizing transfers by total workers rather than residents; no shipped do-file runs this re-normalization. The $58 residents-normalized point estimate it references is already produced in step 5 (Table 8).",
+    "evidence_refs": [],
+    "graded_by": "deterministic"
+  }
+]

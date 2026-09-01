@@ -1,0 +1,9 @@
+{
+  "claim_id": "C5",
+  "status": "not_attempted",
+  "structured": {},
+  "rationale": "No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Headline aggregate counterfactual (% of national mfg-employment decline explained). No shipped do-file computes this decomposition; it is a hand calculation in the paper text/Excel combining Table 2 coefficients with national employment aggregates. Building-block coefficients are produced (step 8) but the % figures are not emitted by any code path.",
+  "evidence_refs": [],
+  "not_attempted_reason": "authors_missing",
+  "graded_by": "deterministic"
+}
