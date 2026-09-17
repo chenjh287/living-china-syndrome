@@ -1,0 +1,7 @@
+event_year,spec_variant,coef_on,theta,se,ci_lo,ci_hi,N,theta_per_iqr
+2007,gap_only,NTRgap_simple,-11.9791,5.0905,-21.95648,-2.00171,722,-0.79965
+2007,gap_plus_dIPW,NTRgap_simple,-9.49241,4.75259,-18.80748,-0.17734,722,-0.63365
+2007,dIPW_in_joint,dipw_contemp,-0.16903,0.047,-0.26116,-0.07691,722,
+2012,gap_only,NTRgap_simple,-18.21729,4.70213,-27.43346,-9.00113,722,-1.21607
+2012,gap_plus_dIPW,NTRgap_simple,-16.1448,4.3417,-24.65452,-7.63507,722,-1.07772
+2012,dIPW_in_joint,dipw_contemp,-0.10385,0.02785,-0.15844,-0.04926,722,

@@ -1,0 +1,162 @@
+{
+  "C1_mfg_emp_per_workingage_pop_2007_iqr": [
+    -0.7996,
+    0.3398
+  ],
+  "C1_mfg_emp_per_workingage_pop_2007_sd": [
+    -0.6386,
+    0.2714
+  ],
+  "C1_mfg_emp_per_workingage_pop_2012_iqr": [
+    -1.2161,
+    0.3139
+  ],
+  "C1_mfg_emp_per_workingage_pop_2012_sd": [
+    -0.9712,
+    0.2507
+  ],
+  "C1_mfg_emp_per_workingage_pop_2019_iqr": [
+    -1.4563,
+    0.4735
+  ],
+  "C1_mfg_emp_per_workingage_pop_2019_sd": [
+    -1.163,
+    0.3781
+  ],
+  "C1_mfg_emp_per_workingage_pop_2023_iqr": [
+    -1.4855,
+    0.4293
+  ],
+  "C1_mfg_emp_per_workingage_pop_2023_sd": [
+    -1.1863,
+    0.3428
+  ],
+  "C2_unemp_over_pop1564_2007_iqr": [
+    0.1468,
+    0.1055
+  ],
+  "C2_unemp_over_pop1564_2007_sd": [
+    0.1172,
+    0.0842
+  ],
+  "C2_unemp_over_pop1564_2012_iqr": [
+    0.4345,
+    0.1727
+  ],
+  "C2_unemp_over_pop1564_2012_sd": [
+    0.347,
+    0.1379
+  ],
+  "C2_unemp_over_pop1564_2019_iqr": [
+    -0.2357,
+    0.0726
+  ],
+  "C2_unemp_over_pop1564_2019_sd": [
+    -0.1882,
+    0.058
+  ],
+  "C2_unemp_over_pop1564_2024_iqr": [
+    -0.0016,
+    0.1193
+  ],
+  "C2_unemp_over_pop1564_2024_sd": [
+    -0.0013,
+    0.0952
+  ],
+  "C2_nilf_proxy_2007_iqr": [
+    0.5898,
+    0.456
+  ],
+  "C2_nilf_proxy_2007_sd": [
+    0.4711,
+    0.3642
+  ],
+  "C2_nilf_proxy_2012_iqr": [
+    1.0249,
+    0.5246
+  ],
+  "C2_nilf_proxy_2012_sd": [
+    0.8185,
+    0.419
+  ],
+  "C2_nilf_proxy_2019_iqr": [
+    1.8835,
+    0.6829
+  ],
+  "C2_nilf_proxy_2019_sd": [
+    1.5042,
+    0.5453
+  ],
+  "C2_nilf_proxy_2024_iqr": [
+    0.4197,
+    1.5725
+  ],
+  "C2_nilf_proxy_2024_sd": [
+    0.3352,
+    1.2558
+  ],
+  "C3_log_weekly_wage_x100_2007_iqr": [
+    -2.6736,
+    0.8163
+  ],
+  "C3_log_weekly_wage_x100_2007_sd": [
+    -2.1352,
+    0.6519
+  ],
+  "C3_log_weekly_wage_x100_2012_iqr": [
+    -2.6597,
+    0.937
+  ],
+  "C3_log_weekly_wage_x100_2012_sd": [
+    -2.1241,
+    0.7483
+  ],
+  "C3_log_weekly_wage_x100_2019_iqr": [
+    -2.2196,
+    0.917
+  ],
+  "C3_log_weekly_wage_x100_2019_sd": [
+    -1.7726,
+    0.7323
+  ],
+  "C3_log_weekly_wage_x100_2023_iqr": [
+    -2.2297,
+    1.0477
+  ],
+  "C3_log_weekly_wage_x100_2023_sd": [
+    -1.7807,
+    0.8367
+  ],
+  "C4_log_real_transfers_pc_x100_2007_iqr": [
+    2.0299,
+    0.8795
+  ],
+  "C4_log_real_transfers_pc_x100_2007_sd": [
+    1.6211,
+    0.7024
+  ],
+  "C4_log_real_transfers_pc_x100_2012_iqr": [
+    2.5802,
+    1.0658
+  ],
+  "C4_log_real_transfers_pc_x100_2012_sd": [
+    2.0606,
+    0.8512
+  ],
+  "C4_log_real_transfers_pc_x100_2019_iqr": [
+    2.0614,
+    1.5346
+  ],
+  "C4_log_real_transfers_pc_x100_2019_sd": [
+    1.6463,
+    1.2256
+  ],
+  "C4_log_real_transfers_pc_x100_2022_iqr": [
+    2.0458,
+    1.9076
+  ],
+  "C4_log_real_transfers_pc_x100_2022_sd": [
+    1.6338,
+    1.5234
+  ]
+}

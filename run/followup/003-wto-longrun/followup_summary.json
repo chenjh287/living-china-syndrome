@@ -1,0 +1,62 @@
+{
+  "instruction_summary": "Bring the Pierce-Schott (2016) WTO/PNTR NTR-gap identification into the ADH commuting-zone frame and estimate the long-run (through 2023/24) impact of China's WTO entry on US local labor markets, as a 25-year event study plus a bridge to and anchor against the realized-import (dIPW) results of follow-ups 001/002.",
+  "completed": true,
+  "steps": [
+    {"description": "Symlinked staged data into workspace and verified NEW_FETCH md5s (frs_tariff, cbp_annual, ps2020)", "command": "ln -s ../../../followup_staging/wto-longrun/workspace/data data; md5sum -c", "exit_code": 0, "outputs": ["workspace/data (symlink tree)"]},
+    {"description": "Built NTR-gap shock: 1999 HS8 spread -> HS6 (simple + import-weighted) -> sic87dd -> CZ NTRgap (722 CZs). Validated vs PS sic4 recipe (r=0.959), moments (mean 0.326/sd 0.164), correlations vs dIPW (0.50 pop-wtd) and Persistence (0.79).", "command": "python src/build_gap.py", "exit_code": 0, "outputs": ["results/gap_by_sic87dd.csv", "results/ntrgap_by_cz.csv", "results/gap_build_report.json"]},
+    {"description": "Built C1 annual panel: CBP mfg jobs / working-age pop, 1998-2023 (26 CBP years parsed + cached); plus jobs-denominator series.", "command": "python src/build_c1_annual.py", "exit_code": 0, "outputs": ["results/c1_mfgpop_by_year.csv", "results/c1_mfgjobs_by_year.csv", "results/c1_diag.csv"]},
+    {"description": "Fetched annual LAUS 1990-2024 (3,105 counties) from FRED - 001's checkpoint only had 5 snapshot years, but the load-bearing C2 pre-trend needs annual 1990s.", "command": "python src/fetch_laus_annual.py", "exit_code": 0, "outputs": ["results/laus_annual.csv"]},
+    {"description": "Built C2 CZ panels: unemp/pop, NILF proxy (2000-2024) and unemployment rate (1990-2024, the continuous pre-trend series).", "command": "python src/build_c2_annual.py", "exit_code": 0, "outputs": ["results/c2_by_year.csv"]},
+    {"description": "Built C3 (QCEW log weekly wage) and C4 (BEA log real transfers pc) snapshot level panels.", "command": "python src/build_c3c4_levels.py", "exit_code": 0, "outputs": ["results/c3_logwage_by_year.csv", "results/c4_logtransfer_by_year.csv"]},
+    {"description": "Estimated Arm A event study (year-by-year WLS, 2 specs x 2 gap aggregations x per unit/iqr/sd), A4 bridge 2SLS, Arm B anchor 2SLS, and the Sec-4 variant.", "command": "python src/estimate_arms.py", "exit_code": 0, "outputs": ["results/estimates_event_study.csv", "results/variant_dIPW_conditional.csv", "results/headline_scalars.json"]},
+    {"description": "Produced flagship event-study figure and Arm A vs Arm B comparison figure.", "command": "python src/figures.py", "exit_code": 0, "outputs": ["results/fig1_wto_event_study.png", "results/fig1_wto_event_study.pdf", "results/fig2_arm_comparison.png"]}
+  ],
+  "key_results": {
+    "headline_C1_2023_per_IQR_pp": "-1.49 (0.43)  [per adult: -0.0149]",
+    "headline_C1_2023_per_SD_pp": "-1.19 (0.34)  [per adult: -0.0119]",
+    "C1_event_path_per_IQR": "2001 -0.04 (ns); 2007 -0.80*; 2012 -1.22*; 2019 -1.46*; 2023 -1.49*  (no recovery)",
+    "pre_trend_verdict": "FLAT - C2 LAUS unemployment rate 1991-1999 all within 1 SE of 0; first loads at 2001 (accession year)",
+    "arm_agreement": "Arm A (per IQR) 2019 -1.46*/2023 -1.49*; Arm B (per $1k dIPW) 2019 -0.497*/2023 -0.432* - same sign, both permanent (no 2019->2023 recovery)",
+    "ArmB_reproduces_002": "-0.43219 (0.11804), matches 002 level_test.net to 5 decimals",
+    "C3_logwage_2023_per_IQR": "-2.23 (1.05)* (persistent wage penalty)",
+    "C4_logtransfer_2012_per_IQR": "+2.58 (1.07)*",
+    "sec4_variant": "NTR gap loads beyond realized dIPW (2012 per-IQR -1.08); dIPW also loads (-0.104*) -> A4 exclusion restriction rejected, A4 reported as descriptive bridge not causal",
+    "gap_validation_r_vs_PS": 0.959,
+    "gap_moments_sic87dd": "mean 0.326, sd 0.164",
+    "NTRgap_vs_dIPW_corr_popwtd": 0.498,
+    "scaling_freeze": "IQR 0.0668, sd 0.0533 (headline simple-mean NTRgap, unweighted, 722 CZs)"
+  },
+  "comparison_to_original": [
+    {"quantity": "Permanent manufacturing level effect at 2023 (Arm B anchor)", "original": "-0.432 (0.118)", "followup": "-0.43219 (0.11804)", "source_file": "/workspace/eval/followup/002-theory-update/results/theory_metrics.json (level_test.net)", "note": "5-decimal reproduction; confirms the 'hit is permanent' claim is identification-robust across the two shocks"},
+    {"quantity": "ADH realized-import mfg employment effect (per $1k, ADH era)", "original": "-0.596 (0.099)", "followup": "n/a (different estimand)", "source_file": "/workspace/eval/replication/codebase/outputs/table3.csv col6", "note": "Arm A measures the tariff-uncertainty (PNTR) shock, deliberately NOT ADH's measured-import estimand; per-IQR NTR-gap units are not comparable to per-$1k dIPW"},
+    {"quantity": "Longest horizon of a published NTR-gap event study", "original": "2019 (ADH BPEA 2021 Persistence)", "followup": "2023 (C1/C3), 2024 (C2)", "source_file": "instruction.md (literature note) / this study estimates_event_study.csv", "note": "the living element: 4-8 years past any published PNTR event study"},
+    {"quantity": "1999 industry NTR gap moments", "original": "mean ~0.32, sd 0.15-0.23 (Pierce-Schott)", "followup": "mean 0.326, sd 0.164 (sic87dd space)", "source_file": "results/gap_build_report.json (step3)", "note": "validation gate 2 passed; PS sic4-recipe correlation r=0.959 (gate 1)"}
+  ],
+  "artifacts": [
+    "results/estimates_event_study.csv",
+    "results/variant_dIPW_conditional.csv",
+    "results/ntrgap_by_cz.csv",
+    "results/gap_by_sic87dd.csv",
+    "results/gap_build_report.json",
+    "results/headline_scalars.json",
+    "results/c1_mfgpop_by_year.csv",
+    "results/c1_mfgjobs_by_year.csv",
+    "results/c2_by_year.csv",
+    "results/laus_annual.csv",
+    "results/c3_logwage_by_year.csv",
+    "results/c4_logtransfer_by_year.csv",
+    "results/fig1_wto_event_study.png",
+    "results/fig1_wto_event_study.pdf",
+    "results/fig2_arm_comparison.png",
+    "results/findings.md"
+  ],
+  "deviations": [
+    "Re-fetched annual LAUS 1990-2024 from FRED (manifest-verified pattern): 001's staged laus_checkpoint.csv contained only the 5 snapshot years, not the annual 1990-2024 the manifest described, and the C2 1990-1999 pre-trend is the load-bearing falsification. Only fetch performed.",
+    "C2 pre-2000 falsification uses the LAUS unemployment rate (unemp/LF) because popest 15-64 starts in 2000; headline C2 (unemp/pop, NILF proxy) use popest and start 2000 (headline years 2007/12/19/24 unaffected).",
+    "C1 pre-2000 (1998/1999) anchors use a jobs denominator (mfg/total CBP emp) and are contaminated by the shock's mfg-share construction; shown flagged as supporting-only, not used as a falsification test.",
+    "A4 (dIPW instrumented by NTRgap) is reported as a descriptive bridge, not a causal 2SLS, and is not headlined, because the Sec-4 variant rejects its exclusion restriction (NTR gap loads on outcomes conditional on realized dIPW).",
+    "C4 terminal year 2022 (BEA CAINC35 vintage ends 2022); C3 event points at snapshot years only (2000/07/12/19/23); no extra QCEW years fetched.",
+    "NTRgap employment weights use the 1988 CBP vintage as the 1990 pre-period proxy (per spec option).",
+    "Outcomes are CBP/LAUS/QCEW/BEA proxies (no IPUMS person-level), inherited from 001."
+  ]
+}

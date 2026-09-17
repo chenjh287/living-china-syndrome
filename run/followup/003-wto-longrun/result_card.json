@@ -1,0 +1,142 @@
+{
+ "schema": "sai.followup.result_card/v1",
+ "headline": "A commuting zone one interquartile step more exposed to China's WTO entry (the Pierce–Schott NTR gap) still had ≈1.49 fewer manufacturing jobs per 100 working-age adults in 2023 — no recovery through the tariff-war and reshoring era.",
+ "status": "completed",
+ "metrics": [
+  {
+   "label": "C1 mfg/pop effect at 2023 (per IQR of NTR gap)",
+   "value": "-1.49 pp (0.43)",
+   "baseline": "-0.80 pp at 2007",
+   "baseline_label": "same NTR-gap event study, first post-accession snapshot (this study)",
+   "note": "monotone, no recovery; per s.d. -1.19; per adult -0.0149"
+  },
+  {
+   "label": "Pre-2001 pre-trend (C2 LAUS unemployment rate, per IQR)",
+   "value": "≈0 for 1991–1999 (full spec)",
+   "baseline": "flat (falsification target)",
+   "baseline_label": "load-bearing falsification test",
+   "note": "first loads at 2001 (accession year); PNTR passed Oct 2000"
+  },
+  {
+   "label": "Permanent mfg level effect at 2023 (Arm B anchor, per $1k ΔIPW)",
+   "value": "-0.4322 (0.1180)",
+   "baseline": "-0.4322 (0.1180)",
+   "baseline_label": "002 theory_metrics.json level_test.net",
+   "note": "5-decimal reproduction → 'the hit is permanent' is identification-robust"
+  },
+  {
+   "label": "C3 log weekly wage at 2023 (per IQR)",
+   "value": "-2.23 ×100log (1.05)",
+   "baseline": "-2.67 at 2007",
+   "baseline_label": "same event study (this study)",
+   "note": "wage penalty persists 16+ years"
+  },
+  {
+   "label": "WTO entry beyond realized imports (Sec-4 variant)",
+   "value": "NTR gap still loads",
+   "baseline": "ΔIPW also loads (-0.104*)",
+   "baseline_label": "joint C1 2012 regression (this study)",
+   "note": "both channels matter → A4 demoted to descriptive bridge, not causal 2SLS"
+  }
+ ],
+ "tables": [
+  {
+   "title": "NTR-gap event study, θ per IQR move (full spec, simple gap; * = |θ|>1.96·SE)",
+   "columns": [
+    "Outcome",
+    "2007",
+    "2012",
+    "2019",
+    "terminal"
+   ],
+   "rows": [
+    [
+     "C1 mfg / working-age pop (pp)",
+     "-0.80*",
+     "-1.22*",
+     "-1.46*",
+     "-1.49* (2023)"
+    ],
+    [
+     "C2 unemployment / pop (pp)",
+     "+0.15",
+     "+0.43*",
+     "-0.24*",
+     "-0.00 (2024)"
+    ],
+    [
+     "C2 non-participation proxy (pp)",
+     "+0.59",
+     "+1.02",
+     "+1.88*",
+     "+0.42 (2024)"
+    ],
+    [
+     "C3 log weekly wage (×100)",
+     "-2.67*",
+     "-2.66*",
+     "-2.22*",
+     "-2.23* (2023)"
+    ],
+    [
+     "C4 log real transfers pc (×100)",
+     "+2.03*",
+     "+2.58*",
+     "+2.06",
+     "+2.05 (2022)"
+    ]
+   ],
+   "highlight_row": 0
+  },
+  {
+   "title": "Validation gates",
+   "columns": [
+    "Gate",
+    "Target",
+    "Result"
+   ],
+   "rows": [
+    [
+     "Industry gap vs Pierce–Schott sic4 recipe",
+     "r > 0.9",
+     "r = 0.959"
+    ],
+    [
+     "1999 gap moments (sic87dd)",
+     "mean ≈0.32, sd 0.15–0.23",
+     "mean 0.326, sd 0.164"
+    ],
+    [
+     "Arm B reproduces 002 level effect",
+     "-0.432 (0.118)",
+     "-0.43219 (0.11804)"
+    ],
+    [
+     "NTRgap vs ΔIPW 2000–12 (pop-wtd)",
+     "report; <0.85 tripwire",
+     "0.50 (framing holds)"
+    ]
+   ]
+  }
+ ],
+ "figures": [
+  {
+   "file": "results/fig1_wto_event_study.png",
+   "caption": "25-year NTR-gap event study. Top: national context (China import share vs US mfg/pop). A: C1 manufacturing jobs / working-age pop, θ_t per IQR with 95% CI — flat before 2001, sharp post-accession divergence, no recovery through 2023; markers at PNTR (2000-10), accession (2001-12), 2018–19 tariff war; open markers = contaminated jobs-denominator 1998/99 anchors. B: C2 unemployment rate (1990–2024, the flat load-bearing pre-trend) and non-participation proxy.",
+   "alt": "Three stacked panels; national context strip on top, then two event-study line plots with confidence bands showing a flat pre-2001 segment and a widening negative manufacturing effect that plateaus without recovering through 2023."
+  },
+  {
+   "file": "results/fig2_arm_comparison.png",
+   "caption": "Both identifications agree the manufacturing hit is permanent. Left: Arm A reduced-form C1 θ_t per IQR of NTR gap, 2019 (-1.46) and 2023 (-1.49) highlighted. Right: Arm B 2SLS on accumulated 2000–2012 ΔIPW (other-hi instrument) reproducing 002's -0.432 dashed line, alongside A4 (ΔIPW instrumented by NTR gap, descriptive bridge only).",
+   "alt": "Two panels: a line plot of the reduced-form manufacturing effect stable from 2019 to 2023, and a bar chart of 2SLS long-difference coefficients for both arms landing on the -0.432 reference line."
+  }
+ ],
+ "notes": [
+  "Arm A is the Pierce–Schott tariff-uncertainty (PNTR) shock transplanted into the ADH commuting-zone frame — NOT a re-estimate of ADH's realized-import estimand; per-IQR NTR-gap units are not comparable to per-$1k ΔIPW.",
+  "Annual LAUS 1990–2024 was re-fetched from FRED (only fetch made): 001's staged checkpoint held only 5 snapshot years, but the C2 1990s pre-trend is load-bearing.",
+  "C2 pre-2000 uses the LAUS unemployment rate (popest 15–64 starts 2000); C1 1998/99 anchors are jobs-denominator and contaminated (supporting-only, not a test).",
+  "A4 not headlined: the Sec-4 variant rejects its exclusion restriction, so it is a descriptive bridge, not causal 2SLS. C4 terminal 2022; C3 snapshots only. Proxy outcomes (CBP/LAUS/QCEW/BEA) inherited from 001.",
+  "Pre-trend flatness is conditional on the full-control spec; the lean sensitivity spec's C2 pre-2000 coefficients load significantly (see findings.md disclosure). PNTR anticipation in 1999-2000 biases post-2001 estimates conservatively toward zero."
+ ],
+ "report_file": "report.md"
+}
